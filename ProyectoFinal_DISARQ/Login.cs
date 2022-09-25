@@ -1,3 +1,4 @@
+using System.Data;
 using System.Runtime.InteropServices;
 using CapaEntidad;
 using CapaLogica;
@@ -87,27 +88,34 @@ namespace ProyectoFinal_DISARQ
         {
             string user_usuario = txtUsuario.Text;
             string contrasena_usuario = txtClave.Text;
+            bool encontrado = false;
             if (user_usuario != "USUARIO")
             {
                 if (contrasena_usuario != "CONTRASEÑA")
                 {
-                    bool us = logUsuario.Instancia.BuscarUsuario(user_usuario, contrasena_usuario);
-                    if(us == true )
+                    DataTable us = logUsuario.Instancia.BuscarUsuario(user_usuario, contrasena_usuario);
+                    for (int i = 0; i < us.Rows.Count; i++)
                     {
-                        //if (us.tipo_usuario == 'A')
-                        //{
-                        //    MenuAdmin menuAdmin = new MenuAdmin();
-                        //    menuAdmin.Show();
-                        //    this.Hide();
-                        //}
-                        //else if (us.tipo_usuario == 'M')
-                        //{
-                            MenuMozo menuMozo = new MenuMozo();
-                            menuMozo.Show();
-                            this.Hide();
-                        //}
+                        if (us.Rows[i][2].ToString() == user_usuario && us.Rows[i][3].ToString() == contrasena_usuario)
+                        {
+                            if (us.Rows[i][4].ToString() == "A")
+                            {
+                                MenuAdmin menuAdmin = new MenuAdmin();
+                                menuAdmin.Show();
+                                this.Hide();
+                            }
+                            else if (us.Rows[i][4].ToString() == "M")
+                            {
+                                MenuMozo menuMozo = new MenuMozo();
+                                menuMozo.Show();
+                                this.Hide();
+                            }
+                            encontrado = true;
+                        }
+                        else
+                            continue;
                     }
-                    else
+                    if(!encontrado)
                     {
                         MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         txtClave.ResetText();

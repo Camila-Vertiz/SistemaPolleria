@@ -6,6 +6,6 @@
         public string nombre_usuario { get; set; }
         public string user_usuario { get; set; }
         public string contrasena_usuario { get; set; }
-        public char tipo_usuario { get; set; }
+        public string tipo_usuario { get; set; }
     }
 }

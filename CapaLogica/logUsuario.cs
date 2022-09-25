@@ -1,5 +1,6 @@
 ﻿using CapaDatos;
 using CapaEntidad;
+using System.Data;
 
 namespace CapaLogica
 {
@@ -17,7 +18,7 @@ namespace CapaLogica
         }
         #endregion singleton
         #region metodos
-        public bool BuscarUsuario(string user_usuario, string contrasena_usuario)
+        public DataTable BuscarUsuario(string user_usuario, string contrasena_usuario)
         {
             try
             {
