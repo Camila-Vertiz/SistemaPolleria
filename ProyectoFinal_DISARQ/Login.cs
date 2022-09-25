@@ -122,14 +122,14 @@ namespace ProyectoFinal_DISARQ
                         if (!encontrado)
                         {
                             MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            txtClave.ResetText();
+                            txtClave.Text = "CONTRASEÑA";
                             txtUsuario.Focus();
                         } 
                     }
                     else
                     {
                         MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        txtClave.ResetText();
+                        txtClave.Text="CONTRASEÑA";
                         txtUsuario.Focus();
                     }
                 }
@@ -145,10 +145,12 @@ namespace ProyectoFinal_DISARQ
         }
         private void Logout(object sender, FormClosedEventArgs e)
         {
-            txtClave.Clear();
-            txtUsuario.Clear();
+            txtClave.Text="CONTRASEÑA";
+            txtClave.ForeColor = Color.DimGray;
+            txtClave.UseSystemPasswordChar = false;
+            txtUsuario.Text= "USUARIO";
+            txtUsuario.ForeColor = Color.DimGray;
             this.Show();
-            txtUsuario.Focus();
         }
     }
 }
