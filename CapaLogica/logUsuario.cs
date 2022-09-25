@@ -17,7 +17,7 @@ namespace CapaLogica
         }
         #endregion singleton
         #region metodos
-        public entUsuario BuscarUsuario(string user_usuario, string contrasena_usuario)
+        public bool BuscarUsuario(string user_usuario, string contrasena_usuario)
         {
             try
             {

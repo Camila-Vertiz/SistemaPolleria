@@ -91,21 +91,21 @@ namespace ProyectoFinal_DISARQ
             {
                 if (contrasena_usuario != "CONTRASEÑA")
                 {
-                    entUsuario us = logUsuario.Instancia.BuscarUsuario(user_usuario, contrasena_usuario);
-                    if(us.id_usuario > 0 )
+                    bool us = logUsuario.Instancia.BuscarUsuario(user_usuario, contrasena_usuario);
+                    if(us == true )
                     {
-                        if (us.tipo_usuario == 'A')
-                        {
-                            MenuAdmin menuAdmin = new MenuAdmin();
-                            menuAdmin.Show();
-                            this.Hide();
-                        }
-                        else if (us.tipo_usuario == 'M')
-                        {
+                        //if (us.tipo_usuario == 'A')
+                        //{
+                        //    MenuAdmin menuAdmin = new MenuAdmin();
+                        //    menuAdmin.Show();
+                        //    this.Hide();
+                        //}
+                        //else if (us.tipo_usuario == 'M')
+                        //{
                             MenuMozo menuMozo = new MenuMozo();
                             menuMozo.Show();
                             this.Hide();
-                        }
+                        //}
                     }
                     else
                     {
