@@ -1,4 +1,6 @@
 using System.Runtime.InteropServices;
+using CapaEntidad;
+using CapaLogica;
 
 namespace ProyectoFinal_DISARQ
 {
@@ -78,6 +80,29 @@ namespace ProyectoFinal_DISARQ
         {
             ReleaseCaprure();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnIngresar_Click_1(object sender, EventArgs e)
+        {
+            string user_usuario = txtUsuario.Text;
+            string contrasena_usuario = txtClave.Text;
+            if (user_usuario != "USUARIO")
+            {
+                if (contrasena_usuario != "CONTRASEÑA")
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingrese una contraseña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                //entUsuario us = logUsuario.Instancia.BuscarUsuario(user_usuario, contrasena_usuario);
+
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingrese un usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
