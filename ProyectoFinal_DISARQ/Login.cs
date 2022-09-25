@@ -1,6 +1,7 @@
 using System.Runtime.InteropServices;
 using CapaEntidad;
 using CapaLogica;
+using CapaPresentacion;
 
 namespace ProyectoFinal_DISARQ
 {
@@ -90,14 +91,33 @@ namespace ProyectoFinal_DISARQ
             {
                 if (contrasena_usuario != "CONTRASEÑA")
                 {
-
+                    entUsuario us = logUsuario.Instancia.BuscarUsuario(user_usuario, contrasena_usuario);
+                    if(us.id_usuario > 0 )
+                    {
+                        if (us.tipo_usuario == 'A')
+                        {
+                            MenuAdmin menuAdmin = new MenuAdmin();
+                            menuAdmin.Show();
+                            this.Hide();
+                        }
+                        else if (us.tipo_usuario == 'M')
+                        {
+                            MenuMozo menuMozo = new MenuMozo();
+                            menuMozo.Show();
+                            this.Hide();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtClave.ResetText();
+                        txtUsuario.Focus();
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Por favor, ingrese una contraseña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-                //entUsuario us = logUsuario.Instancia.BuscarUsuario(user_usuario, contrasena_usuario);
-
             }
             else
             {
