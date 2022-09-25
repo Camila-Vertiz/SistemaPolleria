@@ -36,7 +36,7 @@
             // 
             this.pictureLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureLogout.Image = global::CapaPresentacion.Properties.Resources.logout1;
-            this.pictureLogout.Location = new System.Drawing.Point(83, 102);
+            this.pictureLogout.Location = new System.Drawing.Point(715, 23);
             this.pictureLogout.Name = "pictureLogout";
             this.pictureLogout.Size = new System.Drawing.Size(30, 30);
             this.pictureLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
