@@ -95,7 +95,7 @@
             // 
             this.labelLogin.AutoSize = true;
             this.labelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelLogin.Location = new System.Drawing.Point(471, 40);
+            this.labelLogin.Location = new System.Drawing.Point(471, 44);
             this.labelLogin.Name = "labelLogin";
             this.labelLogin.Size = new System.Drawing.Size(124, 38);
             this.labelLogin.TabIndex = 3;
@@ -108,7 +108,7 @@
             this.txtUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUsuario.Location = new System.Drawing.Point(333, 106);
+            this.txtUsuario.Location = new System.Drawing.Point(333, 109);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(396, 23);
             this.txtUsuario.TabIndex = 1;
@@ -120,7 +120,7 @@
             // 
             this.underUsuario.BackColor = System.Drawing.Color.Black;
             this.underUsuario.Enabled = false;
-            this.underUsuario.Location = new System.Drawing.Point(333, 132);
+            this.underUsuario.Location = new System.Drawing.Point(333, 135);
             this.underUsuario.Name = "underUsuario";
             this.underUsuario.Size = new System.Drawing.Size(396, 1);
             this.underUsuario.TabIndex = 6;
@@ -142,6 +142,7 @@
             this.btnIngresar.TabIndex = 3;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = false;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click_1);
             // 
             // splitter1
             // 
@@ -155,7 +156,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(333, 191);
+            this.panel1.Location = new System.Drawing.Point(333, 194);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(396, 1);
             this.panel1.TabIndex = 12;
@@ -181,7 +182,7 @@
             this.txtClave.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtClave.ForeColor = System.Drawing.Color.DimGray;
-            this.txtClave.Location = new System.Drawing.Point(333, 165);
+            this.txtClave.Location = new System.Drawing.Point(333, 168);
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(396, 23);
             this.txtClave.TabIndex = 2;

@@ -1,4 +1,8 @@
+using System.Data;
 using System.Runtime.InteropServices;
+using CapaEntidad;
+using CapaLogica;
+using CapaPresentacion;
 
 namespace ProyectoFinal_DISARQ
 {
@@ -78,6 +82,55 @@ namespace ProyectoFinal_DISARQ
         {
             ReleaseCaprure();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnIngresar_Click_1(object sender, EventArgs e)
+        {
+            string user_usuario = txtUsuario.Text;
+            string contrasena_usuario = txtClave.Text;
+            bool encontrado = false;
+            if (user_usuario != "USUARIO")
+            {
+                if (contrasena_usuario != "CONTRASEÑA")
+                {
+                    DataTable us = logUsuario.Instancia.BuscarUsuario(user_usuario, contrasena_usuario);
+                    for (int i = 0; i < us.Rows.Count; i++)
+                    {
+                        if (us.Rows[i][2].ToString() == user_usuario && us.Rows[i][3].ToString() == contrasena_usuario)
+                        {
+                            if (us.Rows[i][4].ToString() == "A")
+                            {
+                                MenuAdmin menuAdmin = new MenuAdmin();
+                                menuAdmin.Show();
+                                this.Hide();
+                            }
+                            else if (us.Rows[i][4].ToString() == "M")
+                            {
+                                MenuMozo menuMozo = new MenuMozo();
+                                menuMozo.Show();
+                                this.Hide();
+                            }
+                            encontrado = true;
+                        }
+                        else
+                            continue;
+                    }
+                    if(!encontrado)
+                    {
+                        MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtClave.ResetText();
+                        txtUsuario.Focus();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingrese una contraseña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingrese un usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
