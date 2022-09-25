@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.panelIZq = new System.Windows.Forms.Panel();
             this.pictureRokito = new System.Windows.Forms.PictureBox();
             this.pictureX = new System.Windows.Forms.PictureBox();
@@ -36,9 +37,10 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.underUsuario = new System.Windows.Forms.Panel();
             this.btnIngresar = new System.Windows.Forms.Button();
-            this.txtClave = new System.Windows.Forms.TextBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabelRestablecerContra = new System.Windows.Forms.LinkLabel();
+            this.txtClave = new System.Windows.Forms.TextBox();
             this.panelIZq.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureRokito)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureX)).BeginInit();
@@ -54,6 +56,7 @@
             this.panelIZq.Name = "panelIZq";
             this.panelIZq.Size = new System.Drawing.Size(250, 330);
             this.panelIZq.TabIndex = 0;
+            this.panelIZq.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelIZq_MouseDown);
             // 
             // pictureRokito
             // 
@@ -86,6 +89,7 @@
             this.pictureMin.Size = new System.Drawing.Size(15, 15);
             this.pictureMin.TabIndex = 2;
             this.pictureMin.TabStop = false;
+            this.pictureMin.Click += new System.EventHandler(this.pictureMin_Click);
             // 
             // labelLogin
             // 
@@ -93,7 +97,7 @@
             this.labelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelLogin.Location = new System.Drawing.Point(471, 40);
             this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(128, 39);
+            this.labelLogin.Size = new System.Drawing.Size(124, 38);
             this.labelLogin.TabIndex = 3;
             this.labelLogin.Text = "LOGIN";
             // 
@@ -103,16 +107,19 @@
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtUsuario.ForeColor = System.Drawing.Color.Black;
+            this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
             this.txtUsuario.Location = new System.Drawing.Point(333, 106);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(396, 23);
-            this.txtUsuario.TabIndex = 4;
+            this.txtUsuario.TabIndex = 1;
             this.txtUsuario.Text = "USUARIO";
+            this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
+            this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
             // 
             // underUsuario
             // 
             this.underUsuario.BackColor = System.Drawing.Color.Black;
+            this.underUsuario.Enabled = false;
             this.underUsuario.Location = new System.Drawing.Point(333, 132);
             this.underUsuario.Name = "underUsuario";
             this.underUsuario.Size = new System.Drawing.Size(396, 1);
@@ -123,28 +130,18 @@
             this.btnIngresar.BackColor = System.Drawing.Color.Black;
             this.btnIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnIngresar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnIngresar.FlatAppearance.BorderSize = 0;
+            this.btnIngresar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btnIngresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnIngresar.ForeColor = System.Drawing.Color.White;
-            this.btnIngresar.Location = new System.Drawing.Point(333, 257);
+            this.btnIngresar.Location = new System.Drawing.Point(333, 228);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(400, 40);
-            this.btnIngresar.TabIndex = 8;
+            this.btnIngresar.TabIndex = 3;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = false;
-            // 
-            // txtClave
-            // 
-            this.txtClave.BackColor = System.Drawing.Color.Gold;
-            this.txtClave.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtClave.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtClave.ForeColor = System.Drawing.Color.Black;
-            this.txtClave.Location = new System.Drawing.Point(333, 176);
-            this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(396, 23);
-            this.txtClave.TabIndex = 9;
-            this.txtClave.Text = "CONTRASEÑA";
             // 
             // splitter1
             // 
@@ -157,10 +154,40 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(333, 203);
+            this.panel1.Enabled = false;
+            this.panel1.Location = new System.Drawing.Point(333, 191);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(396, 1);
             this.panel1.TabIndex = 12;
+            // 
+            // linkLabelRestablecerContra
+            // 
+            this.linkLabelRestablecerContra.ActiveLinkColor = System.Drawing.Color.Green;
+            this.linkLabelRestablecerContra.AutoSize = true;
+            this.linkLabelRestablecerContra.DisabledLinkColor = System.Drawing.Color.Black;
+            this.linkLabelRestablecerContra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLabelRestablecerContra.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.linkLabelRestablecerContra.Location = new System.Drawing.Point(430, 277);
+            this.linkLabelRestablecerContra.Name = "linkLabelRestablecerContra";
+            this.linkLabelRestablecerContra.Size = new System.Drawing.Size(210, 20);
+            this.linkLabelRestablecerContra.TabIndex = 0;
+            this.linkLabelRestablecerContra.TabStop = true;
+            this.linkLabelRestablecerContra.Text = "¿Ha olvidado la contraseña?";
+            // 
+            // txtClave
+            // 
+            this.txtClave.BackColor = System.Drawing.Color.Gold;
+            this.txtClave.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtClave.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtClave.ForeColor = System.Drawing.Color.DimGray;
+            this.txtClave.Location = new System.Drawing.Point(333, 165);
+            this.txtClave.Name = "txtClave";
+            this.txtClave.Size = new System.Drawing.Size(396, 23);
+            this.txtClave.TabIndex = 2;
+            this.txtClave.Text = "CONTRASEÑA";
+            this.txtClave.Enter += new System.EventHandler(this.txtClave_Enter);
+            this.txtClave.Leave += new System.EventHandler(this.txtClave_Leave);
             // 
             // Login
             // 
@@ -169,9 +196,10 @@
             this.BackColor = System.Drawing.Color.Gold;
             this.CancelButton = this.btnIngresar;
             this.ClientSize = new System.Drawing.Size(780, 330);
+            this.Controls.Add(this.txtClave);
+            this.Controls.Add(this.linkLabelRestablecerContra);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.txtClave);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.underUsuario);
             this.Controls.Add(this.txtUsuario);
@@ -181,10 +209,14 @@
             this.Controls.Add(this.panelIZq);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Login";
+            this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Login_MouseDown);
             this.panelIZq.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureRokito)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureX)).EndInit();
@@ -204,8 +236,9 @@
         private TextBox txtUsuario;
         private Panel underUsuario;
         private Button btnIngresar;
-        private TextBox txtClave;
         private Splitter splitter1;
         private Panel panel1;
+        private LinkLabel linkLabelRestablecerContra;
+        private TextBox txtClave;
     }
 }
