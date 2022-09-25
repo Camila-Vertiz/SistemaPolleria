@@ -24,7 +24,7 @@ namespace CapaDatos
         #endregion singleton
 
         #region metodos
-        public DataTable BuscarUsuario(string user_usuario, string contrasena_usuario)
+        public entUsuario BuscarUsuario(string user_usuario, string contrasena_usuario)
         {
             SqlCommand cmd = null;
             entUsuario Use = new entUsuario();
@@ -36,13 +36,14 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@user_usuario", user_usuario);
                 cmd.Parameters.AddWithValue("@contrasena_usuario", contrasena_usuario);
                 cn.Open();
-                //SqlDataReader dr = cmd.ExecuteReader();
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                sda.Fill(dt); //Llena la tabla con los datos de usuario
-                if (dt.Rows.Count > 0)
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    return dt;
+                    Use.id_usuario = Convert.ToInt32((dr["id_usuario"]));
+                    Use.nombre_usuario = dr["nombre_usuario"].ToString();
+                    Use.user_usuario = dr["user_usuario"].ToString();
+                    Use.contrasena_usuario = dr["contrasena_usuario"].ToString();
+                    Use.tipo_usuario = dr["tipo_usuario"].ToString();
                 }
             }
             catch (Exception e)
@@ -51,7 +52,7 @@ namespace CapaDatos
                 throw e;
             }
             finally { cmd.Connection.Close(); }
-            return null;
+            return Use;
         }
         #endregion singleton
     }
