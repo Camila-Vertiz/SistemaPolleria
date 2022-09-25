@@ -94,28 +94,39 @@ namespace ProyectoFinal_DISARQ
                 if (contrasena_usuario != "CONTRASEÑA")
                 {
                     DataTable us = logUsuario.Instancia.BuscarUsuario(user_usuario, contrasena_usuario);
-                    for (int i = 0; i < us.Rows.Count; i++)
+                    if (us!=null)
                     {
-                        if (us.Rows[i][2].ToString() == user_usuario && us.Rows[i][3].ToString() == contrasena_usuario)
+                        for (int i = 0; i < us.Rows.Count; i++)
                         {
-                            if (us.Rows[i][4].ToString() == "A")
+                            if (us.Rows[i][2].ToString() == user_usuario && us.Rows[i][3].ToString() == contrasena_usuario)
                             {
-                                MenuAdmin menuAdmin = new MenuAdmin();
-                                menuAdmin.Show();
-                                this.Hide();
+                                if (us.Rows[i][4].ToString() == "A")
+                                {
+                                    MenuAdmin menuAdmin = new MenuAdmin();
+                                    menuAdmin.Show();
+                                    menuAdmin.FormClosed += Logout;
+                                    this.Hide();
+                                }
+                                else if (us.Rows[i][4].ToString() == "M")
+                                {
+                                    MenuMozo menuMozo = new MenuMozo();
+                                    menuMozo.Show();
+                                    menuMozo.FormClosed += Logout;
+                                    this.Hide();
+                                }
+                                encontrado = true;
                             }
-                            else if (us.Rows[i][4].ToString() == "M")
-                            {
-                                MenuMozo menuMozo = new MenuMozo();
-                                menuMozo.Show();
-                                this.Hide();
-                            }
-                            encontrado = true;
+                            else
+                                continue;
                         }
-                        else
-                            continue;
+                        if (!encontrado)
+                        {
+                            MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            txtClave.ResetText();
+                            txtUsuario.Focus();
+                        } 
                     }
-                    if(!encontrado)
+                    else
                     {
                         MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         txtClave.ResetText();
@@ -131,6 +142,13 @@ namespace ProyectoFinal_DISARQ
             {
                 MessageBox.Show("Por favor, ingrese un usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+        private void Logout(object sender, FormClosedEventArgs e)
+        {
+            txtClave.Clear();
+            txtUsuario.Clear();
+            this.Show();
+            txtUsuario.Focus();
         }
     }
 }

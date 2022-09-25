@@ -16,5 +16,12 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void pictureLogout_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea cerrar sesión?", "Warning",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                this.Close();
+        }
     }
 }
