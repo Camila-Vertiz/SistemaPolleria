@@ -73,6 +73,26 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _14ba2820816095_562f195e71a54 {
+            get {
+                object obj = ResourceManager.GetObject("14ba2820816095.562f195e71a54", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _14ba28208160951 {
+            get {
+                object obj = ResourceManager.GetObject("14ba28208160951", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cocinero__1_ {
             get {
                 object obj = ResourceManager.GetObject("cocinero (1)", resourceCulture);
@@ -86,6 +106,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap group__1_ {
             get {
                 object obj = ResourceManager.GetObject("group (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home_icon_silhouette__1_ {
+            get {
+                object obj = ResourceManager.GetObject("home-icon-silhouette (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +196,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap Rokito {
             get {
                 object obj = ResourceManager.GetObject("Rokito", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rokys {
+            get {
+                object obj = ResourceManager.GetObject("rokys", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
