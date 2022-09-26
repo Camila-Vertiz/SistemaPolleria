@@ -101,7 +101,7 @@ namespace ProyectoFinal_DISARQ
                             if (us.Rows[i][2].ToString() == user_usuario && us.Rows[i][3].ToString() == contrasena_usuario)
                             {
                                 if (us.Rows[i][4].ToString() == "A")
-                                {//adaasda
+                                {
                                     MenuAdmin menuAdmin = new MenuAdmin();
                                     menuAdmin.Show();
                                     menuAdmin.FormClosed += Logout;
