@@ -26,6 +26,14 @@ namespace CapaLogica
             }
             catch (Exception e) { throw e; }
         }
+        public string recoverPassword(string correo_usuario)
+        {
+            try
+            {
+                return datUsuario.Instancia.recoverPassword(correo_usuario);
+            }
+            catch (Exception e) { throw e; }
+        }
         #endregion metodos
 
     }

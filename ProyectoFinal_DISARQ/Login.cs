@@ -139,5 +139,21 @@ namespace ProyectoFinal_DISARQ
             txtUsuario.ForeColor = Color.DimGray;
             this.Show();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtClave_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabelRestablecerContra_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var recoverPassword = new ResetPassword();
+            recoverPassword.ShowDialog();
+        }
     }
 }

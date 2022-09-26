@@ -160,6 +160,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(396, 1);
             this.panel1.TabIndex = 12;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // linkLabelRestablecerContra
             // 
@@ -174,6 +175,7 @@
             this.linkLabelRestablecerContra.TabIndex = 0;
             this.linkLabelRestablecerContra.TabStop = true;
             this.linkLabelRestablecerContra.Text = "¿Ha olvidado la contraseña?";
+            this.linkLabelRestablecerContra.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRestablecerContra_LinkClicked);
             // 
             // txtClave
             // 
@@ -187,6 +189,7 @@
             this.txtClave.Size = new System.Drawing.Size(396, 23);
             this.txtClave.TabIndex = 2;
             this.txtClave.Text = "CONTRASEÑA";
+            this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
             this.txtClave.Enter += new System.EventHandler(this.txtClave_Enter);
             this.txtClave.Leave += new System.EventHandler(this.txtClave_Leave);
             // 

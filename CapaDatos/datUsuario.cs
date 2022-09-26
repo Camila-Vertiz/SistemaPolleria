@@ -56,5 +56,46 @@ namespace CapaDatos
             return Use;
         }
         #endregion singleton
+
+        public string recoverPassword(string correo_usuario)
+        {
+            SqlCommand cmd = null;
+            entUsuario Use = new entUsuario();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spRecuperarContra", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@correo_usuario", correo_usuario);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Use.nombre_usuario = dr["nombre_usuario"].ToString();
+                    Use.correo_usuario = dr["correo_usuario"].ToString();
+                    Use.user_usuario = dr["user_usuario"].ToString();
+                    Use.contrasena_usuario = dr["contrasena_usuario"].ToString();
+
+                    var mailService = new MailServices.SystemSupportMail();
+                    mailService.sendMail(
+                        subject: "SYSTEM: Password recovery request",
+                        body: "Hola, " + Use.nombre_usuario + ".\nSolicitaste recuperar tu contraseña. \n" +
+                        "Tu contraseña es: " + Use.contrasena_usuario + "\nSin embargo, le recomendamos cambiar su contraseña cuando entre al sistema.",
+                        recipientMail: new List<string> { Use.correo_usuario }
+                        );
+                    return "Hola, " + Use.nombre_usuario + ".\nSolicitaste recuperar tu contraseña. \n" +
+                        "Por favor revisa tu correo: " + Use.correo_usuario +
+                        "\nSin embargo, le recomendamos cambiar su contraseña cuando entre al sistema.";
+                }
+                //else
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+                return "Lo sentimos, no existe una cuenta con ese correo o nombre de usuario.";
+        }
     }
 }
