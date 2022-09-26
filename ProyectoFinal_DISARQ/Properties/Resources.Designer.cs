@@ -103,6 +103,26 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eliminar__2_ {
+            get {
+                object obj = ResourceManager.GetObject("eliminar (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eliminar__2_1 {
+            get {
+                object obj = ResourceManager.GetObject("eliminar (2)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap group__1_ {
             get {
                 object obj = ResourceManager.GetObject("group (1)", resourceCulture);
@@ -156,6 +176,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap logout1 {
             get {
                 object obj = ResourceManager.GetObject("logout1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap maximizar__1_ {
+            get {
+                object obj = ResourceManager.GetObject("maximizar (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
