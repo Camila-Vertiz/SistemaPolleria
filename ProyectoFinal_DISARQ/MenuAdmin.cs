@@ -12,16 +12,95 @@ namespace CapaPresentacion
 {
     public partial class MenuAdmin : Form
     {
+        private Button currentBtn;
+        private Panel leftBorderBtn;
+
         public MenuAdmin()
         {
             InitializeComponent();
+            leftBorderBtn = new Panel();
+            leftBorderBtn.Size = new Size(7, 60);
+            panelMenu.Controls.Add(leftBorderBtn);
         }
+        private struct RGBColors
+        {
+            public static Color color1 = Color.FromArgb(204,0,102);
+            public static Color color2 = Color.FromArgb(38, 87, 131);
+            public static Color color3 = Color.FromArgb(226, 127, 28);
+            public static Color color4 = Color.FromArgb(28, 226, 193);
+            public static Color color5 = Color.FromArgb(160, 226, 28);
+            public static Color color6 = Color.FromArgb(204, 0, 0);
+        }
+
+        private void ActivateButton(object senderBtn, Color color)
+        {
+            if (senderBtn != null)
+            {
+                DisableButton();
+                currentBtn =(Button)senderBtn;
+                currentBtn.BackColor = Color.FromArgb(0, 110, 51);
+                currentBtn.ForeColor = color;
+                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+                currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+                currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+                //Boton Izq
+                leftBorderBtn.BackColor = color;
+                leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
+                leftBorderBtn.Visible = true;
+                leftBorderBtn.BringToFront();
+            }
+        }
+
+        private void DisableButton()
+        {
+            if(currentBtn!= null)
+            {
+                currentBtn.BackColor = Color.FromArgb(0, 110, 51);
+                currentBtn.ForeColor = Color.White;
+                currentBtn.TextAlign = ContentAlignment.MiddleLeft;
+                currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+                currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            }
+        }
+
+
+
 
         private void pictureLogout_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Seguro que desea cerrar sesión?", "Warning",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color3);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color4);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color5);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color6);
+        }
+
+        private void btnMantenedorProductos_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+        }
+
+        private void btnMantenedorMesas_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
         }
     }
 }
