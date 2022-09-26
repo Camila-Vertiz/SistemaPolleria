@@ -41,6 +41,7 @@ namespace CapaDatos
                 {
                     Use.id_usuario = Convert.ToInt32((dr["id_usuario"]));
                     Use.nombre_usuario = dr["nombre_usuario"].ToString();
+                    Use.correo_usuario = dr["correo_usuario"].ToString();
                     Use.user_usuario = dr["user_usuario"].ToString();
                     Use.contrasena_usuario = dr["contrasena_usuario"].ToString();
                     Use.tipo_usuario = dr["tipo_usuario"].ToString();
