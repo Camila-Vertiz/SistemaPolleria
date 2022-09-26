@@ -16,5 +16,20 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCodigoPedido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvPedido_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

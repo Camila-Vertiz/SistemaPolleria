@@ -37,22 +37,32 @@
             this.btnMantenedorMesas = new System.Windows.Forms.Button();
             this.btnMantenedorProductos = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCasa = new System.Windows.Forms.PictureBox();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new System.Windows.Forms.PictureBox();
             this.panelSombra = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureMaximize = new System.Windows.Forms.PictureBox();
+            this.pictureMinimize = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogout)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCasa)).BeginInit();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
+            this.panelDesktop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureLogout
             // 
+            this.pictureLogout.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureLogout.Image = global::CapaPresentacion.Properties.Resources.logout1;
             this.pictureLogout.Location = new System.Drawing.Point(741, 20);
@@ -195,12 +205,24 @@
             // 
             // panelLogo
             // 
+            this.panelLogo.Controls.Add(this.pictureBox1);
             this.panelLogo.Controls.Add(this.btnCasa);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(250, 150);
             this.panelLogo.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.rokys;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(225, 139);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // btnCasa
             // 
@@ -217,6 +239,8 @@
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(51)))));
+            this.panelTitleBar.Controls.Add(this.pictureMinimize);
+            this.panelTitleBar.Controls.Add(this.pictureMaximize);
             this.panelTitleBar.Controls.Add(this.lblTitleChildForm);
             this.panelTitleBar.Controls.Add(this.iconCurrentChildForm);
             this.panelTitleBar.Controls.Add(this.pictureLogout);
@@ -256,11 +280,51 @@
             // 
             // panelDesktop
             // 
-            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDesktop.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelDesktop.Controls.Add(this.pictureBox2);
             this.panelDesktop.Location = new System.Drawing.Point(250, 77);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(794, 506);
             this.panelDesktop.TabIndex = 4;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.rokys;
+            this.pictureBox2.Location = new System.Drawing.Point(250, 133);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(323, 198);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureMaximize
+            // 
+            this.pictureMaximize.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pictureMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureMaximize.Image = global::CapaPresentacion.Properties.Resources.maximizar__1_;
+            this.pictureMaximize.Location = new System.Drawing.Point(695, 20);
+            this.pictureMaximize.Name = "pictureMaximize";
+            this.pictureMaximize.Size = new System.Drawing.Size(30, 30);
+            this.pictureMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureMaximize.TabIndex = 2;
+            this.pictureMaximize.TabStop = false;
+            this.pictureMaximize.Click += new System.EventHandler(this.pictureMaximize_Click);
+            // 
+            // pictureMinimize
+            // 
+            this.pictureMinimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pictureMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureMinimize.Image = global::CapaPresentacion.Properties.Resources.eliminar__2_1;
+            this.pictureMinimize.Location = new System.Drawing.Point(645, 20);
+            this.pictureMinimize.Name = "pictureMinimize";
+            this.pictureMinimize.Size = new System.Drawing.Size(30, 30);
+            this.pictureMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureMinimize.TabIndex = 3;
+            this.pictureMinimize.TabStop = false;
+            this.pictureMinimize.Click += new System.EventHandler(this.pictureMinimize_Click);
             // 
             // MenuAdmin
             // 
@@ -278,10 +342,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogout)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCasa)).EndInit();
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
+            this.panelDesktop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -303,5 +372,9 @@
         private Label lblTitleChildForm;
         private Panel panelSombra;
         private Panel panelDesktop;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureMinimize;
+        private PictureBox pictureMaximize;
     }
 }
