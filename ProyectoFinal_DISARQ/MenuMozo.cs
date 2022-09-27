@@ -134,7 +134,7 @@ namespace CapaPresentacion
 
         private void MenuMozo_Load(object sender, EventArgs e)
         {
-
+               
         }
     }
 }
