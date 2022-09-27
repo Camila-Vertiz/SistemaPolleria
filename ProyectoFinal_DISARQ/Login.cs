@@ -152,8 +152,10 @@ namespace ProyectoFinal_DISARQ
 
         private void linkLabelRestablecerContra_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var recoverPassword = new ResetPassword();
-            recoverPassword.ShowDialog();
+            ResetPassword recoverPassword = new ResetPassword();
+            recoverPassword.Show();
+            recoverPassword.FormClosed += Logout;
+            this.Hide();
         }
     }
 }
