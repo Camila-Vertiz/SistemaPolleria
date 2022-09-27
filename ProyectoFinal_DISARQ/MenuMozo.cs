@@ -116,7 +116,7 @@ namespace CapaPresentacion
         {
             txtMostrarMesa.Text = "14";
         }
-
+               
         private void button17_Click(object sender, EventArgs e)
         {
             txtMostrarMesa.Text = "15";
