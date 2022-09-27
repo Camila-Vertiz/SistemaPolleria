@@ -14,6 +14,7 @@ namespace CapaDatos
         public SqlConnection Conectar()
         {
             SqlConnection cn = new SqlConnection();
+
             cn.ConnectionString = "Data Source=DESKTOP-S27F15C; Initial Catalog = ProyectoFinal_DISARQ;" +//"User ID=sa; Password=123";
                                 "Integrated Security=true";
 
