@@ -101,31 +101,6 @@ namespace CapaPresentacion
                 this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new FormConsultarPedidos());
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color4);
-            OpenChildForm(new FormConsultarMesas());
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color5);
-            OpenChildForm(new FormConsultarMozos());
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color6);
-            OpenChildForm(new FormConsultarProductos());
-        }
-
         private void btnMantenedorProductos_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
@@ -152,7 +127,9 @@ namespace CapaPresentacion
             currentChildForm.Close();
             DisableButton();
             leftBorderBtn.Visible = false;
-            iconCurrentChildForm.Image = Image.FromFile("C:\\Users\\ADVANCE\\Source\\Repos\\ProyectoFinal_DISARQ\\ProyectoFinal_DISARQ\\Imagenes\\home-icon-silhouette (1).png");
+            string dir = Path.GetDirectoryName(Application.ExecutablePath);
+            string filename = Path.Combine(dir, @"home-icon-silhouette (1).png");
+            iconCurrentChildForm.Image = Image.FromFile(filename);
             lblTitleChildForm.Text = "Bienvenido Administrador";
         }
         //Drag Form
@@ -186,6 +163,59 @@ namespace CapaPresentacion
         private void pictureMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void panelTitleBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnConsultarPedidos_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color3);
+            OpenChildForm(new FormConsultarPedidos());
+        }
+
+        private void btnConsultarMesas_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color4);
+            OpenChildForm(new FormConsultarMesas());
+        }
+
+        private void btnConsultarMozos_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color5);
+            OpenChildForm(new FormConsultarMozos());
+        }
+
+        private void btnConsultarProductos_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color6);
+            OpenChildForm(new FormConsultarProductos());
+        }
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            Reset();
+        }
+
+        private void panelLogo_Click(object sender, EventArgs e)
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            Reset();
         }
     }
 }

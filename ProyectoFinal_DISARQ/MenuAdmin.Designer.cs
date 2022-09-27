@@ -40,24 +40,24 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCasa = new System.Windows.Forms.PictureBox();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.pictureMinimize = new System.Windows.Forms.PictureBox();
+            this.pictureMaximize = new System.Windows.Forms.PictureBox();
             this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new System.Windows.Forms.PictureBox();
             this.panelSombra = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureMaximize = new System.Windows.Forms.PictureBox();
-            this.pictureMinimize = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogout)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCasa)).BeginInit();
             this.panelTitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureLogout
@@ -106,7 +106,7 @@
             this.btnConsultarProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultarProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConsultarProductos.UseVisualStyleBackColor = true;
-            this.btnConsultarProductos.Click += new System.EventHandler(this.button6_Click);
+            this.btnConsultarProductos.Click += new System.EventHandler(this.btnConsultarProductos_Click);
             // 
             // btnConsultarMozos
             // 
@@ -125,7 +125,7 @@
             this.btnConsultarMozos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultarMozos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConsultarMozos.UseVisualStyleBackColor = true;
-            this.btnConsultarMozos.Click += new System.EventHandler(this.button5_Click);
+            this.btnConsultarMozos.Click += new System.EventHandler(this.btnConsultarMozos_Click);
             // 
             // btnConsultarMesas
             // 
@@ -144,7 +144,7 @@
             this.btnConsultarMesas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultarMesas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConsultarMesas.UseVisualStyleBackColor = true;
-            this.btnConsultarMesas.Click += new System.EventHandler(this.button4_Click);
+            this.btnConsultarMesas.Click += new System.EventHandler(this.btnConsultarMesas_Click);
             // 
             // btnConsultarPedidos
             // 
@@ -163,7 +163,7 @@
             this.btnConsultarPedidos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultarPedidos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConsultarPedidos.UseVisualStyleBackColor = true;
-            this.btnConsultarPedidos.Click += new System.EventHandler(this.button3_Click);
+            this.btnConsultarPedidos.Click += new System.EventHandler(this.btnConsultarPedidos_Click);
             // 
             // btnMantenedorMesas
             // 
@@ -205,17 +205,21 @@
             // 
             // panelLogo
             // 
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(56)))));
             this.panelLogo.Controls.Add(this.pictureBox1);
             this.panelLogo.Controls.Add(this.btnCasa);
+            this.panelLogo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(250, 150);
             this.panelLogo.TabIndex = 2;
+            this.panelLogo.Click += new System.EventHandler(this.panelLogo_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.rokys;
             this.pictureBox1.Location = new System.Drawing.Point(13, 6);
             this.pictureBox1.Name = "pictureBox1";
@@ -223,6 +227,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // btnCasa
             // 
@@ -249,6 +254,34 @@
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(794, 75);
             this.panelTitleBar.TabIndex = 2;
+            this.panelTitleBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTitleBar_Paint);
+            this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
+            // 
+            // pictureMinimize
+            // 
+            this.pictureMinimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pictureMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureMinimize.Image = global::CapaPresentacion.Properties.Resources.eliminar__2_1;
+            this.pictureMinimize.Location = new System.Drawing.Point(645, 20);
+            this.pictureMinimize.Name = "pictureMinimize";
+            this.pictureMinimize.Size = new System.Drawing.Size(30, 30);
+            this.pictureMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureMinimize.TabIndex = 3;
+            this.pictureMinimize.TabStop = false;
+            this.pictureMinimize.Click += new System.EventHandler(this.pictureMinimize_Click);
+            // 
+            // pictureMaximize
+            // 
+            this.pictureMaximize.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pictureMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureMaximize.Image = global::CapaPresentacion.Properties.Resources.maximizar__1_;
+            this.pictureMaximize.Location = new System.Drawing.Point(695, 20);
+            this.pictureMaximize.Name = "pictureMaximize";
+            this.pictureMaximize.Size = new System.Drawing.Size(30, 30);
+            this.pictureMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureMaximize.TabIndex = 2;
+            this.pictureMaximize.TabStop = false;
+            this.pictureMaximize.Click += new System.EventHandler(this.pictureMaximize_Click);
             // 
             // lblTitleChildForm
             // 
@@ -300,32 +333,6 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // pictureMaximize
-            // 
-            this.pictureMaximize.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pictureMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureMaximize.Image = global::CapaPresentacion.Properties.Resources.maximizar__1_;
-            this.pictureMaximize.Location = new System.Drawing.Point(695, 20);
-            this.pictureMaximize.Name = "pictureMaximize";
-            this.pictureMaximize.Size = new System.Drawing.Size(30, 30);
-            this.pictureMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureMaximize.TabIndex = 2;
-            this.pictureMaximize.TabStop = false;
-            this.pictureMaximize.Click += new System.EventHandler(this.pictureMaximize_Click);
-            // 
-            // pictureMinimize
-            // 
-            this.pictureMinimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pictureMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureMinimize.Image = global::CapaPresentacion.Properties.Resources.eliminar__2_1;
-            this.pictureMinimize.Location = new System.Drawing.Point(645, 20);
-            this.pictureMinimize.Name = "pictureMinimize";
-            this.pictureMinimize.Size = new System.Drawing.Size(30, 30);
-            this.pictureMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureMinimize.TabIndex = 3;
-            this.pictureMinimize.TabStop = false;
-            this.pictureMinimize.Click += new System.EventHandler(this.pictureMinimize_Click);
-            // 
             // MenuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -337,6 +344,7 @@
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
             this.Name = "MenuAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuAdmin";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuAdmin_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogout)).EndInit();
@@ -346,11 +354,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCasa)).EndInit();
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
             this.panelDesktop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).EndInit();
             this.ResumeLayout(false);
 
         }
