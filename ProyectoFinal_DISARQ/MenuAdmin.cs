@@ -217,5 +217,16 @@ namespace CapaPresentacion
             }
             Reset();
         }
+
+        private void panelDesktop_Paint(object sender, PaintEventArgs e)
+        {
+            timer1.Enabled=true;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToString("HH:mm:ss");
+            lblFecha.Text = DateTime.Now.ToLongDateString();
+        }
     }
 }

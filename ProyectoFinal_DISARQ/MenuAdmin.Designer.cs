@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureLogout = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnConsultarProductos = new System.Windows.Forms.Button();
@@ -46,7 +47,10 @@
             this.iconCurrentChildForm = new System.Windows.Forms.PictureBox();
             this.panelSombra = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogout)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -314,24 +318,55 @@
             // panelDesktop
             // 
             this.panelDesktop.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelDesktop.Controls.Add(this.lblFecha);
+            this.panelDesktop.Controls.Add(this.lblHora);
             this.panelDesktop.Controls.Add(this.pictureBox2);
             this.panelDesktop.Location = new System.Drawing.Point(250, 77);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(794, 506);
             this.panelDesktop.TabIndex = 4;
+            this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.BackColor = System.Drawing.Color.Gold;
+            this.lblFecha.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblFecha.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.lblFecha.Location = new System.Drawing.Point(200, 392);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(107, 41);
+            this.lblFecha.TabIndex = 4;
+            this.lblFecha.Text = "FECHA";
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.BackColor = System.Drawing.Color.Gold;
+            this.lblHora.Font = new System.Drawing.Font("Segoe UI", 38F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblHora.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.lblHora.Location = new System.Drawing.Point(275, 306);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(209, 86);
+            this.lblHora.TabIndex = 3;
+            this.lblHora.Text = "HORA";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.rokys;
-            this.pictureBox2.Location = new System.Drawing.Point(250, 133);
+            this.pictureBox2.Location = new System.Drawing.Point(244, 73);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(323, 198);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MenuAdmin
             // 
@@ -358,6 +393,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
             this.panelDesktop.ResumeLayout(false);
+            this.panelDesktop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
@@ -384,5 +420,8 @@
         private PictureBox pictureBox2;
         private PictureBox pictureMinimize;
         private PictureBox pictureMaximize;
+        private Label lblFecha;
+        private Label lblHora;
+        private System.Windows.Forms.Timer timer1;
     }
 }
