@@ -129,7 +129,12 @@ namespace CapaPresentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
-            txtMostrarMesa.Text = "";
+            txtMostrarMesa.Text = "";     
+        }
+
+        private void MenuMozo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
