@@ -18,11 +18,19 @@ namespace CapaLogica
         }
         #endregion singleton
         #region metodos
-        public DataTable BuscarUsuario(string user_usuario, string contrasena_usuario)
+        public entUsuario BuscarUsuario(string user_usuario, string contrasena_usuario)
         {
             try
             {
                 return datUsuario.Instancia.BuscarUsuario(user_usuario, contrasena_usuario);
+            }
+            catch (Exception e) { throw e; }
+        }
+        public string recoverPassword(string correo_usuario)
+        {
+            try
+            {
+                return datUsuario.Instancia.recoverPassword(correo_usuario);
             }
             catch (Exception e) { throw e; }
         }

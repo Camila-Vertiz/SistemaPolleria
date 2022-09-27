@@ -24,7 +24,7 @@ namespace CapaDatos
         #endregion singleton
 
         #region metodos
-        public DataTable BuscarUsuario(string user_usuario, string contrasena_usuario)
+        public entUsuario BuscarUsuario(string user_usuario, string contrasena_usuario)
         {
             SqlCommand cmd = null;
             entUsuario Use = new entUsuario();
@@ -36,13 +36,15 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@user_usuario", user_usuario);
                 cmd.Parameters.AddWithValue("@contrasena_usuario", contrasena_usuario);
                 cn.Open();
-                //SqlDataReader dr = cmd.ExecuteReader();
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                sda.Fill(dt); //Llena la tabla con los datos de usuario
-                if (dt.Rows.Count > 0)
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    return dt;
+                    Use.id_usuario = Convert.ToInt32((dr["id_usuario"]));
+                    Use.nombre_usuario = dr["nombre_usuario"].ToString();
+                    Use.correo_usuario = dr["correo_usuario"].ToString();
+                    Use.user_usuario = dr["user_usuario"].ToString();
+                    Use.contrasena_usuario = dr["contrasena_usuario"].ToString();
+                    Use.tipo_usuario = dr["tipo_usuario"].ToString();
                 }
             }
             catch (Exception e)
@@ -51,8 +53,49 @@ namespace CapaDatos
                 throw e;
             }
             finally { cmd.Connection.Close(); }
-            return null;
+            return Use;
         }
         #endregion singleton
+
+        public string recoverPassword(string correo_usuario)
+        {
+            SqlCommand cmd = null;
+            entUsuario Use = new entUsuario();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spRecuperarContra", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@correo_usuario", correo_usuario);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Use.nombre_usuario = dr["nombre_usuario"].ToString();
+                    Use.correo_usuario = dr["correo_usuario"].ToString();
+                    Use.user_usuario = dr["user_usuario"].ToString();
+                    Use.contrasena_usuario = dr["contrasena_usuario"].ToString();
+
+                    var mailService = new MailServices.SystemSupportMail();
+                    mailService.sendMail(
+                        subject: "SYSTEM: Password recovery request",
+                        body: "Hola, " + Use.nombre_usuario + ".\nSolicitaste recuperar tu contraseña. \n" +
+                        "Tu contraseña es: " + Use.contrasena_usuario + "\nSin embargo, le recomendamos cambiar su contraseña cuando entre al sistema.",
+                        recipientMail: new List<string> { Use.correo_usuario }
+                        );
+                    return "Hola, " + Use.nombre_usuario + ".\nSolicitaste recuperar tu contraseña. \n" +
+                        "Por favor revisa tu correo: " + Use.correo_usuario +
+                        "\nSin embargo, le recomendamos cambiar su contraseña cuando entre al sistema.";
+                }
+                //else
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+                return "Lo sentimos, no existe una cuenta con ese correo o nombre de usuario.";
+        }
     }
 }

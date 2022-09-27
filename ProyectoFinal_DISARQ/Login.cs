@@ -12,7 +12,7 @@ namespace ProyectoFinal_DISARQ
         {
             InitializeComponent();
         }
-        
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCaprure();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -93,43 +93,30 @@ namespace ProyectoFinal_DISARQ
             {
                 if (contrasena_usuario != "CONTRASEÑA")
                 {
-                    DataTable us = logUsuario.Instancia.BuscarUsuario(user_usuario, contrasena_usuario);
-                    if (us!=null)
+                    entUsuario us = logUsuario.Instancia.BuscarUsuario(user_usuario, contrasena_usuario);
+                    if (us.id_usuario > 0)
                     {
-                        for (int i = 0; i < us.Rows.Count; i++)
+                        if (us.tipo_usuario == "A")
                         {
-                            if (us.Rows[i][2].ToString() == user_usuario && us.Rows[i][3].ToString() == contrasena_usuario)
-                            {
-                                if (us.Rows[i][4].ToString() == "A")
-                                {
-                                    MenuAdmin menuAdmin = new MenuAdmin();
-                                    menuAdmin.Show();
-                                    menuAdmin.FormClosed += Logout;
-                                    this.Hide();
-                                }
-                                else if (us.Rows[i][4].ToString() == "M")
-                                {
-                                    MenuMozo menuMozo = new MenuMozo();
-                                    menuMozo.Show();
-                                    menuMozo.FormClosed += Logout;
-                                    this.Hide();
-                                }
-                                encontrado = true;
-                            }
-                            else
-                                continue;
+                            MenuAdmin menuAdmin = new MenuAdmin();
+                            menuAdmin.Show();
+                            menuAdmin.FormClosed += Logout;
+                            this.Hide();
                         }
-                        if (!encontrado)
+                        else if (us.tipo_usuario == "M")
                         {
-                            MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            txtClave.Text = "CONTRASEÑA";
-                            txtUsuario.Focus();
-                        } 
+                            MenuMozo menuMozo = new MenuMozo();
+                            menuMozo.Show();
+                            menuMozo.FormClosed += Logout;
+                            this.Hide();
+                        }
+                        encontrado = true;
                     }
                     else
                     {
                         MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        txtClave.Text="CONTRASEÑA";
+                        txtClave.Text = "CONTRASEÑA";
+                        txtClave.UseSystemPasswordChar = false;
                         txtUsuario.Focus();
                     }
                 }
@@ -145,12 +132,30 @@ namespace ProyectoFinal_DISARQ
         }
         private void Logout(object sender, FormClosedEventArgs e)
         {
-            txtClave.Text="CONTRASEÑA";
+            txtClave.Text = "CONTRASEÑA";
             txtClave.ForeColor = Color.DimGray;
             txtClave.UseSystemPasswordChar = false;
-            txtUsuario.Text= "USUARIO";
+            txtUsuario.Text = "USUARIO";
             txtUsuario.ForeColor = Color.DimGray;
             this.Show();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtClave_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabelRestablecerContra_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ResetPassword recoverPassword = new ResetPassword();
+            recoverPassword.Show();
+            recoverPassword.FormClosed += Logout;
+            this.Hide();
         }
     }
 }
