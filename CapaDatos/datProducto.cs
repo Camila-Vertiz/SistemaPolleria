@@ -68,6 +68,28 @@ namespace CapaDatos
             finally { cmd.Connection.Close(); }
             return ds;
         }
+        public DataSet BuscaNombreProducto(string nombre = null)
+        {
+            SqlCommand cmd = null;
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarNombreProducto", cn);
+                cn.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@nombre_producto", nombre));
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Producto");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return ds;
+        }
         #endregion metodos
     }
 }

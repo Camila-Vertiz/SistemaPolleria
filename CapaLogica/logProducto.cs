@@ -51,6 +51,10 @@ namespace CapaLogica
         {
             return datProducto.Instancia.BuscaProducto(n);
         }
+        public DataSet BuscaNombreProducto(string n)
+        {
+            return datProducto.Instancia.BuscaNombreProducto(n);
+        }
         #endregion metodos
 
     }

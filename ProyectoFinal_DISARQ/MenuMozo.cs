@@ -151,5 +151,12 @@ namespace CapaPresentacion
             dgvProducto.DataSource = ds;
             dgvProducto.DataMember = "Producto";
         }
+
+        private void txtBuscarProductos_TextChanged(object sender, EventArgs e)
+        {
+            DataSet ds = logProducto.Instancia.BuscaNombreProducto(txtBuscarProductos.Text.Trim());
+            dgvProducto.DataSource = ds;
+            dgvProducto.DataMember = "Producto";
+        }
     }
 }

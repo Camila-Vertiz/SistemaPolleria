@@ -254,6 +254,7 @@
             this.txtBuscarProductos.PlaceholderText = "Buscar...";
             this.txtBuscarProductos.Size = new System.Drawing.Size(237, 31);
             this.txtBuscarProductos.TabIndex = 1;
+            this.txtBuscarProductos.TextChanged += new System.EventHandler(this.txtBuscarProductos_TextChanged);
             this.txtBuscarProductos.Enter += new System.EventHandler(this.textBox2_Enter);
             this.txtBuscarProductos.Leave += new System.EventHandler(this.txtBuscarProductos_Leave);
             // 
