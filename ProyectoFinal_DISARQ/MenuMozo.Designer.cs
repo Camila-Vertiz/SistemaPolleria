@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNPersonas = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -69,6 +69,8 @@
             this.btnPollo = new System.Windows.Forms.Button();
             this.btnCarnes = new System.Windows.Forms.Button();
             this.btnAlacarta = new System.Windows.Forms.Button();
+            this.lblPiso = new System.Windows.Forms.Label();
+            this.cboPiso = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -80,9 +82,10 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(143)))), ((int)(((byte)(16)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Akhbar MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.Location = new System.Drawing.Point(558, 37);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(133, 36);
@@ -93,9 +96,10 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(184)))), ((int)(((byte)(20)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Akhbar MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.Location = new System.Drawing.Point(691, 37);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(133, 36);
@@ -106,9 +110,10 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(218)))), ((int)(((byte)(24)))));
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Akhbar MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button3.Location = new System.Drawing.Point(824, 37);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(133, 36);
@@ -117,20 +122,20 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label1
+            // lblNPersonas
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(25, 116);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 25);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Numero de personas";
+            this.lblNPersonas.AutoSize = true;
+            this.lblNPersonas.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNPersonas.Location = new System.Drawing.Point(21, 132);
+            this.lblNPersonas.Name = "lblNPersonas";
+            this.lblNPersonas.Size = new System.Drawing.Size(183, 25);
+            this.lblNPersonas.TabIndex = 6;
+            this.lblNPersonas.Text = "Número de personas:";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(240, 117);
+            this.textBox1.Location = new System.Drawing.Point(237, 129);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(160, 31);
             this.textBox1.TabIndex = 7;
@@ -138,6 +143,7 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Location = new System.Drawing.Point(36, 201);
             this.button4.Name = "button4";
@@ -150,6 +156,7 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Location = new System.Drawing.Point(325, 385);
             this.button5.Name = "button5";
@@ -162,6 +169,7 @@
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Location = new System.Drawing.Point(325, 291);
             this.button6.Name = "button6";
@@ -174,6 +182,7 @@
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Location = new System.Drawing.Point(230, 291);
             this.button7.Name = "button7";
@@ -186,6 +195,7 @@
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Location = new System.Drawing.Point(132, 291);
             this.button8.Name = "button8";
@@ -198,6 +208,7 @@
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Location = new System.Drawing.Point(36, 291);
             this.button9.Name = "button9";
@@ -210,6 +221,7 @@
             // button10
             // 
             this.button10.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Location = new System.Drawing.Point(325, 201);
             this.button10.Name = "button10";
@@ -222,6 +234,7 @@
             // button11
             // 
             this.button11.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Location = new System.Drawing.Point(230, 201);
             this.button11.Name = "button11";
@@ -234,6 +247,7 @@
             // button12
             // 
             this.button12.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Location = new System.Drawing.Point(132, 201);
             this.button12.Name = "button12";
@@ -246,6 +260,7 @@
             // button13
             // 
             this.button13.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.Location = new System.Drawing.Point(230, 385);
             this.button13.Name = "button13";
@@ -258,6 +273,7 @@
             // button14
             // 
             this.button14.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.Location = new System.Drawing.Point(132, 385);
             this.button14.Name = "button14";
@@ -270,6 +286,7 @@
             // button15
             // 
             this.button15.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button15.Location = new System.Drawing.Point(36, 385);
             this.button15.Name = "button15";
@@ -282,6 +299,7 @@
             // button16
             // 
             this.button16.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button16.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button16.Location = new System.Drawing.Point(325, 474);
             this.button16.Name = "button16";
@@ -294,6 +312,7 @@
             // button17
             // 
             this.button17.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button17.Location = new System.Drawing.Point(230, 474);
             this.button17.Name = "button17";
@@ -306,6 +325,7 @@
             // button18
             // 
             this.button18.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button18.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button18.Location = new System.Drawing.Point(132, 474);
             this.button18.Name = "button18";
@@ -318,6 +338,7 @@
             // button19
             // 
             this.button19.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button19.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button19.Location = new System.Drawing.Point(36, 474);
             this.button19.Name = "button19";
@@ -339,8 +360,8 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(582, 252);
             this.dataGridView1.TabIndex = 24;
@@ -388,7 +409,7 @@
             // txtBuscarProductos
             // 
             this.txtBuscarProductos.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBuscarProductos.Location = new System.Drawing.Point(318, 10);
+            this.txtBuscarProductos.Location = new System.Drawing.Point(318, 18);
             this.txtBuscarProductos.Name = "txtBuscarProductos";
             this.txtBuscarProductos.Size = new System.Drawing.Size(237, 31);
             this.txtBuscarProductos.TabIndex = 1;
@@ -400,7 +421,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Symbol", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(15, 5);
+            this.label2.Location = new System.Drawing.Point(27, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 23);
             this.label2.TabIndex = 0;
@@ -418,8 +439,8 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView2.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.RowTemplate.Height = 29;
             this.dataGridView2.Size = new System.Drawing.Size(582, 367);
             this.dataGridView2.TabIndex = 26;
@@ -439,7 +460,7 @@
             // 
             this.txtMostrarMesa.BackColor = System.Drawing.Color.Gold;
             this.txtMostrarMesa.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMostrarMesa.Location = new System.Drawing.Point(72, 18);
+            this.txtMostrarMesa.Location = new System.Drawing.Point(72, 21);
             this.txtMostrarMesa.Name = "txtMostrarMesa";
             this.txtMostrarMesa.ReadOnly = true;
             this.txtMostrarMesa.Size = new System.Drawing.Size(51, 20);
@@ -488,6 +509,7 @@
             // btnBebidas
             // 
             this.btnBebidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(103)))), ((int)(((byte)(0)))));
+            this.btnBebidas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBebidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBebidas.Location = new System.Drawing.Point(1140, 170);
             this.btnBebidas.Name = "btnBebidas";
@@ -499,6 +521,7 @@
             // btnPollo
             // 
             this.btnPollo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+            this.btnPollo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPollo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPollo.Location = new System.Drawing.Point(1140, 229);
             this.btnPollo.Name = "btnPollo";
@@ -510,6 +533,7 @@
             // btnCarnes
             // 
             this.btnCarnes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(138)))), ((int)(((byte)(21)))));
+            this.btnCarnes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCarnes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarnes.Location = new System.Drawing.Point(1140, 291);
             this.btnCarnes.Name = "btnCarnes";
@@ -521,6 +545,7 @@
             // btnAlacarta
             // 
             this.btnAlacarta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(158)))), ((int)(((byte)(62)))));
+            this.btnAlacarta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAlacarta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlacarta.Location = new System.Drawing.Point(1140, 353);
             this.btnAlacarta.Name = "btnAlacarta";
@@ -529,12 +554,32 @@
             this.btnAlacarta.Text = "Platos a la carta";
             this.btnAlacarta.UseVisualStyleBackColor = false;
             // 
+            // lblPiso
+            // 
+            this.lblPiso.AutoSize = true;
+            this.lblPiso.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPiso.Location = new System.Drawing.Point(82, 62);
+            this.lblPiso.Name = "lblPiso";
+            this.lblPiso.Size = new System.Drawing.Size(49, 25);
+            this.lblPiso.TabIndex = 33;
+            this.lblPiso.Text = "Piso:";
+            // 
+            // cboPiso
+            // 
+            this.cboPiso.FormattingEnabled = true;
+            this.cboPiso.Location = new System.Drawing.Point(208, 62);
+            this.cboPiso.Name = "cboPiso";
+            this.cboPiso.Size = new System.Drawing.Size(151, 28);
+            this.cboPiso.TabIndex = 34;
+            // 
             // MenuMozo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(1341, 1055);
+            this.Controls.Add(this.cboPiso);
+            this.Controls.Add(this.lblPiso);
             this.Controls.Add(this.btnAlacarta);
             this.Controls.Add(this.btnCarnes);
             this.Controls.Add(this.btnPollo);
@@ -560,7 +605,7 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblNPersonas);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -587,7 +632,7 @@
         private Button button1;
         private Button button2;
         private Button button3;
-        private Label label1;
+        private Label lblNPersonas;
         private TextBox textBox1;
         private Button button4;
         private Button button5;
@@ -623,5 +668,7 @@
         private Button btnCarnes;
         private Button btnAlacarta;
         private TextBox txtMostrarMesa;
+        private Label lblPiso;
+        private ComboBox cboPiso;
     }
 }
