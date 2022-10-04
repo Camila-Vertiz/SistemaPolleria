@@ -84,5 +84,68 @@ namespace CapaPresentacion
         {
             dgvProducto.DataSource = logProducto.Instancia.ListarProducto();
         }
+
+        private void btnParrilla_Click(object sender, EventArgs e)
+        {
+            DataSet ds = logProducto.Instancia.BuscaProducto("Parrilla");
+            dgvProducto.DataSource = ds;
+            dgvProducto.DataMember = "Producto";
+        }
+
+        private void btnAlaCarta_Click(object sender, EventArgs e)
+        {
+            DataSet ds = logProducto.Instancia.BuscaProducto("Carta");
+            dgvProducto.DataSource = ds;
+            dgvProducto.DataMember = "Producto";
+        }
+
+        private void btnBroaster_Click(object sender, EventArgs e)
+        {
+            DataSet ds = logProducto.Instancia.BuscaProducto("Broaster");
+            dgvProducto.DataSource = ds;
+            dgvProducto.DataMember = "Producto";
+        }
+
+        private void btnBurger_Click(object sender, EventArgs e)
+        {
+            DataSet ds = logProducto.Instancia.BuscaProducto("Burger");
+            dgvProducto.DataSource = ds;
+            dgvProducto.DataMember = "Producto";
+        }
+
+        private void btnComplementos_Click(object sender, EventArgs e)
+        {
+            DataSet ds = logProducto.Instancia.BuscaProducto("Complementos");
+            dgvProducto.DataSource = ds;
+            dgvProducto.DataMember = "Producto";
+        }
+
+        private void btnEnsaladas_Click(object sender, EventArgs e)
+        {
+            DataSet ds = logProducto.Instancia.BuscaProducto("Ensaladas");
+            dgvProducto.DataSource = ds;
+            dgvProducto.DataMember = "Producto";
+        }
+
+        private void btnGaseosas_Click(object sender, EventArgs e)
+        {
+            DataSet ds = logProducto.Instancia.BuscaProducto("Gaseosas");
+            dgvProducto.DataSource = ds;
+            dgvProducto.DataMember = "Producto";
+        }
+
+        private void btnCervezas_Click(object sender, EventArgs e)
+        {
+            DataSet ds = logProducto.Instancia.BuscaProducto("Cervezas");
+            dgvProducto.DataSource = ds;
+            dgvProducto.DataMember = "Producto";
+        }
+
+        private void btnPostres_Click(object sender, EventArgs e)
+        {
+            DataSet ds = logProducto.Instancia.BuscaProducto("Postres");
+            dgvProducto.DataSource = ds;
+            dgvProducto.DataMember = "Producto";
+        }
     }
 }

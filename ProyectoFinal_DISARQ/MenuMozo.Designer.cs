@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnComandar = new System.Windows.Forms.Button();
             this.btnPreCuenta = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -199,8 +199,8 @@
             this.dgvMesa.ReadOnly = true;
             this.dgvMesa.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvMesa.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvMesa.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvMesa.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMesa.RowTemplate.Height = 29;
             this.dgvMesa.Size = new System.Drawing.Size(728, 252);
             this.dgvMesa.TabIndex = 24;
@@ -277,8 +277,8 @@
             this.dgvProducto.Name = "dgvProducto";
             this.dgvProducto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvProducto.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvProducto.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvProducto.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProducto.RowTemplate.Height = 29;
             this.dgvProducto.Size = new System.Drawing.Size(728, 367);
             this.dgvProducto.TabIndex = 26;
@@ -370,6 +370,7 @@
             this.btnCervezas.TabIndex = 30;
             this.btnCervezas.Text = "Cervezas";
             this.btnCervezas.UseVisualStyleBackColor = false;
+            this.btnCervezas.Click += new System.EventHandler(this.btnCervezas_Click);
             // 
             // btnComplementos
             // 
@@ -382,6 +383,7 @@
             this.btnComplementos.TabIndex = 31;
             this.btnComplementos.Text = "Complementos";
             this.btnComplementos.UseVisualStyleBackColor = false;
+            this.btnComplementos.Click += new System.EventHandler(this.btnComplementos_Click);
             // 
             // btnEnsaladas
             // 
@@ -394,6 +396,7 @@
             this.btnEnsaladas.TabIndex = 32;
             this.btnEnsaladas.Text = "Ensaladas";
             this.btnEnsaladas.UseVisualStyleBackColor = false;
+            this.btnEnsaladas.Click += new System.EventHandler(this.btnEnsaladas_Click);
             // 
             // tabControl1
             // 
@@ -1064,6 +1067,7 @@
             this.btnGaseosas.TabIndex = 35;
             this.btnGaseosas.Text = "Gaseosas";
             this.btnGaseosas.UseVisualStyleBackColor = false;
+            this.btnGaseosas.Click += new System.EventHandler(this.btnGaseosas_Click);
             // 
             // btnBurger
             // 
@@ -1076,6 +1080,7 @@
             this.btnBurger.TabIndex = 40;
             this.btnBurger.Text = "Burger";
             this.btnBurger.UseVisualStyleBackColor = false;
+            this.btnBurger.Click += new System.EventHandler(this.btnBurger_Click);
             // 
             // btnBroaster
             // 
@@ -1088,6 +1093,7 @@
             this.btnBroaster.TabIndex = 39;
             this.btnBroaster.Text = "Broaster";
             this.btnBroaster.UseVisualStyleBackColor = false;
+            this.btnBroaster.Click += new System.EventHandler(this.btnBroaster_Click);
             // 
             // btnPostres
             // 
@@ -1100,6 +1106,7 @@
             this.btnPostres.TabIndex = 38;
             this.btnPostres.Text = "Postres";
             this.btnPostres.UseVisualStyleBackColor = false;
+            this.btnPostres.Click += new System.EventHandler(this.btnPostres_Click);
             // 
             // btnAlaCarta
             // 
@@ -1112,6 +1119,7 @@
             this.btnAlaCarta.TabIndex = 37;
             this.btnAlaCarta.Text = "Platos a la carta";
             this.btnAlaCarta.UseVisualStyleBackColor = false;
+            this.btnAlaCarta.Click += new System.EventHandler(this.btnAlaCarta_Click);
             // 
             // btnParrilla
             // 
@@ -1124,6 +1132,7 @@
             this.btnParrilla.TabIndex = 36;
             this.btnParrilla.Text = "Parrilla";
             this.btnParrilla.UseVisualStyleBackColor = false;
+            this.btnParrilla.Click += new System.EventHandler(this.btnParrilla_Click);
             // 
             // pictureBoxSearchNpers
             // 

@@ -41,7 +41,6 @@ namespace CapaDatos
                     entProducto Pro = new entProducto();
                     Pro.codigo_producto = Convert.ToInt32(dr["codigo_producto"]);
                     Pro.nombre_producto = dr["nombre_producto"].ToString();
-                    Pro.categoria_producto = dr["categoria_producto"].ToString();
                     Pro.precio_unitario_producto = (float) Convert.ToDouble(dr["precio_unitario_producto"]);
                     Pro.descripcion_producto = dr["descripcion_producto"].ToString();
                     lista.Add(Pro);
