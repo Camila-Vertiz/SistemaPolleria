@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnComandar = new System.Windows.Forms.Button();
             this.btnPreCuenta = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -111,6 +111,7 @@
             this.btnAlaCarta = new System.Windows.Forms.Button();
             this.btnParrilla = new System.Windows.Forms.Button();
             this.pictureBoxSearchNpers = new System.Windows.Forms.PictureBox();
+            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesa)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -198,8 +199,8 @@
             this.dgvMesa.ReadOnly = true;
             this.dgvMesa.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvMesa.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvMesa.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvMesa.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvMesa.RowTemplate.Height = 29;
             this.dgvMesa.Size = new System.Drawing.Size(728, 252);
             this.dgvMesa.TabIndex = 24;
@@ -271,15 +272,13 @@
             this.dgvProducto.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvProducto.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducto.Enabled = false;
             this.dgvProducto.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvProducto.Location = new System.Drawing.Point(475, 157);
             this.dgvProducto.Name = "dgvProducto";
-            this.dgvProducto.ReadOnly = true;
             this.dgvProducto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvProducto.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvProducto.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvProducto.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvProducto.RowTemplate.Height = 29;
             this.dgvProducto.Size = new System.Drawing.Size(728, 367);
             this.dgvProducto.TabIndex = 26;
@@ -358,6 +357,7 @@
             this.btnBrasa.TabIndex = 29;
             this.btnBrasa.Text = "Brasa";
             this.btnBrasa.UseVisualStyleBackColor = false;
+            this.btnBrasa.Click += new System.EventHandler(this.btnBrasa_Click);
             // 
             // btnCervezas
             // 
@@ -1137,12 +1137,26 @@
             this.pictureBoxSearchNpers.TabIndex = 41;
             this.pictureBoxSearchNpers.TabStop = false;
             // 
+            // btnLimpiarFiltros
+            // 
+            this.btnLimpiarFiltros.BackColor = System.Drawing.Color.Silver;
+            this.btnLimpiarFiltros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(1256, 55);
+            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(124, 34);
+            this.btnLimpiarFiltros.TabIndex = 42;
+            this.btnLimpiarFiltros.Text = "Limpiar Filtros";
+            this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
+            // 
             // MenuMozo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(1444, 1055);
+            this.Controls.Add(this.btnLimpiarFiltros);
             this.Controls.Add(this.pictureBoxSearchNpers);
             this.Controls.Add(this.btnBurger);
             this.Controls.Add(this.btnBroaster);
@@ -1271,5 +1285,6 @@
         private Button btnAlaCarta;
         private Button btnParrilla;
         private PictureBox pictureBoxSearchNpers;
+        private Button btnLimpiarFiltros;
     }
 }

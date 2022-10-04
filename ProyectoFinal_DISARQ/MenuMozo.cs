@@ -72,5 +72,17 @@ namespace CapaPresentacion
         {
             txtMostrarMesa.Text = "3";
         }
+
+        private void btnBrasa_Click(object sender, EventArgs e)
+        {
+            DataSet ds = logProducto.Instancia.BuscaProducto("Brasa");
+            dgvProducto.DataSource = ds;
+            dgvProducto.DataMember = "Producto";
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            dgvProducto.DataSource = logProducto.Instancia.ListarProducto();
+        }
     }
 }

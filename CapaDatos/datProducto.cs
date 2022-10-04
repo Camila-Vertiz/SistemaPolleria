@@ -66,7 +66,7 @@ namespace CapaDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spBuscaProducto", cn);
+                cmd = new SqlCommand("spBuscarProducto", cn);
                 cn.Open();
                 SqlDataAdapter da = new SqlDataAdapter();
                 cmd.CommandType = CommandType.StoredProcedure;
