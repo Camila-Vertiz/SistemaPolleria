@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnComandar = new System.Windows.Forms.Button();
             this.btnPreCuenta = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -110,6 +110,7 @@
             this.btnPostres = new System.Windows.Forms.Button();
             this.btnAlaCarta = new System.Windows.Forms.Button();
             this.btnParrilla = new System.Windows.Forms.Button();
+            this.pictureBoxSearchNpers = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesa)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -119,6 +120,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPagePiso1.SuspendLayout();
             this.tabPagePiso2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchNpers)).BeginInit();
             this.SuspendLayout();
             // 
             // btnComandar
@@ -176,11 +178,13 @@
             // 
             // txtNPersonas
             // 
+            this.txtNPersonas.AcceptsReturn = true;
+            this.txtNPersonas.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNPersonas.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNPersonas.Location = new System.Drawing.Point(237, 129);
+            this.txtNPersonas.Location = new System.Drawing.Point(210, 129);
             this.txtNPersonas.Name = "txtNPersonas";
-            this.txtNPersonas.Size = new System.Drawing.Size(160, 31);
-            this.txtNPersonas.TabIndex = 7;
+            this.txtNPersonas.Size = new System.Drawing.Size(132, 31);
+            this.txtNPersonas.TabIndex = 1;
             // 
             // dgvMesa
             // 
@@ -194,10 +198,10 @@
             this.dgvMesa.ReadOnly = true;
             this.dgvMesa.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvMesa.RowHeadersWidth = 51;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvMesa.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvMesa.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMesa.RowTemplate.Height = 29;
-            this.dgvMesa.Size = new System.Drawing.Size(582, 252);
+            this.dgvMesa.Size = new System.Drawing.Size(728, 252);
             this.dgvMesa.TabIndex = 24;
             // 
             // panel1
@@ -209,7 +213,7 @@
             this.panel1.Controls.Add(this.lblProductos);
             this.panel1.Location = new System.Drawing.Point(474, 93);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(583, 64);
+            this.panel1.Size = new System.Drawing.Size(729, 64);
             this.panel1.TabIndex = 25;
             // 
             // panel2
@@ -244,21 +248,21 @@
             // txtBuscarProductos
             // 
             this.txtBuscarProductos.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBuscarProductos.Location = new System.Drawing.Point(318, 18);
+            this.txtBuscarProductos.Location = new System.Drawing.Point(468, 18);
             this.txtBuscarProductos.Name = "txtBuscarProductos";
+            this.txtBuscarProductos.PlaceholderText = "Buscar...";
             this.txtBuscarProductos.Size = new System.Drawing.Size(237, 31);
             this.txtBuscarProductos.TabIndex = 1;
-            this.txtBuscarProductos.Text = "Buscar...";
             this.txtBuscarProductos.Enter += new System.EventHandler(this.textBox2_Enter);
             this.txtBuscarProductos.Leave += new System.EventHandler(this.txtBuscarProductos_Leave);
             // 
             // lblProductos
             // 
             this.lblProductos.AutoSize = true;
-            this.lblProductos.Font = new System.Drawing.Font("Segoe UI Symbol", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblProductos.Font = new System.Drawing.Font("Segoe UI Symbol", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblProductos.Location = new System.Drawing.Point(27, 18);
             this.lblProductos.Name = "lblProductos";
-            this.lblProductos.Size = new System.Drawing.Size(87, 23);
+            this.lblProductos.Size = new System.Drawing.Size(96, 23);
             this.lblProductos.TabIndex = 0;
             this.lblProductos.Text = "Productos";
             // 
@@ -274,10 +278,10 @@
             this.dgvProducto.ReadOnly = true;
             this.dgvProducto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvProducto.RowHeadersWidth = 51;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvProducto.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvProducto.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProducto.RowTemplate.Height = 29;
-            this.dgvProducto.Size = new System.Drawing.Size(582, 367);
+            this.dgvProducto.Size = new System.Drawing.Size(728, 367);
             this.dgvProducto.TabIndex = 26;
             // 
             // panel3
@@ -289,13 +293,14 @@
             this.panel3.Controls.Add(this.lblMesa);
             this.panel3.Location = new System.Drawing.Point(475, 585);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(583, 64);
+            this.panel3.Size = new System.Drawing.Size(729, 64);
             this.panel3.TabIndex = 28;
             // 
             // txtMostrarMesa
             // 
             this.txtMostrarMesa.BackColor = System.Drawing.Color.Gold;
             this.txtMostrarMesa.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMostrarMesa.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtMostrarMesa.Location = new System.Drawing.Point(72, 21);
             this.txtMostrarMesa.Name = "txtMostrarMesa";
             this.txtMostrarMesa.ReadOnly = true;
@@ -334,10 +339,10 @@
             // lblMesa
             // 
             this.lblMesa.AutoSize = true;
-            this.lblMesa.Font = new System.Drawing.Font("Segoe UI Symbol", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblMesa.Font = new System.Drawing.Font("Segoe UI Symbol", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMesa.Location = new System.Drawing.Point(16, 18);
             this.lblMesa.Name = "lblMesa";
-            this.lblMesa.Size = new System.Drawing.Size(59, 23);
+            this.lblMesa.Size = new System.Drawing.Size(65, 23);
             this.lblMesa.TabIndex = 0;
             this.lblMesa.Text = "Mesa: ";
             this.lblMesa.Click += new System.EventHandler(this.label5_Click);
@@ -347,7 +352,7 @@
             this.btnBrasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(103)))), ((int)(((byte)(0)))));
             this.btnBrasa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBrasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBrasa.Location = new System.Drawing.Point(1140, 170);
+            this.btnBrasa.Location = new System.Drawing.Point(1245, 166);
             this.btnBrasa.Name = "btnBrasa";
             this.btnBrasa.Size = new System.Drawing.Size(149, 43);
             this.btnBrasa.TabIndex = 29;
@@ -359,7 +364,7 @@
             this.btnCervezas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
             this.btnCervezas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCervezas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCervezas.Location = new System.Drawing.Point(1140, 660);
+            this.btnCervezas.Location = new System.Drawing.Point(1245, 656);
             this.btnCervezas.Name = "btnCervezas";
             this.btnCervezas.Size = new System.Drawing.Size(149, 43);
             this.btnCervezas.TabIndex = 30;
@@ -371,7 +376,7 @@
             this.btnComplementos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(138)))), ((int)(((byte)(21)))));
             this.btnComplementos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnComplementos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComplementos.Location = new System.Drawing.Point(1140, 468);
+            this.btnComplementos.Location = new System.Drawing.Point(1245, 464);
             this.btnComplementos.Name = "btnComplementos";
             this.btnComplementos.Size = new System.Drawing.Size(149, 43);
             this.btnComplementos.TabIndex = 31;
@@ -383,7 +388,7 @@
             this.btnEnsaladas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(158)))), ((int)(((byte)(62)))));
             this.btnEnsaladas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEnsaladas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnsaladas.Location = new System.Drawing.Point(1140, 532);
+            this.btnEnsaladas.Location = new System.Drawing.Point(1245, 528);
             this.btnEnsaladas.Name = "btnEnsaladas";
             this.btnEnsaladas.Size = new System.Drawing.Size(149, 43);
             this.btnEnsaladas.TabIndex = 32;
@@ -590,6 +595,7 @@
             this.btnMesa1.TabIndex = 32;
             this.btnMesa1.Text = "Mesa 1";
             this.btnMesa1.UseVisualStyleBackColor = false;
+            this.btnMesa1.Click += new System.EventHandler(this.btnMesa1_Click);
             // 
             // btnMesa12
             // 
@@ -674,6 +680,7 @@
             this.btnMesa3.TabIndex = 39;
             this.btnMesa3.Text = "Mesa 3";
             this.btnMesa3.UseVisualStyleBackColor = false;
+            this.btnMesa3.Click += new System.EventHandler(this.btnMesa3_Click);
             // 
             // btnMesa2
             // 
@@ -686,6 +693,7 @@
             this.btnMesa2.TabIndex = 40;
             this.btnMesa2.Text = "Mesa 2";
             this.btnMesa2.UseVisualStyleBackColor = false;
+            this.btnMesa2.Click += new System.EventHandler(this.btnMesa2_Click);
             // 
             // btnMesa11
             // 
@@ -1050,7 +1058,7 @@
             this.btnGaseosas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(158)))), ((int)(((byte)(62)))));
             this.btnGaseosas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGaseosas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGaseosas.Location = new System.Drawing.Point(1140, 595);
+            this.btnGaseosas.Location = new System.Drawing.Point(1245, 591);
             this.btnGaseosas.Name = "btnGaseosas";
             this.btnGaseosas.Size = new System.Drawing.Size(149, 43);
             this.btnGaseosas.TabIndex = 35;
@@ -1062,7 +1070,7 @@
             this.btnBurger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(158)))), ((int)(((byte)(62)))));
             this.btnBurger.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBurger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBurger.Location = new System.Drawing.Point(1140, 410);
+            this.btnBurger.Location = new System.Drawing.Point(1245, 406);
             this.btnBurger.Name = "btnBurger";
             this.btnBurger.Size = new System.Drawing.Size(149, 43);
             this.btnBurger.TabIndex = 40;
@@ -1074,7 +1082,7 @@
             this.btnBroaster.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(158)))), ((int)(((byte)(62)))));
             this.btnBroaster.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBroaster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBroaster.Location = new System.Drawing.Point(1140, 348);
+            this.btnBroaster.Location = new System.Drawing.Point(1245, 344);
             this.btnBroaster.Name = "btnBroaster";
             this.btnBroaster.Size = new System.Drawing.Size(149, 43);
             this.btnBroaster.TabIndex = 39;
@@ -1086,7 +1094,7 @@
             this.btnPostres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(138)))), ((int)(((byte)(21)))));
             this.btnPostres.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPostres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPostres.Location = new System.Drawing.Point(1140, 728);
+            this.btnPostres.Location = new System.Drawing.Point(1245, 724);
             this.btnPostres.Name = "btnPostres";
             this.btnPostres.Size = new System.Drawing.Size(149, 43);
             this.btnPostres.TabIndex = 38;
@@ -1098,7 +1106,7 @@
             this.btnAlaCarta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
             this.btnAlaCarta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAlaCarta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlaCarta.Location = new System.Drawing.Point(1140, 290);
+            this.btnAlaCarta.Location = new System.Drawing.Point(1245, 286);
             this.btnAlaCarta.Name = "btnAlaCarta";
             this.btnAlaCarta.Size = new System.Drawing.Size(149, 43);
             this.btnAlaCarta.TabIndex = 37;
@@ -1110,19 +1118,32 @@
             this.btnParrilla.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(103)))), ((int)(((byte)(45)))));
             this.btnParrilla.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnParrilla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnParrilla.Location = new System.Drawing.Point(1140, 229);
+            this.btnParrilla.Location = new System.Drawing.Point(1245, 225);
             this.btnParrilla.Name = "btnParrilla";
             this.btnParrilla.Size = new System.Drawing.Size(149, 43);
             this.btnParrilla.TabIndex = 36;
             this.btnParrilla.Text = "Parrilla";
             this.btnParrilla.UseVisualStyleBackColor = false;
             // 
+            // pictureBoxSearchNpers
+            // 
+            this.pictureBoxSearchNpers.BackColor = System.Drawing.Color.Silver;
+            this.pictureBoxSearchNpers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxSearchNpers.Image = global::CapaPresentacion.Properties.Resources.search;
+            this.pictureBoxSearchNpers.Location = new System.Drawing.Point(377, 118);
+            this.pictureBoxSearchNpers.Name = "pictureBoxSearchNpers";
+            this.pictureBoxSearchNpers.Size = new System.Drawing.Size(39, 42);
+            this.pictureBoxSearchNpers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSearchNpers.TabIndex = 41;
+            this.pictureBoxSearchNpers.TabStop = false;
+            // 
             // MenuMozo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
-            this.ClientSize = new System.Drawing.Size(1341, 1055);
+            this.ClientSize = new System.Drawing.Size(1444, 1055);
+            this.Controls.Add(this.pictureBoxSearchNpers);
             this.Controls.Add(this.btnBurger);
             this.Controls.Add(this.btnBroaster);
             this.Controls.Add(this.btnPostres);
@@ -1159,6 +1180,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPagePiso1.ResumeLayout(false);
             this.tabPagePiso2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchNpers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1248,5 +1270,6 @@
         private Button btnPostres;
         private Button btnAlaCarta;
         private Button btnParrilla;
+        private PictureBox pictureBoxSearchNpers;
     }
 }
