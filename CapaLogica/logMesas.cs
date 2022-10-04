@@ -37,13 +37,29 @@ namespace CapaLogica
         {
             datMesas.Instancia.InsertaMesas(Pro);
         }
-
+        //busca
+        public entMesas BuscaMesas(int idMesas)
+        {
+            try
+            {
+                return datMesas.Instancia.BuscaMesas(idMesas);
+            }
+            catch (Exception e) { throw e; }
+        }
         //edita
         public void EditaMesas(entMesas Pro)
         {
             datMesas.Instancia.EditaMesas(Pro);
         }
 
+        public Boolean EliminaMesas(entMesas Pro)
+        {
+            try
+            {
+                return datMesas.Instancia.EliminaMesas(Pro);
+            }
+            catch (Exception e) { throw e; }
+        }
         #endregion metodos
     }
 }

@@ -43,7 +43,22 @@ namespace CapaLogica
         {
             datProducto.Instancia.EditaProducto(Pro);
         }
-
+        public Boolean EliminaProductos(entProducto Pro)
+        {
+            try
+            {
+                return datProducto.Instancia.EliminaProductos(Pro);
+            }
+            catch (Exception e) { throw e; }
+        }
+        public entProducto BuscaProductoId(int codigoProducto)
+        {
+            try
+            {
+                return datProducto.Instancia.BuscaProductoId(codigoProducto);
+            }
+            catch (Exception e) { throw e; }
+        }
         public DataSet BuscaProducto(string n)
         {
             return datProducto.Instancia.BuscaProducto(n);

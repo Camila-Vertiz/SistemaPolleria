@@ -59,8 +59,9 @@ namespace CapaDatos
             }
             return lista;
         }
+       
 
-        public entMesas BuscaMesas(int NumeroMesa)
+    public entMesas BuscaMesas(int NumeroMesa)
         {
             SqlCommand cmd = null;
             entMesas Mes = new entMesas();
@@ -147,7 +148,34 @@ namespace CapaDatos
         }
 
 
-
-        #endregion metodos
+        public Boolean EliminaMesas(entMesas Pro)
+        {
+            SqlCommand cmd = null;
+            Boolean delete = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("EliminaMesas", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_mesa", Pro.id_mesa);
+               
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    delete = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return delete;
+        }
     }
+
+
+    #endregion metodos
+
 }
