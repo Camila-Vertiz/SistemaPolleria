@@ -42,6 +42,8 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvProducto = new System.Windows.Forms.DataGridView();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.cboCategoria = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +55,7 @@
             this.btnRegistrar.TabIndex = 0;
             this.btnRegistrar.Text = "Registrar Producto";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnModificar
             // 
@@ -154,23 +157,43 @@
             this.btnBuscar.TabIndex = 12;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // dgvProducto
             // 
             this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducto.Location = new System.Drawing.Point(85, 262);
+            this.dgvProducto.Location = new System.Drawing.Point(85, 328);
             this.dgvProducto.Name = "dgvProducto";
             this.dgvProducto.RowHeadersWidth = 51;
             this.dgvProducto.RowTemplate.Height = 29;
             this.dgvProducto.Size = new System.Drawing.Size(638, 219);
             this.dgvProducto.TabIndex = 13;
             // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(108, 260);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(77, 20);
+            this.lblCategoria.TabIndex = 14;
+            this.lblCategoria.Text = "Categoría:";
+            // 
+            // cboCategoria
+            // 
+            this.cboCategoria.FormattingEnabled = true;
+            this.cboCategoria.Location = new System.Drawing.Point(233, 260);
+            this.cboCategoria.Name = "cboCategoria";
+            this.cboCategoria.Size = new System.Drawing.Size(151, 28);
+            this.cboCategoria.TabIndex = 15;
+            // 
             // FormMantenedorProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gold;
-            this.ClientSize = new System.Drawing.Size(800, 522);
+            this.ClientSize = new System.Drawing.Size(800, 588);
+            this.Controls.Add(this.cboCategoria);
+            this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.dgvProducto);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtDescripcion);
@@ -209,5 +232,7 @@
         private TextBox txtDescripcion;
         private Button btnBuscar;
         private DataGridView dgvProducto;
+        private Label lblCategoria;
+        private ComboBox cboCategoria;
     }
 }

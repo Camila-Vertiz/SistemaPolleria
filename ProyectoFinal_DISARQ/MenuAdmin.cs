@@ -113,11 +113,6 @@ namespace CapaPresentacion
             OpenChildForm(new FormMantenedorMesa());
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCasa_Click(object sender, EventArgs e)
         {
             Reset();

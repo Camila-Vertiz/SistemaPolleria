@@ -90,6 +90,62 @@ namespace CapaDatos
             finally { cmd.Connection.Close(); }
             return ds;
         }
+        public Boolean InsertaProducto(entProducto Pro)
+        {
+            SqlCommand cmd = null;
+            Boolean inserta = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spInsertaProducto", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre_producto", Pro.nombre_producto);
+                cmd.Parameters.AddWithValue("@categoria_producto", Pro.categoria_producto);
+                cmd.Parameters.AddWithValue("@precio_unitario_producto", Pro.precio_unitario_producto);
+                cmd.Parameters.AddWithValue("@descripcion_producto", Pro.descripcion_producto);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    inserta = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return inserta;
+        }
+        public Boolean EditaProducto(entProducto Pro)
+        {
+            SqlCommand cmd = null;
+            Boolean edita = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spEditaProducto", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@codigo_producto", Pro.codigo_producto);
+                cmd.Parameters.AddWithValue("@nombre_producto", Pro.nombre_producto);
+                cmd.Parameters.AddWithValue("@categoria_producto", Pro.categoria_producto);
+                cmd.Parameters.AddWithValue("@precio_unitario_producto", Pro.precio_unitario_producto);
+                cmd.Parameters.AddWithValue("@descripcion_producto", Pro.descripcion_producto);
+
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    edita = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return edita;
+        }
         #endregion metodos
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaLogica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,17 @@ namespace CapaPresentacion
         public FormConsultarMesas()
         {
             InitializeComponent();
+            listaMesas();
+        }
+        public void listaMesas()
+        {
+            dgvMesas.DataSource = logMesas.Instancia.ListaMesas();
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

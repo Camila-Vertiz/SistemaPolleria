@@ -146,6 +146,7 @@
             this.btnRegistrar.TabIndex = 14;
             this.btnRegistrar.Text = "Registrar Mesa";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // FormMantenedorMesa
             // 

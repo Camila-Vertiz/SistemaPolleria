@@ -32,21 +32,18 @@ namespace CapaLogica
             return datProducto.Instancia.ListarProducto();
         }
 
-        /////inserta
-        //public void InsertaProducto(entProducto Cli)
-        //{
-        //    datProducto.Instancia.InsertarProducto(Cli);
-        //}
+        ///inserta
+        public void InsertaProducto(entProducto Pro)
+        {
+            datProducto.Instancia.InsertaProducto(Pro);
+        }
 
         //edita
-        //public void EditaProducto(entProducto Cli)
-        //{
-        //    datProducto.Instancia.EditarProducto(Cli);
-        //}
-        //public void DeshabilitarProducto(entProducto Cli)
-        //{
-        //    datProducto.Instancia.DeshabilitarProducto(Cli);
-        //}
+        public void EditaProducto(entProducto Pro)
+        {
+            datProducto.Instancia.EditaProducto(Pro);
+        }
+
         public DataSet BuscaProducto(string n)
         {
             return datProducto.Instancia.BuscaProducto(n);
