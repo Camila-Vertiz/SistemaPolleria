@@ -16,7 +16,9 @@ namespace CapaPresentacion
         public MenuMozo()
         {
             InitializeComponent();
-            dgvProducto.DataSource = logProducto.Instancia.ListarProducto();
+            DataSet ds = logProducto.Instancia.ListarProducto();
+            dgvProducto.DataSource = ds;
+            dgvProducto.DataMember = "Producto";
         }
 
         private void textBox2_Enter(object sender, EventArgs e)
@@ -82,7 +84,9 @@ namespace CapaPresentacion
 
         private void btnLimpiarFiltros_Click(object sender, EventArgs e)
         {
-            dgvProducto.DataSource = logProducto.Instancia.ListarProducto();
+            DataSet ds = logProducto.Instancia.ListarProducto();
+            dgvProducto.DataSource = ds;
+            dgvProducto.DataMember = "Producto";
         }
 
         private void btnParrilla_Click(object sender, EventArgs e)

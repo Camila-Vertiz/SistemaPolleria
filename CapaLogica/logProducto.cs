@@ -27,7 +27,7 @@ namespace CapaLogica
 
         #region metodos
         ///listado
-        public List<entProducto> ListarProducto()
+        public DataSet ListarProducto()
         {
             return datProducto.Instancia.ListarProducto();
         }

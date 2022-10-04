@@ -24,38 +24,26 @@ namespace CapaDatos
         #endregion singleton
 
         #region metodos
-        public List<entProducto> ListarProducto()
+        public DataSet ListarProducto()
         {
             SqlCommand cmd = null;
-            List<entProducto> lista = new List<entProducto>(); //instanciando una lista
+            DataSet ds = new DataSet();
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spListaProducto", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
-
-                SqlDataReader dr = cmd.ExecuteReader(); //Ejecutamos el store procedure
-                while (dr.Read()) //mientas el data reader tenga registros
-                {
-                    entProducto Pro = new entProducto();
-                    Pro.codigo_producto = Convert.ToInt32(dr["codigo_producto"]);
-                    Pro.nombre_producto = dr["nombre_producto"].ToString();
-                    Pro.precio_unitario_producto = (float) Convert.ToDouble(dr["precio_unitario_producto"]);
-                    Pro.descripcion_producto = dr["descripcion_producto"].ToString();
-                    lista.Add(Pro);
-
-                }
+                SqlDataAdapter da = new SqlDataAdapter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Producto");
             }
             catch (Exception e)
             {
                 throw e;
             }
-            finally
-            {
-                cmd.Connection.Close();
-            }
-            return lista;
+            finally { cmd.Connection.Close(); }
+            return ds;
         }
 
         public DataSet BuscaProducto(string categoria = null)
