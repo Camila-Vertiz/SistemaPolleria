@@ -101,6 +101,11 @@ namespace CapaPresentacion
             listaMesas();
             
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

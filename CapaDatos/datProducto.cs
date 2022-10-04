@@ -45,7 +45,35 @@ namespace CapaDatos
             finally { cmd.Connection.Close(); }
             return ds;
         }
+        public entProducto BuscaProductoId(int codigoProducto)
+        {
+            SqlCommand cmd = null;
+            entProducto Pro = new entProducto();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscaProductoId", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@codigo_producto", codigoProducto);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Pro.codigo_producto = Convert.ToInt32(dr["codigo_producto"]);
+                    Pro.nombre_producto = dr["nombre_producto"].ToString();
+                    Pro.categoria_producto = dr["categoria_producto"].ToString();
+                    Pro.precio_unitario_producto = float.Parse(dr["precio_unitario_producto"].ToString());
+                    Pro.descripcion_producto = dr["descripcion_producto"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
 
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return Pro;
+        }
         public DataSet BuscaProducto(string categoria = null)
         {
             SqlCommand cmd = null;
@@ -146,6 +174,35 @@ namespace CapaDatos
             finally { cmd.Connection.Close(); }
             return edita;
         }
+
+
+        public Boolean EliminaProductos(entProducto Pro)
+        {
+            SqlCommand cmd = null;
+            Boolean delete = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spEliminaProductos", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@codigo_producto", Pro.codigo_producto);
+
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    delete = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return delete;
+        }
+
+
         #endregion metodos
     }
 }

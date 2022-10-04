@@ -38,7 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.txtIdMesa = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -134,15 +133,6 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(514, 141);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(161, 29);
-            this.btnModificar.TabIndex = 15;
-            this.btnModificar.Text = "Modificar Mesa";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            // 
             // btnRegistrar
             // 
             this.btnRegistrar.Location = new System.Drawing.Point(514, 81);
@@ -171,11 +161,11 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(711, 81);
+            this.btnEditar.Location = new System.Drawing.Point(514, 137);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(161, 29);
             this.btnEditar.TabIndex = 30;
-            this.btnEditar.Text = "Editar Mesa";
+            this.btnEditar.Text = "Modifica Mesa";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -198,7 +188,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnRegistrar);
             this.Name = "FormMantenedorMesa";
             this.Text = "FormMantenedorMesa";
@@ -220,7 +209,6 @@
         private Label label2;
         private Label label1;
         private Button btnEliminar;
-        private Button btnModificar;
         private Button btnRegistrar;
         private TextBox txtIdMesa;
         private Label label4;
