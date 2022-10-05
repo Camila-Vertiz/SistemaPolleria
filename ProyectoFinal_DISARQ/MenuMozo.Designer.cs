@@ -38,6 +38,14 @@
             this.lblNPersonas = new System.Windows.Forms.Label();
             this.txtNPersonas = new System.Windows.Forms.TextBox();
             this.dgvMesa = new System.Windows.Forms.DataGridView();
+            this.idDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -114,6 +122,10 @@
             this.btnParrilla = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.PictureBox();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
+            this.txtProductoSelec = new System.Windows.Forms.TextBox();
+            this.cantProducto = new System.Windows.Forms.DomainUpDown();
+            this.gbProductoSelec = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesa)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -124,6 +136,8 @@
             this.tabPagePiso1.SuspendLayout();
             this.tabPagePiso2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSearch)).BeginInit();
+            this.gbProductoSelec.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnComandar
@@ -192,12 +206,22 @@
             // 
             // dgvMesa
             // 
+            this.dgvMesa.AllowUserToAddRows = false;
             this.dgvMesa.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvMesa.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvMesa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMesa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDetalle,
+            this.idProducto,
+            this.codigoPedido,
+            this.Producto,
+            this.PUnitario,
+            this.Cantidad,
+            this.SubTotal,
+            this.Fecha});
             this.dgvMesa.Enabled = false;
             this.dgvMesa.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvMesa.Location = new System.Drawing.Point(476, 649);
+            this.dgvMesa.Location = new System.Drawing.Point(476, 678);
             this.dgvMesa.Name = "dgvMesa";
             this.dgvMesa.ReadOnly = true;
             this.dgvMesa.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -207,6 +231,73 @@
             this.dgvMesa.RowTemplate.Height = 29;
             this.dgvMesa.Size = new System.Drawing.Size(728, 252);
             this.dgvMesa.TabIndex = 24;
+            // 
+            // idDetalle
+            // 
+            this.idDetalle.HeaderText = "idDetalle";
+            this.idDetalle.MinimumWidth = 6;
+            this.idDetalle.Name = "idDetalle";
+            this.idDetalle.ReadOnly = true;
+            this.idDetalle.Visible = false;
+            this.idDetalle.Width = 125;
+            // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "idProducto";
+            this.idProducto.MinimumWidth = 6;
+            this.idProducto.Name = "idProducto";
+            this.idProducto.ReadOnly = true;
+            this.idProducto.Visible = false;
+            this.idProducto.Width = 125;
+            // 
+            // codigoPedido
+            // 
+            this.codigoPedido.HeaderText = "codigoPedido";
+            this.codigoPedido.MinimumWidth = 6;
+            this.codigoPedido.Name = "codigoPedido";
+            this.codigoPedido.ReadOnly = true;
+            this.codigoPedido.Visible = false;
+            this.codigoPedido.Width = 125;
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.MinimumWidth = 6;
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            this.Producto.Width = 125;
+            // 
+            // PUnitario
+            // 
+            this.PUnitario.HeaderText = "P. Unitario";
+            this.PUnitario.MinimumWidth = 6;
+            this.PUnitario.Name = "PUnitario";
+            this.PUnitario.ReadOnly = true;
+            this.PUnitario.Width = 125;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.MinimumWidth = 6;
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Width = 125;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "SubTotal";
+            this.SubTotal.MinimumWidth = 6;
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.ReadOnly = true;
+            this.SubTotal.Width = 125;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.MinimumWidth = 6;
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Width = 125;
             // 
             // panel1
             // 
@@ -295,8 +386,9 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvProducto.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvProducto.RowTemplate.Height = 29;
-            this.dgvProducto.Size = new System.Drawing.Size(728, 367);
+            this.dgvProducto.Size = new System.Drawing.Size(728, 310);
             this.dgvProducto.TabIndex = 26;
+            this.dgvProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellClick);
             // 
             // panel3
             // 
@@ -305,7 +397,7 @@
             this.panel3.Controls.Add(this.txtMostrarMesa);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.lblMesa);
-            this.panel3.Location = new System.Drawing.Point(475, 585);
+            this.panel3.Location = new System.Drawing.Point(475, 614);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(729, 64);
             this.panel3.TabIndex = 28;
@@ -1175,12 +1267,71 @@
             this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
             this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
             // 
+            // txtProductoSelec
+            // 
+            this.txtProductoSelec.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtProductoSelec.Enabled = false;
+            this.txtProductoSelec.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtProductoSelec.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtProductoSelec.Location = new System.Drawing.Point(17, 37);
+            this.txtProductoSelec.Name = "txtProductoSelec";
+            this.txtProductoSelec.ReadOnly = true;
+            this.txtProductoSelec.Size = new System.Drawing.Size(329, 27);
+            this.txtProductoSelec.TabIndex = 43;
+            // 
+            // cantProducto
+            // 
+            this.cantProducto.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cantProducto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cantProducto.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.cantProducto.Items.Add("10");
+            this.cantProducto.Items.Add("9");
+            this.cantProducto.Items.Add("8");
+            this.cantProducto.Items.Add("7");
+            this.cantProducto.Items.Add("6");
+            this.cantProducto.Items.Add("5");
+            this.cantProducto.Items.Add("4");
+            this.cantProducto.Items.Add("3");
+            this.cantProducto.Items.Add("2");
+            this.cantProducto.Items.Add("1");
+            this.cantProducto.Location = new System.Drawing.Point(378, 38);
+            this.cantProducto.Name = "cantProducto";
+            this.cantProducto.ReadOnly = true;
+            this.cantProducto.Size = new System.Drawing.Size(85, 27);
+            this.cantProducto.TabIndex = 44;
+            this.cantProducto.Text = "1";
+            // 
+            // gbProductoSelec
+            // 
+            this.gbProductoSelec.Controls.Add(this.pictureBox1);
+            this.gbProductoSelec.Controls.Add(this.txtProductoSelec);
+            this.gbProductoSelec.Controls.Add(this.cantProducto);
+            this.gbProductoSelec.Location = new System.Drawing.Point(520, 500);
+            this.gbProductoSelec.Name = "gbProductoSelec";
+            this.gbProductoSelec.Size = new System.Drawing.Size(644, 81);
+            this.gbProductoSelec.TabIndex = 45;
+            this.gbProductoSelec.TabStop = false;
+            this.gbProductoSelec.Text = "Producto Seleccionado";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.PaleGreen;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.anadir;
+            this.pictureBox1.Location = new System.Drawing.Point(530, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 42);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 46;
+            this.pictureBox1.TabStop = false;
+            // 
             // MenuMozo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(1444, 1055);
+            this.Controls.Add(this.gbProductoSelec);
             this.Controls.Add(this.btnLimpiarFiltros);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnBurger);
@@ -1220,6 +1371,9 @@
             this.tabPagePiso1.ResumeLayout(false);
             this.tabPagePiso2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnSearch)).EndInit();
+            this.gbProductoSelec.ResumeLayout(false);
+            this.gbProductoSelec.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1311,5 +1465,17 @@
         private Button btnParrilla;
         private PictureBox btnSearch;
         private Button btnLimpiarFiltros;
+        private DataGridViewTextBoxColumn idDetalle;
+        private DataGridViewTextBoxColumn idProducto;
+        private DataGridViewTextBoxColumn codigoPedido;
+        private DataGridViewTextBoxColumn Producto;
+        private DataGridViewTextBoxColumn PUnitario;
+        private DataGridViewComboBoxColumn Cantidad;
+        private DataGridViewTextBoxColumn SubTotal;
+        private DataGridViewTextBoxColumn Fecha;
+        private TextBox txtProductoSelec;
+        private DomainUpDown cantProducto;
+        private GroupBox gbProductoSelec;
+        private PictureBox pictureBox1;
     }
 }

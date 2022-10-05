@@ -202,5 +202,11 @@ namespace CapaPresentacion
                 e.Handled = true;
             }
         }
+
+        private void dgvProducto_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow filaActual = dgvProducto.Rows[e.RowIndex]; //
+            txtProductoSelec.Text = filaActual.Cells[1].Value.ToString();
+        }
     }
 }

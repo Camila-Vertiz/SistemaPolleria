@@ -93,6 +93,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap anadir {
+            get {
+                object obj = ResourceManager.GetObject("anadir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cocinero__1_ {
             get {
                 object obj = ResourceManager.GetObject("cocinero (1)", resourceCulture);
