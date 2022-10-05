@@ -59,9 +59,9 @@ namespace CapaDatos
             }
             return lista;
         }
-       
 
-    public entMesas BuscaMesas(int NumeroMesa)
+
+        public entMesas BuscaMesas(int NumeroMesa)
         {
             SqlCommand cmd = null;
             entMesas Mes = new entMesas();
@@ -79,6 +79,32 @@ namespace CapaDatos
                     Mes.numero_mesa = dr["numero_mesa"].ToString();
                     Mes.capacidad_mesa = int.Parse(dr["capacidad_mesa"].ToString());
                     Mes.ubicacion_mesa = dr["ubicacion_mesa"].ToString();
+
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return Mes;
+        }
+        public entMesas BuscarCapacidadMesas(int capacidad_mesa)
+        {
+            SqlCommand cmd = null;
+            entMesas Mes = new entMesas();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarCapacidadMesa", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@capacidad_mesa", capacidad_mesa);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Mes.numero_mesa = dr["numero_mesa"].ToString();
 
                 }
             }
@@ -158,7 +184,7 @@ namespace CapaDatos
                 cmd = new SqlCommand("EliminaMesas", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_mesa", Pro.id_mesa);
-               
+
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)

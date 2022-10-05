@@ -46,6 +46,14 @@ namespace CapaLogica
             }
             catch (Exception e) { throw e; }
         }
+        public entMesas BuscarCapacidadMesas(int capacidad)
+        {
+            try
+            {
+                return datMesas.Instancia.BuscarCapacidadMesas(capacidad);
+            }
+            catch (Exception e) { throw e; }
+        }
         //edita
         public void EditaMesas(entMesas Pro)
         {

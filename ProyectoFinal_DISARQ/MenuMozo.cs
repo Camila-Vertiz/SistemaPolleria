@@ -1,4 +1,5 @@
-﻿using CapaLogica;
+﻿using CapaEntidad;
+using CapaLogica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,18 @@ namespace CapaPresentacion
             DataSet ds = logProducto.Instancia.ListarProducto();
             dgvProducto.DataSource = ds;
             dgvProducto.DataMember = "Producto";
+            formatoDGV();
+        }
+        void formatoDGV()
+        {
+            dgvProducto.Columns[0].Width = 50;
+            dgvProducto.Columns[0].HeaderText = "Cod.";
+            dgvProducto.Columns[1].Width = 300;
+            dgvProducto.Columns[1].HeaderText = "Producto";
+            dgvProducto.Columns[2].Width = 70;
+            dgvProducto.Columns[2].HeaderText = "P. Unitario";
+            dgvProducto.Columns[3].Width = 400;
+            dgvProducto.Columns[3].HeaderText = "Descripcion";
         }
 
         private void textBox2_Enter(object sender, EventArgs e)
@@ -47,12 +60,12 @@ namespace CapaPresentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
-            txtMostrarMesa.Text = ""; 
+            txtMostrarMesa.Text = "";
         }
 
         private void MenuMozo_Load(object sender, EventArgs e)
         {
-               
+
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -157,6 +170,37 @@ namespace CapaPresentacion
             DataSet ds = logProducto.Instancia.BuscaNombreProducto(txtBuscarProductos.Text.Trim());
             dgvProducto.DataSource = ds;
             dgvProducto.DataMember = "Producto";
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //txtNPersonas.Focus();
+            //if (!txtNPersonas.Text.Equals(""))
+            //{
+            //    int cant = Convert.ToInt32(txtNPersonas.Text);
+            //    entMesas m = logMesas.Instancia.BuscarCapacidadMesas(cant);
+            //    if(m != null)
+            //    {
+            //        if(m.capacidad_mesa)
+            //    }
+            //}
+            //else
+            //    MessageBox.Show("Ingrese un valor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+        }
+
+        private void txtNPersonas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

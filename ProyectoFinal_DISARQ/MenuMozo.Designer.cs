@@ -30,6 +30,8 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnComandar = new System.Windows.Forms.Button();
             this.btnPreCuenta = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -110,7 +112,7 @@
             this.btnPostres = new System.Windows.Forms.Button();
             this.btnAlaCarta = new System.Windows.Forms.Button();
             this.btnParrilla = new System.Windows.Forms.Button();
-            this.pictureBoxSearchNpers = new System.Windows.Forms.PictureBox();
+            this.btnSearch = new System.Windows.Forms.PictureBox();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesa)).BeginInit();
             this.panel1.SuspendLayout();
@@ -121,7 +123,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPagePiso1.SuspendLayout();
             this.tabPagePiso2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchNpers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // btnComandar
@@ -186,6 +188,7 @@
             this.txtNPersonas.Name = "txtNPersonas";
             this.txtNPersonas.Size = new System.Drawing.Size(132, 31);
             this.txtNPersonas.TabIndex = 1;
+            this.txtNPersonas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNPersonas_KeyPress);
             // 
             // dgvMesa
             // 
@@ -270,16 +273,27 @@
             // 
             // dgvProducto
             // 
-            this.dgvProducto.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvProducto.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvProducto.BackgroundColor = System.Drawing.Color.Linen;
             this.dgvProducto.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.PapayaWhip;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProducto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducto.EnableHeadersVisualStyles = false;
             this.dgvProducto.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvProducto.Location = new System.Drawing.Point(475, 157);
             this.dgvProducto.Name = "dgvProducto";
             this.dgvProducto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvProducto.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvProducto.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvProducto.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvProducto.RowTemplate.Height = 29;
             this.dgvProducto.Size = new System.Drawing.Size(728, 367);
             this.dgvProducto.TabIndex = 26;
@@ -446,7 +460,7 @@
             // 
             // btnMesa13
             // 
-            this.btnMesa13.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa13.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa13.Location = new System.Drawing.Point(27, 322);
@@ -458,7 +472,7 @@
             // 
             // btnMesa24
             // 
-            this.btnMesa24.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa24.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa24.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa24.Location = new System.Drawing.Point(316, 506);
@@ -470,7 +484,7 @@
             // 
             // btnMesa20
             // 
-            this.btnMesa20.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa20.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa20.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa20.Location = new System.Drawing.Point(316, 412);
@@ -482,7 +496,7 @@
             // 
             // btnMesa19
             // 
-            this.btnMesa19.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa19.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa19.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa19.Location = new System.Drawing.Point(221, 412);
@@ -494,7 +508,7 @@
             // 
             // btnMesa18
             // 
-            this.btnMesa18.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa18.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa18.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa18.Location = new System.Drawing.Point(123, 412);
@@ -506,7 +520,7 @@
             // 
             // btnMesa17
             // 
-            this.btnMesa17.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa17.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa17.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa17.Location = new System.Drawing.Point(27, 412);
@@ -518,7 +532,7 @@
             // 
             // btnMesa16
             // 
-            this.btnMesa16.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa16.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa16.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa16.Location = new System.Drawing.Point(316, 322);
@@ -530,7 +544,7 @@
             // 
             // btnMesa15
             // 
-            this.btnMesa15.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa15.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa15.Location = new System.Drawing.Point(221, 322);
@@ -542,7 +556,7 @@
             // 
             // btnMesa14
             // 
-            this.btnMesa14.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa14.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa14.Location = new System.Drawing.Point(123, 322);
@@ -554,7 +568,7 @@
             // 
             // btnMesa23
             // 
-            this.btnMesa23.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa23.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa23.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa23.Location = new System.Drawing.Point(221, 506);
@@ -566,7 +580,7 @@
             // 
             // btnMesa22
             // 
-            this.btnMesa22.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa22.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa22.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa22.Location = new System.Drawing.Point(123, 506);
@@ -578,7 +592,7 @@
             // 
             // btnMesa21
             // 
-            this.btnMesa21.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa21.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa21.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa21.Location = new System.Drawing.Point(27, 506);
@@ -590,7 +604,7 @@
             // 
             // btnMesa1
             // 
-            this.btnMesa1.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa1.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa1.Location = new System.Drawing.Point(27, 52);
@@ -603,7 +617,7 @@
             // 
             // btnMesa12
             // 
-            this.btnMesa12.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa12.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa12.Location = new System.Drawing.Point(316, 236);
@@ -615,7 +629,7 @@
             // 
             // btnMesa8
             // 
-            this.btnMesa8.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa8.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa8.Location = new System.Drawing.Point(316, 142);
@@ -627,7 +641,7 @@
             // 
             // btnMesa7
             // 
-            this.btnMesa7.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa7.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa7.Location = new System.Drawing.Point(221, 142);
@@ -639,7 +653,7 @@
             // 
             // btnMesa6
             // 
-            this.btnMesa6.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa6.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa6.Location = new System.Drawing.Point(123, 142);
@@ -651,7 +665,7 @@
             // 
             // btnMesa5
             // 
-            this.btnMesa5.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa5.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa5.Location = new System.Drawing.Point(27, 142);
@@ -663,7 +677,7 @@
             // 
             // btnMesa4
             // 
-            this.btnMesa4.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa4.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa4.Location = new System.Drawing.Point(316, 52);
@@ -675,7 +689,7 @@
             // 
             // btnMesa3
             // 
-            this.btnMesa3.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa3.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa3.Location = new System.Drawing.Point(221, 52);
@@ -688,7 +702,7 @@
             // 
             // btnMesa2
             // 
-            this.btnMesa2.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa2.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa2.Location = new System.Drawing.Point(123, 52);
@@ -701,7 +715,7 @@
             // 
             // btnMesa11
             // 
-            this.btnMesa11.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa11.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa11.Location = new System.Drawing.Point(221, 236);
@@ -713,7 +727,7 @@
             // 
             // btnMesa10
             // 
-            this.btnMesa10.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa10.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa10.Location = new System.Drawing.Point(123, 236);
@@ -725,7 +739,7 @@
             // 
             // btnMesa9
             // 
-            this.btnMesa9.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa9.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa9.Location = new System.Drawing.Point(27, 236);
@@ -771,7 +785,7 @@
             // 
             // btnMesa37
             // 
-            this.btnMesa37.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa37.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa37.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa37.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa37.Location = new System.Drawing.Point(27, 322);
@@ -783,7 +797,7 @@
             // 
             // btnMesa48
             // 
-            this.btnMesa48.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa48.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa48.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa48.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa48.Location = new System.Drawing.Point(316, 506);
@@ -795,7 +809,7 @@
             // 
             // btnMesa44
             // 
-            this.btnMesa44.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa44.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa44.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa44.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa44.Location = new System.Drawing.Point(316, 412);
@@ -807,7 +821,7 @@
             // 
             // btnMesa43
             // 
-            this.btnMesa43.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa43.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa43.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa43.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa43.Location = new System.Drawing.Point(221, 412);
@@ -819,7 +833,7 @@
             // 
             // btnMesa42
             // 
-            this.btnMesa42.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa42.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa42.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa42.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa42.Location = new System.Drawing.Point(123, 412);
@@ -831,7 +845,7 @@
             // 
             // btnMesa41
             // 
-            this.btnMesa41.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa41.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa41.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa41.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa41.Location = new System.Drawing.Point(27, 412);
@@ -843,7 +857,7 @@
             // 
             // btnMesa40
             // 
-            this.btnMesa40.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa40.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa40.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa40.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa40.Location = new System.Drawing.Point(316, 322);
@@ -855,7 +869,7 @@
             // 
             // btnMesa39
             // 
-            this.btnMesa39.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa39.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa39.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa39.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa39.Location = new System.Drawing.Point(221, 322);
@@ -867,7 +881,7 @@
             // 
             // btnMesa38
             // 
-            this.btnMesa38.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa38.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa38.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa38.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa38.Location = new System.Drawing.Point(123, 322);
@@ -879,7 +893,7 @@
             // 
             // btnMesa47
             // 
-            this.btnMesa47.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa47.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa47.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa47.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa47.Location = new System.Drawing.Point(221, 506);
@@ -891,7 +905,7 @@
             // 
             // btnMesa46
             // 
-            this.btnMesa46.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa46.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa46.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa46.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa46.Location = new System.Drawing.Point(123, 506);
@@ -903,7 +917,7 @@
             // 
             // btnMesa45
             // 
-            this.btnMesa45.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa45.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa45.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa45.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa45.Location = new System.Drawing.Point(27, 506);
@@ -915,7 +929,7 @@
             // 
             // btnMesa25
             // 
-            this.btnMesa25.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa25.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa25.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa25.Location = new System.Drawing.Point(27, 52);
@@ -927,7 +941,7 @@
             // 
             // btnMesa36
             // 
-            this.btnMesa36.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa36.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa36.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa36.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa36.Location = new System.Drawing.Point(316, 236);
@@ -939,7 +953,7 @@
             // 
             // btnMesa32
             // 
-            this.btnMesa32.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa32.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa32.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa32.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa32.Location = new System.Drawing.Point(316, 142);
@@ -951,7 +965,7 @@
             // 
             // btnMesa31
             // 
-            this.btnMesa31.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa31.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa31.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa31.Location = new System.Drawing.Point(221, 142);
@@ -963,7 +977,7 @@
             // 
             // btnMesa30
             // 
-            this.btnMesa30.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa30.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa30.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa30.Location = new System.Drawing.Point(123, 142);
@@ -975,7 +989,7 @@
             // 
             // btnMesa29
             // 
-            this.btnMesa29.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa29.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa29.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa29.Location = new System.Drawing.Point(27, 142);
@@ -987,7 +1001,7 @@
             // 
             // btnMesa28
             // 
-            this.btnMesa28.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa28.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa28.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa28.Location = new System.Drawing.Point(316, 52);
@@ -999,7 +1013,7 @@
             // 
             // btnMesa27
             // 
-            this.btnMesa27.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa27.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa27.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa27.Location = new System.Drawing.Point(221, 52);
@@ -1011,7 +1025,7 @@
             // 
             // btnMesa26
             // 
-            this.btnMesa26.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa26.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa26.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa26.Location = new System.Drawing.Point(123, 52);
@@ -1023,7 +1037,7 @@
             // 
             // btnMesa35
             // 
-            this.btnMesa35.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa35.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa35.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa35.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa35.Location = new System.Drawing.Point(221, 236);
@@ -1035,7 +1049,7 @@
             // 
             // btnMesa34
             // 
-            this.btnMesa34.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa34.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa34.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa34.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa34.Location = new System.Drawing.Point(123, 236);
@@ -1047,7 +1061,7 @@
             // 
             // btnMesa33
             // 
-            this.btnMesa33.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnMesa33.BackColor = System.Drawing.Color.ForestGreen;
             this.btnMesa33.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa33.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa33.Location = new System.Drawing.Point(27, 236);
@@ -1135,17 +1149,18 @@
             this.btnParrilla.UseVisualStyleBackColor = false;
             this.btnParrilla.Click += new System.EventHandler(this.btnParrilla_Click);
             // 
-            // pictureBoxSearchNpers
+            // btnSearch
             // 
-            this.pictureBoxSearchNpers.BackColor = System.Drawing.Color.Silver;
-            this.pictureBoxSearchNpers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxSearchNpers.Image = global::CapaPresentacion.Properties.Resources.search;
-            this.pictureBoxSearchNpers.Location = new System.Drawing.Point(377, 118);
-            this.pictureBoxSearchNpers.Name = "pictureBoxSearchNpers";
-            this.pictureBoxSearchNpers.Size = new System.Drawing.Size(39, 42);
-            this.pictureBoxSearchNpers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxSearchNpers.TabIndex = 41;
-            this.pictureBoxSearchNpers.TabStop = false;
+            this.btnSearch.BackColor = System.Drawing.Color.Silver;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.Image = global::CapaPresentacion.Properties.Resources.search;
+            this.btnSearch.Location = new System.Drawing.Point(377, 118);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(39, 42);
+            this.btnSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnSearch.TabIndex = 41;
+            this.btnSearch.TabStop = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnLimpiarFiltros
             // 
@@ -1167,7 +1182,7 @@
             this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(1444, 1055);
             this.Controls.Add(this.btnLimpiarFiltros);
-            this.Controls.Add(this.pictureBoxSearchNpers);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnBurger);
             this.Controls.Add(this.btnBroaster);
             this.Controls.Add(this.btnPostres);
@@ -1204,7 +1219,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPagePiso1.ResumeLayout(false);
             this.tabPagePiso2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearchNpers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1294,7 +1309,7 @@
         private Button btnPostres;
         private Button btnAlaCarta;
         private Button btnParrilla;
-        private PictureBox pictureBoxSearchNpers;
+        private PictureBox btnSearch;
         private Button btnLimpiarFiltros;
     }
 }
