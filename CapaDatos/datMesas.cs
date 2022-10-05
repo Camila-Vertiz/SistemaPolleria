@@ -45,6 +45,7 @@ namespace CapaDatos
                     Mes.numero_mesa = dr["numero_mesa"].ToString();
                     Mes.capacidad_mesa = int.Parse(dr["capacidad_mesa"].ToString());
                     Mes.ubicacion_mesa = dr["ubicacion_mesa"].ToString();
+                    Mes.estado_mesa = dr["estado_mesa"].ToString();
                     lista.Add(Mes);
                 }
 

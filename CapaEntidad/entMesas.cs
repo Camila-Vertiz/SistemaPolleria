@@ -12,6 +12,7 @@ namespace CapaEntidad
         public string numero_mesa { get; set; }
         public int capacidad_mesa { get; set; }
         public string ubicacion_mesa { get; set; }
+        public string estado_mesa { get; set; }
 
     }
 }
