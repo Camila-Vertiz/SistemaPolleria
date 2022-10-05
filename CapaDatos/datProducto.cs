@@ -118,6 +118,28 @@ namespace CapaDatos
             finally { cmd.Connection.Close(); }
             return ds;
         }
+        public DataSet ConsultaProductoId(int codigoProducto)
+        {
+            SqlCommand cmd = null;
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscaProductoId", cn);
+                cn.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@codigo_producto", codigoProducto));
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Producto");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return ds;
+        }
         public Boolean InsertaProducto(entProducto Pro)
         {
             SqlCommand cmd = null;

@@ -51,6 +51,10 @@ namespace CapaLogica
             }
             catch (Exception e) { throw e; }
         }
+        public DataSet ConsultaProductoId(int codigoProducto)
+        {
+            return datProducto.Instancia.ConsultaProductoId(codigoProducto);
+        }
         public entProducto BuscaProductoId(int codigoProducto)
         {
             try

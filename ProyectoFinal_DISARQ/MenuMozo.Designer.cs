@@ -389,6 +389,7 @@
             this.dgvProducto.Size = new System.Drawing.Size(728, 310);
             this.dgvProducto.TabIndex = 26;
             this.dgvProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellClick);
+            this.dgvProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellContentClick);
             // 
             // panel3
             // 

@@ -1,4 +1,5 @@
-﻿using CapaLogica;
+﻿using CapaDatos;
+using CapaLogica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,6 @@ namespace CapaPresentacion
         public void listaMesas()
         {
             dgvMesas.DataSource = logMesas.Instancia.ListaMesas();
-
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

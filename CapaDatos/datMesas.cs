@@ -34,7 +34,7 @@ namespace CapaDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spListaMesas", cn);
+                cmd = new SqlCommand("spListaMesa", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -68,7 +68,7 @@ namespace CapaDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spBuscaMesas", cn);
+                cmd = new SqlCommand("spBuscaMesa", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_mesa", NumeroMesa);
                 cn.Open();
@@ -123,7 +123,7 @@ namespace CapaDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spInsertaMesas", cn);
+                cmd = new SqlCommand("spInsertaMesa", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@numero_mesa", Mes.numero_mesa);
                 cmd.Parameters.AddWithValue("@capacidad_mesa", Mes.capacidad_mesa);
@@ -152,7 +152,7 @@ namespace CapaDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spEditaMesas", cn);
+                cmd = new SqlCommand("spEditaMesa", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_mesa", Mes.id_mesa);
                 cmd.Parameters.AddWithValue("@numero_mesa", Mes.numero_mesa);
@@ -181,7 +181,7 @@ namespace CapaDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("EliminaMesas", cn);
+                cmd = new SqlCommand("EliminaMesa", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_mesa", Pro.id_mesa);
 

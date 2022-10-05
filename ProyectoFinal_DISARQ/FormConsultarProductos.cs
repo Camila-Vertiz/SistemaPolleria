@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaLogica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,9 @@ namespace CapaPresentacion
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            DataSet ds = logProducto.Instancia.ConsultaProductoId(Convert.ToInt32(txtCodigoProducto.Text));
+            dgvProducto.DataSource = ds;
+            dgvProducto.DataMember = "Producto";
         }
     }
 }
