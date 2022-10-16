@@ -2,6 +2,7 @@
 using CapaEntidad;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,10 +26,23 @@ namespace CapaLogica
         #endregion singleton
 
         #region metodos
-        //public void InsertaDetallePedido(entDetallePedido Det)
+
+        public int ObtenerCorrelativo()
+        {
+            return datPedido.Instancia.ObtenerCorrelativo();
+        }
+
+        ///listado
+
+        //public List<entPedido> ListaPedido()
         //{
-        //    datDetallePedido.Instancia.InsertaDetallePedido(Det);
+        //    return datPedido.Instancia.ListaPedido();
         //}
+        ///inserta
+        public bool InsertarPedido(entPedido Pro, DataTable EDetalle_Pedido, out string Mensaje)
+        {
+            return datPedido.Instancia.InsertarPedido(Pro, EDetalle_Pedido, out Mensaje);
+        }
         #endregion metodos
     }
 }

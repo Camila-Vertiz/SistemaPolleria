@@ -38,14 +38,6 @@
             this.lblNPersonas = new System.Windows.Forms.Label();
             this.txtNPersonas = new System.Windows.Forms.TextBox();
             this.dgvMesa = new System.Windows.Forms.DataGridView();
-            this.idDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -210,15 +202,6 @@
             this.dgvMesa.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvMesa.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvMesa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMesa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDetalle,
-            this.idProducto,
-            this.codigoPedido,
-            this.Producto,
-            this.PUnitario,
-            this.Cantidad,
-            this.SubTotal,
-            this.Fecha});
             this.dgvMesa.Enabled = false;
             this.dgvMesa.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvMesa.Location = new System.Drawing.Point(476, 678);
@@ -231,73 +214,6 @@
             this.dgvMesa.RowTemplate.Height = 29;
             this.dgvMesa.Size = new System.Drawing.Size(728, 252);
             this.dgvMesa.TabIndex = 24;
-            // 
-            // idDetalle
-            // 
-            this.idDetalle.HeaderText = "idDetalle";
-            this.idDetalle.MinimumWidth = 6;
-            this.idDetalle.Name = "idDetalle";
-            this.idDetalle.ReadOnly = true;
-            this.idDetalle.Visible = false;
-            this.idDetalle.Width = 125;
-            // 
-            // idProducto
-            // 
-            this.idProducto.HeaderText = "idProducto";
-            this.idProducto.MinimumWidth = 6;
-            this.idProducto.Name = "idProducto";
-            this.idProducto.ReadOnly = true;
-            this.idProducto.Visible = false;
-            this.idProducto.Width = 125;
-            // 
-            // codigoPedido
-            // 
-            this.codigoPedido.HeaderText = "codigoPedido";
-            this.codigoPedido.MinimumWidth = 6;
-            this.codigoPedido.Name = "codigoPedido";
-            this.codigoPedido.ReadOnly = true;
-            this.codigoPedido.Visible = false;
-            this.codigoPedido.Width = 125;
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.MinimumWidth = 6;
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            this.Producto.Width = 125;
-            // 
-            // PUnitario
-            // 
-            this.PUnitario.HeaderText = "P. Unitario";
-            this.PUnitario.MinimumWidth = 6;
-            this.PUnitario.Name = "PUnitario";
-            this.PUnitario.ReadOnly = true;
-            this.PUnitario.Width = 125;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.MinimumWidth = 6;
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Width = 125;
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.HeaderText = "SubTotal";
-            this.SubTotal.MinimumWidth = 6;
-            this.SubTotal.Name = "SubTotal";
-            this.SubTotal.ReadOnly = true;
-            this.SubTotal.Width = 125;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.MinimumWidth = 6;
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 125;
             // 
             // panel1
             // 
@@ -1466,14 +1382,6 @@
         private Button btnParrilla;
         private PictureBox btnSearch;
         private Button btnLimpiarFiltros;
-        private DataGridViewTextBoxColumn idDetalle;
-        private DataGridViewTextBoxColumn idProducto;
-        private DataGridViewTextBoxColumn codigoPedido;
-        private DataGridViewTextBoxColumn Producto;
-        private DataGridViewTextBoxColumn PUnitario;
-        private DataGridViewComboBoxColumn Cantidad;
-        private DataGridViewTextBoxColumn SubTotal;
-        private DataGridViewTextBoxColumn Fecha;
         private TextBox txtProductoSelec;
         private DomainUpDown cantProducto;
         private GroupBox gbProductoSelec;
