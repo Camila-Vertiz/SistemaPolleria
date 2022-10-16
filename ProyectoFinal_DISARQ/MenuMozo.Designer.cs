@@ -32,9 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnComandar = new System.Windows.Forms.Button();
-            this.btnPreCuenta = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.lblNPersonas = new System.Windows.Forms.Label();
             this.txtNPersonas = new System.Windows.Forms.TextBox();
             this.dgvMesa = new System.Windows.Forms.DataGridView();
@@ -46,6 +43,7 @@
             this.lblProductos = new System.Windows.Forms.Label();
             this.dgvProducto = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnEliminar = new System.Windows.Forms.PictureBox();
             this.txtMostrarMesa = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -112,74 +110,43 @@
             this.btnPostres = new System.Windows.Forms.Button();
             this.btnAlaCarta = new System.Windows.Forms.Button();
             this.btnParrilla = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.PictureBox();
+            this.btnSearchMesa = new System.Windows.Forms.PictureBox();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             this.txtProductoSelec = new System.Windows.Forms.TextBox();
             this.cantProducto = new System.Windows.Forms.DomainUpDown();
             this.gbProductoSelec = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRegistrar = new System.Windows.Forms.PictureBox();
+            this.txtDNIcliente = new System.Windows.Forms.TextBox();
+            this.lblDNIcliente = new System.Windows.Forms.Label();
+            this.btnBuscarDNI = new System.Windows.Forms.PictureBox();
+            this.picUser = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblNombreUser = new System.Windows.Forms.Label();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesa)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).BeginInit();
             this.panel4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPagePiso1.SuspendLayout();
             this.tabPagePiso2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSearchMesa)).BeginInit();
             this.gbProductoSelec.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRegistrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBuscarDNI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUser)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnComandar
-            // 
-            this.btnComandar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(143)))), ((int)(((byte)(16)))));
-            this.btnComandar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnComandar.FlatAppearance.BorderSize = 0;
-            this.btnComandar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComandar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnComandar.Location = new System.Drawing.Point(558, 37);
-            this.btnComandar.Name = "btnComandar";
-            this.btnComandar.Size = new System.Drawing.Size(133, 36);
-            this.btnComandar.TabIndex = 0;
-            this.btnComandar.Text = "Comandar";
-            this.btnComandar.UseVisualStyleBackColor = false;
-            // 
-            // btnPreCuenta
-            // 
-            this.btnPreCuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(184)))), ((int)(((byte)(20)))));
-            this.btnPreCuenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPreCuenta.FlatAppearance.BorderSize = 0;
-            this.btnPreCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPreCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPreCuenta.Location = new System.Drawing.Point(691, 37);
-            this.btnPreCuenta.Name = "btnPreCuenta";
-            this.btnPreCuenta.Size = new System.Drawing.Size(133, 36);
-            this.btnPreCuenta.TabIndex = 4;
-            this.btnPreCuenta.Text = "Pre cuenta";
-            this.btnPreCuenta.UseVisualStyleBackColor = false;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(218)))), ((int)(((byte)(24)))));
-            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiar.FlatAppearance.BorderSize = 0;
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLimpiar.Location = new System.Drawing.Point(824, 37);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(133, 36);
-            this.btnLimpiar.TabIndex = 5;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.button3_Click);
             // 
             // lblNPersonas
             // 
             this.lblNPersonas.AutoSize = true;
             this.lblNPersonas.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNPersonas.Location = new System.Drawing.Point(21, 132);
+            this.lblNPersonas.Location = new System.Drawing.Point(22, 181);
             this.lblNPersonas.Name = "lblNPersonas";
             this.lblNPersonas.Size = new System.Drawing.Size(183, 25);
             this.lblNPersonas.TabIndex = 6;
@@ -190,7 +157,7 @@
             this.txtNPersonas.AcceptsReturn = true;
             this.txtNPersonas.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNPersonas.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNPersonas.Location = new System.Drawing.Point(210, 129);
+            this.txtNPersonas.Location = new System.Drawing.Point(211, 178);
             this.txtNPersonas.Name = "txtNPersonas";
             this.txtNPersonas.Size = new System.Drawing.Size(132, 31);
             this.txtNPersonas.TabIndex = 1;
@@ -222,7 +189,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.txtBuscarProductos);
             this.panel1.Controls.Add(this.lblProductos);
-            this.panel1.Location = new System.Drawing.Point(474, 93);
+            this.panel1.Location = new System.Drawing.Point(474, 107);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(729, 64);
             this.panel1.TabIndex = 25;
@@ -295,7 +262,7 @@
             this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProducto.EnableHeadersVisualStyles = false;
             this.dgvProducto.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvProducto.Location = new System.Drawing.Point(475, 157);
+            this.dgvProducto.Location = new System.Drawing.Point(475, 171);
             this.dgvProducto.Name = "dgvProducto";
             this.dgvProducto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvProducto.RowHeadersWidth = 51;
@@ -311,6 +278,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Gold;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.btnEliminar);
             this.panel3.Controls.Add(this.txtMostrarMesa);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.lblMesa);
@@ -318,6 +286,18 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(729, 64);
             this.panel3.TabIndex = 28;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Moccasin;
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.Image = global::CapaPresentacion.Properties.Resources.trash;
+            this.btnEliminar.Location = new System.Drawing.Point(646, 13);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(42, 41);
+            this.btnEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnEliminar.TabIndex = 47;
+            this.btnEliminar.TabStop = false;
             // 
             // txtMostrarMesa
             // 
@@ -1158,18 +1138,18 @@
             this.btnParrilla.UseVisualStyleBackColor = false;
             this.btnParrilla.Click += new System.EventHandler(this.btnParrilla_Click);
             // 
-            // btnSearch
+            // btnSearchMesa
             // 
-            this.btnSearch.BackColor = System.Drawing.Color.Silver;
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.Image = global::CapaPresentacion.Properties.Resources.search;
-            this.btnSearch.Location = new System.Drawing.Point(377, 118);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(39, 42);
-            this.btnSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnSearch.TabIndex = 41;
-            this.btnSearch.TabStop = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearchMesa.BackColor = System.Drawing.Color.Silver;
+            this.btnSearchMesa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchMesa.Image = global::CapaPresentacion.Properties.Resources.search;
+            this.btnSearchMesa.Location = new System.Drawing.Point(378, 167);
+            this.btnSearchMesa.Name = "btnSearchMesa";
+            this.btnSearchMesa.Size = new System.Drawing.Size(39, 42);
+            this.btnSearchMesa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnSearchMesa.TabIndex = 41;
+            this.btnSearchMesa.TabStop = false;
+            this.btnSearchMesa.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnLimpiarFiltros
             // 
@@ -1223,7 +1203,7 @@
             this.gbProductoSelec.Controls.Add(this.pictureBox1);
             this.gbProductoSelec.Controls.Add(this.txtProductoSelec);
             this.gbProductoSelec.Controls.Add(this.cantProducto);
-            this.gbProductoSelec.Location = new System.Drawing.Point(520, 500);
+            this.gbProductoSelec.Location = new System.Drawing.Point(520, 504);
             this.gbProductoSelec.Name = "gbProductoSelec";
             this.gbProductoSelec.Size = new System.Drawing.Size(644, 81);
             this.gbProductoSelec.TabIndex = 45;
@@ -1242,15 +1222,115 @@
             this.pictureBox1.TabIndex = 46;
             this.pictureBox1.TabStop = false;
             // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.BackColor = System.Drawing.Color.FloralWhite;
+            this.btnRegistrar.Image = global::CapaPresentacion.Properties.Resources.registrar;
+            this.btnRegistrar.Location = new System.Drawing.Point(1245, 853);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(139, 77);
+            this.btnRegistrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnRegistrar.TabIndex = 46;
+            this.btnRegistrar.TabStop = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
+            // txtDNIcliente
+            // 
+            this.txtDNIcliente.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtDNIcliente.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDNIcliente.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDNIcliente.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtDNIcliente.Location = new System.Drawing.Point(561, 41);
+            this.txtDNIcliente.Name = "txtDNIcliente";
+            this.txtDNIcliente.Size = new System.Drawing.Size(117, 27);
+            this.txtDNIcliente.TabIndex = 47;
+            this.txtDNIcliente.Text = "00000000";
+            // 
+            // lblDNIcliente
+            // 
+            this.lblDNIcliente.AutoSize = true;
+            this.lblDNIcliente.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDNIcliente.Location = new System.Drawing.Point(472, 43);
+            this.lblDNIcliente.Name = "lblDNIcliente";
+            this.lblDNIcliente.Size = new System.Drawing.Size(69, 25);
+            this.lblDNIcliente.TabIndex = 48;
+            this.lblDNIcliente.Text = "Cliente:";
+            // 
+            // btnBuscarDNI
+            // 
+            this.btnBuscarDNI.BackColor = System.Drawing.Color.Silver;
+            this.btnBuscarDNI.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarDNI.Image = global::CapaPresentacion.Properties.Resources.search;
+            this.btnBuscarDNI.Location = new System.Drawing.Point(1082, 34);
+            this.btnBuscarDNI.Name = "btnBuscarDNI";
+            this.btnBuscarDNI.Size = new System.Drawing.Size(39, 42);
+            this.btnBuscarDNI.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnBuscarDNI.TabIndex = 49;
+            this.btnBuscarDNI.TabStop = false;
+            this.btnBuscarDNI.Click += new System.EventHandler(this.btnBuscarDNI_Click);
+            // 
+            // picUser
+            // 
+            this.picUser.Enabled = false;
+            this.picUser.Image = global::CapaPresentacion.Properties.Resources.user;
+            this.picUser.Location = new System.Drawing.Point(22, 34);
+            this.picUser.Name = "picUser";
+            this.picUser.Size = new System.Drawing.Size(112, 109);
+            this.picUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picUser.TabIndex = 50;
+            this.picUser.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(160, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 22);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "Bienvenido";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblNombreUser
+            // 
+            this.lblNombreUser.AutoSize = true;
+            this.lblNombreUser.Font = new System.Drawing.Font("NSimSun", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNombreUser.Location = new System.Drawing.Point(160, 93);
+            this.lblNombreUser.Name = "lblNombreUser";
+            this.lblNombreUser.Size = new System.Drawing.Size(98, 18);
+            this.lblNombreUser.TabIndex = 52;
+            this.lblNombreUser.Text = "nombreUser";
+            // 
+            // txtNombreCliente
+            // 
+            this.txtNombreCliente.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtNombreCliente.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNombreCliente.Enabled = false;
+            this.txtNombreCliente.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtNombreCliente.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtNombreCliente.Location = new System.Drawing.Point(709, 43);
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.ReadOnly = true;
+            this.txtNombreCliente.Size = new System.Drawing.Size(329, 27);
+            this.txtNombreCliente.TabIndex = 53;
+            // 
             // MenuMozo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(1444, 1055);
+            this.Controls.Add(this.txtNombreCliente);
+            this.Controls.Add(this.lblNombreUser);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.picUser);
+            this.Controls.Add(this.btnBuscarDNI);
+            this.Controls.Add(this.lblDNIcliente);
+            this.Controls.Add(this.txtDNIcliente);
+            this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.gbProductoSelec);
             this.Controls.Add(this.btnLimpiarFiltros);
-            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnSearchMesa);
             this.Controls.Add(this.btnBurger);
             this.Controls.Add(this.btnBroaster);
             this.Controls.Add(this.btnPostres);
@@ -1268,9 +1348,6 @@
             this.Controls.Add(this.dgvMesa);
             this.Controls.Add(this.txtNPersonas);
             this.Controls.Add(this.lblNPersonas);
-            this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.btnPreCuenta);
-            this.Controls.Add(this.btnComandar);
             this.Name = "MenuMozo";
             this.Text = "MenuMozo";
             this.Load += new System.EventHandler(this.MenuMozo_Load);
@@ -1282,25 +1359,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPagePiso1.ResumeLayout(false);
             this.tabPagePiso2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSearchMesa)).EndInit();
             this.gbProductoSelec.ResumeLayout(false);
             this.gbProductoSelec.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRegistrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBuscarDNI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Button btnComandar;
-        private Button btnPreCuenta;
-        private Button btnLimpiar;
         private Label lblNPersonas;
         private TextBox txtNPersonas;
         private DataGridView dgvMesa;
@@ -1380,11 +1457,20 @@
         private Button btnPostres;
         private Button btnAlaCarta;
         private Button btnParrilla;
-        private PictureBox btnSearch;
+        private PictureBox btnSearchMesa;
         private Button btnLimpiarFiltros;
         private TextBox txtProductoSelec;
         private DomainUpDown cantProducto;
         private GroupBox gbProductoSelec;
         private PictureBox pictureBox1;
+        private PictureBox btnRegistrar;
+        private PictureBox btnEliminar;
+        private TextBox txtDNIcliente;
+        private Label lblDNIcliente;
+        private PictureBox btnBuscarDNI;
+        private PictureBox picUser;
+        private Label label2;
+        private Label lblNombreUser;
+        private TextBox txtNombreCliente;
     }
 }

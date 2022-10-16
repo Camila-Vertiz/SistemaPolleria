@@ -1,4 +1,5 @@
 ﻿using CapaEntidad;
+using CapaEntidad.Cache;
 using CapaLogica;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace CapaPresentacion
 {
     public partial class MenuMozo : Form
     {
+        API_Peru api_peru = new API_Peru();
         public MenuMozo()
         {
             InitializeComponent();
@@ -21,8 +23,13 @@ namespace CapaPresentacion
             dgvProducto.DataSource = ds;
             dgvProducto.DataMember = "Producto";
             formatoDGV();
+            LoadUserData();
         }
-        void formatoDGV()
+        private void LoadUserData()
+        {
+            lblNombreUser.Text = UserLoginCache.nombre_usuario;
+        }
+        private void formatoDGV()
         {
             dgvProducto.Columns[0].Width = 50;
             dgvProducto.Columns[0].HeaderText = "Cod.";
@@ -212,6 +219,38 @@ namespace CapaPresentacion
         private void dgvProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarDNI_Click(object sender, EventArgs e)
+        {
+            consultarCliente();
+        }
+
+        private void consultarCliente()
+        {
+            try
+            {
+                if (txtDNIcliente.Text.Length == 11)
+                {
+                    dynamic respuesta = api_peru.Get("https://dniruc.apisperu.com/api/v1/ruc/" + txtDNIcliente.Text + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvcG9ydGVyb2t5c0BvdXRsb29rLmNvbSJ9.z0szsBQYp7SuyS-2AigCx4cGpqW3pscGWq74eeH2JWc");
+
+                    txtNombreCliente.Text = respuesta.razonSocial;
+                }
+                if (txtDNIcliente.Text.Length == 8)
+                {
+                    dynamic respuesta = api_peru.Get("https://dniruc.apisperu.com/api/v1/dni/" + txtDNIcliente.Text + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvcG9ydGVyb2t5c0BvdXRsb29rLmNvbSJ9.z0szsBQYp7SuyS-2AigCx4cGpqW3pscGWq74eeH2JWc");
+                    txtNombreCliente.Text = respuesta.nombres + " " + respuesta.apellidoPaterno + " " + respuesta.apellidoMaterno;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

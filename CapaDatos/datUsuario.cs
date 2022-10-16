@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaEntidad;
+using CapaEntidad.Cache;
 
 namespace CapaDatos
 {
@@ -45,6 +46,11 @@ namespace CapaDatos
                     Use.user_usuario = dr["user_usuario"].ToString();
                     Use.contrasena_usuario = dr["contrasena_usuario"].ToString();
                     Use.tipo_usuario = dr["tipo_usuario"].ToString();
+
+                    UserLoginCache.id_usuario=Use.id_usuario;
+                    UserLoginCache.nombre_usuario = Use.nombre_usuario;
+                    UserLoginCache.correo_usuario = Use.correo_usuario;
+                    UserLoginCache.tipo_usuario = Use.tipo_usuario;
                 }
             }
             catch (Exception e)
