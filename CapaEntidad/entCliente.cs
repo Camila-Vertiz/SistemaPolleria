@@ -8,7 +8,6 @@ namespace CapaEntidad
 {
     public class entCliente
     {
-        public int id_cliente { get; set; }
         public string tipoDocumento_cliente { get; set; }
         public string numeroDocumento_cliente { get; set; }
         public string nombre_cliente { get; set; }

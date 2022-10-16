@@ -216,11 +216,6 @@ namespace CapaPresentacion
             txtProductoSelec.Text = filaActual.Cells[1].Value.ToString();
         }
 
-        private void dgvProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
 
