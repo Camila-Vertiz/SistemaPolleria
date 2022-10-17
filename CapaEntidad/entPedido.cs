@@ -12,7 +12,6 @@ namespace CapaEntidad
         public entMesas oMesa { get; set; }
         public entUsuario oUsuario { get; set; }
         public entCliente oCliente { get; set; }
-        public string numeroDocumento_cliente { get; set; }
         public string nombre_cliente { get; set; }
         public string tipoComprobante_pedido { get; set; }
         public string numeroComprobante_pedido { get; set; }

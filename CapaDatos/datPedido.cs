@@ -64,7 +64,7 @@ namespace CapaDatos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_mesa", pe.oMesa.id_mesa);
                 cmd.Parameters.AddWithValue("@id_usuario", pe.oUsuario.id_usuario);
-                cmd.Parameters.AddWithValue("@numeroDocumento_cliente", pe.numeroDocumento_cliente);
+                cmd.Parameters.AddWithValue("@numeroDocumento_cliente", pe.oCliente.numeroDocumento_cliente);
                 cmd.Parameters.AddWithValue("@nombre_cliente", pe.nombre_cliente);
                 cmd.Parameters.AddWithValue("@tipoComprobante_pedido", pe.tipoComprobante_pedido);
                 cmd.Parameters.AddWithValue("@numeroComprobante_pedido", pe.numeroComprobante_pedido);

@@ -36,6 +36,7 @@
             this.txtNPersonas = new System.Windows.Forms.TextBox();
             this.dgvMesa = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P_Unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,7 +49,6 @@
             this.lblProductos = new System.Windows.Forms.Label();
             this.dgvProducto = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnEliminar = new System.Windows.Forms.PictureBox();
             this.txtMostrarMesa = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -140,7 +140,6 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).BeginInit();
             this.panel4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPagePiso1.SuspendLayout();
@@ -182,6 +181,7 @@
             this.dgvMesa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMesa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
+            this.Producto,
             this.Cantidad,
             this.P_Unitario,
             this.SubTotal,
@@ -206,7 +206,16 @@
             this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
             this.Codigo.ReadOnly = true;
+            this.Codigo.Visible = false;
             this.Codigo.Width = 125;
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.MinimumWidth = 6;
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            this.Producto.Width = 125;
             // 
             // Cantidad
             // 
@@ -335,7 +344,6 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Gold;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.btnEliminar);
             this.panel3.Controls.Add(this.txtMostrarMesa);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.lblMesa);
@@ -343,18 +351,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(689, 64);
             this.panel3.TabIndex = 28;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.Moccasin;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.Image = global::CapaPresentacion.Properties.Resources.trash;
-            this.btnEliminar.Location = new System.Drawing.Point(618, 16);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(42, 41);
-            this.btnEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnEliminar.TabIndex = 47;
-            this.btnEliminar.TabStop = false;
             // 
             // txtMostrarMesa
             // 
@@ -1283,6 +1279,7 @@
             // btnRegistrar
             // 
             this.btnRegistrar.BackColor = System.Drawing.Color.FloralWhite;
+            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistrar.Image = global::CapaPresentacion.Properties.Resources.registrar;
             this.btnRegistrar.Location = new System.Drawing.Point(1245, 853);
             this.btnRegistrar.Name = "btnRegistrar";
@@ -1487,7 +1484,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -1592,7 +1588,6 @@
         private GroupBox gbProductoSelec;
         private PictureBox btnAgregarProducto;
         private PictureBox btnRegistrar;
-        private PictureBox btnEliminar;
         private TextBox txtDNIcliente;
         private Label lblDNIcliente;
         private PictureBox btnBuscarDNI;
@@ -1607,6 +1602,7 @@
         private TextBox txtPago;
         private TextBox txtVuelto;
         private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn P_Unitario;
         private DataGridViewTextBoxColumn SubTotal;

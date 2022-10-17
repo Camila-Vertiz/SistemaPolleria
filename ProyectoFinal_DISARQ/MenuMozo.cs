@@ -215,12 +215,14 @@ namespace CapaPresentacion
         string p_cod = "";
         float p_unit = 0;
         int p_stock = 0;
+        string p_nom = "";
 
         private void dgvProducto_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow filaActual = dgvProducto.Rows[e.RowIndex]; //
             p_cod = filaActual.Cells[0].Value.ToString();
-            txtProductoSelec.Text = filaActual.Cells[1].Value.ToString();
+            p_nom = filaActual.Cells[1].Value.ToString();
+            txtProductoSelec.Text = p_nom;
             p_unit = (float)Convert.ToDouble(filaActual.Cells[2].Value);
             p_stock = Convert.ToInt32(filaActual.Cells[3].Value);
         }
@@ -229,7 +231,7 @@ namespace CapaPresentacion
         {
             consultarCliente();
         }
-
+        string tipoComprobante = "";
         private void consultarCliente()
         {
             try
@@ -239,11 +241,13 @@ namespace CapaPresentacion
                     dynamic respuesta = api_peru.Get("https://dniruc.apisperu.com/api/v1/ruc/" + txtDNIcliente.Text + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvcG9ydGVyb2t5c0BvdXRsb29rLmNvbSJ9.z0szsBQYp7SuyS-2AigCx4cGpqW3pscGWq74eeH2JWc");
 
                     txtNombreCliente.Text = respuesta.razonSocial;
+                    tipoComprobante = "R";
                 }
                 if (txtDNIcliente.Text.Length == 8)
                 {
                     dynamic respuesta = api_peru.Get("https://dniruc.apisperu.com/api/v1/dni/" + txtDNIcliente.Text + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvcG9ydGVyb2t5c0BvdXRsb29rLmNvbSJ9.z0szsBQYp7SuyS-2AigCx4cGpqW3pscGWq74eeH2JWc");
                     txtNombreCliente.Text = respuesta.nombres + " " + respuesta.apellidoPaterno + " " + respuesta.apellidoMaterno;
+                    tipoComprobante = "D";
                 }
             }
             catch (Exception ex)
@@ -254,7 +258,7 @@ namespace CapaPresentacion
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txtMostrarMesa.Text) == 0)
+            if (txtMostrarMesa.Text.Equals(""))
             {
                 MessageBox.Show("Debe seleccionar una mesa.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -265,22 +269,61 @@ namespace CapaPresentacion
                 return;
             }
 
+
             DataTable detalle_pedido = new DataTable();
             detalle_pedido.Columns.Add("Codigo", typeof(int));
             detalle_pedido.Columns.Add("Cantidad", typeof(int));
             detalle_pedido.Columns.Add("P_Unitario", typeof(float));
+            detalle_pedido.Columns.Add("SubTotal", typeof(float));
 
             foreach (DataGridViewRow row in dgvMesa.Rows)
             {
                 detalle_pedido.Rows.Add(
                         new object[]
                         {
-                            Convert.ToInt32(row.Cells["codigo_producto"].Value.ToString()),
-                            Convert.ToInt32(row.Cells["cantidad_detallePedido"].Value.ToString()),
-                            Convert.ToDecimal(row.Cells["precioUnitario_detallePedido"].Value.ToString()),
-                            Convert.ToDecimal(row.Cells["subtotal_detallePedido"].Value.ToString())
+                            Convert.ToInt32(row.Cells["Codigo"].Value.ToString()),
+                            Convert.ToInt32(row.Cells["Cantidad"].Value.ToString()),
+                            Convert.ToDecimal(row.Cells["P_Unitario"].Value.ToString()),
+                            Convert.ToDecimal(row.Cells["SubTotal"].Value.ToString())
                         }
                     );
+            }
+            int idCorrelativo = new logPedido().ObtenerCorrelativo();
+            string numeroDocumento = string.Format("{0:00000}", idCorrelativo);
+            int mesaSelec = Convert.ToInt32(txtMostrarMesa.Text.ToString());
+            string rucDNI = txtDNIcliente.Text.ToString();
+            string nCliente = txtNombreCliente.Text.ToString();
+
+            entPedido oPedido = new entPedido()
+            {
+                oMesa = new entMesas() { id_mesa = mesaSelec },
+                oUsuario = new entUsuario() { id_usuario = UserLoginCache.id_usuario },
+                numeroDocumento_cliente = rucDNI,
+                nombre_cliente = nCliente,
+                tipoComprobante_pedido = tipoComprobante,
+                numeroComprobante_pedido = numeroDocumento,
+                montoPago_pedido = (float)Convert.ToDecimal(txtPago.Text.ToString()),
+                montoCambio_pedido = (float)Convert.ToDecimal(txtVuelto.Text.ToString()),
+                montoTotal_pedido = (float)Convert.ToDecimal(txtTotal.Text.ToString()),
+                estado_pedido = "P"
+            };
+            string mensaje = string.Empty;
+            bool respuesta = new logPedido().InsertarPedido(oPedido, detalle_pedido, out mensaje);
+
+            if (respuesta)
+            {
+                var result = MessageBox.Show("Numero de Pedido generado: \n" + numeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (result == DialogResult.Yes)
+                    Clipboard.SetText(numeroDocumento);
+               
+                txtTotal.Text = "0";
+                txtPago.ResetText();
+                txtVuelto.ResetText();
+                txtMostrarMesa.ResetText();
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
@@ -315,7 +358,7 @@ namespace CapaPresentacion
                 if (respuesta)
                 {
                     dgvMesa.Rows.Add(new object[]
-                    { p_cod, p_cant.ToString(), p_unit.ToString("0.00"),((p_cant*p_unit).ToString("0.00")) });
+                    { p_cod, p_nom,p_cant.ToString(), p_unit.ToString("0.00"),((p_cant*p_unit).ToString("0.00")) });
                 }
                 calcularTotal();
                 limpiarProducto();
@@ -422,7 +465,7 @@ namespace CapaPresentacion
         {
             if (e.RowIndex < 0)
                 return;
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 5)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var w = Properties.Resources.trash.Width;
