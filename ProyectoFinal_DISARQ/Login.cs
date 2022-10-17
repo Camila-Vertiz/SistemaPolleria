@@ -157,5 +157,55 @@ namespace ProyectoFinal_DISARQ
             recoverPassword.FormClosed += Logout;
             this.Hide();
         }
+
+        private void txtClave_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                string user_usuario = txtUsuario.Text;
+                string contrasena_usuario = txtClave.Text;
+                bool encontrado = false;
+                if (user_usuario != "USUARIO")
+                {
+                    if (contrasena_usuario != "CONTRASEÑA")
+                    {
+                        entUsuario us = logUsuario.Instancia.BuscarUsuario(user_usuario, contrasena_usuario);
+                        if (us.id_usuario > 0)
+                        {
+                            if (us.tipo_usuario == "A")
+                            {
+                                MenuAdmin menuAdmin = new MenuAdmin();
+                                menuAdmin.Show();
+                                menuAdmin.FormClosed += Logout;
+                                this.Hide();
+                            }
+                            else if (us.tipo_usuario == "M")
+                            {
+                                MenuMozo menuMozo = new MenuMozo();
+                                menuMozo.Show();
+                                menuMozo.FormClosed += Logout;
+                                this.Hide();
+                            }
+                            encontrado = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            txtClave.Text = "CONTRASEÑA";
+                            txtClave.UseSystemPasswordChar = false;
+                            txtUsuario.Focus();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor, ingrese una contraseña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingrese un usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
     }
 }

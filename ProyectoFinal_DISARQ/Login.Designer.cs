@@ -191,6 +191,7 @@
             this.txtClave.Text = "CONTRASEÑA";
             this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
             this.txtClave.Enter += new System.EventHandler(this.txtClave_Enter);
+            this.txtClave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtClave_KeyDown);
             this.txtClave.Leave += new System.EventHandler(this.txtClave_Leave);
             // 
             // Login

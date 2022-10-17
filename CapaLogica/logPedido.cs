@@ -43,6 +43,16 @@ namespace CapaLogica
         {
             return datPedido.Instancia.InsertarPedido(Pro, EDetalle_Pedido, out Mensaje);
         }
+
+        public bool RestarStock(int codigo_producto, int cantidad)
+        {
+            return datPedido.Instancia.RestarStock(codigo_producto, cantidad);
+        }
+        public bool SumarStock(int codigo_producto, int cantidad)
+        {
+            return datPedido.Instancia.SumarStock(codigo_producto, cantidad);
+        }
+
         #endregion metodos
     }
 }

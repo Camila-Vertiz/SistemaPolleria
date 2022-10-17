@@ -90,6 +90,62 @@ namespace CapaDatos
             return Respuesta;
         }
 
+        public bool RestarStock(int codigo_producto, int cantidad)
+        {
+            bool respuesta = true;
+
+            SqlCommand cmd = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                StringBuilder query = new StringBuilder();
+                query.AppendLine("update Producto set stock_producto = stock_producto - @cantidad where codigo_producto=@codigo_producto");
+                cmd = new SqlCommand(query.ToString(), cn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@cantidad", cantidad);
+                cmd.Parameters.AddWithValue("@codigo_producto", codigo_producto);
+                cn.Open();
+
+                respuesta = cmd.ExecuteNonQuery() > 0 ? true : false;
+
+            }
+            catch (Exception e)
+            {
+                respuesta = false;
+            }
+            finally { cmd.Connection.Close(); }
+
+            return respuesta;
+        }
+
+        public bool SumarStock(int codigo_producto, int cantidad)
+        {
+            bool respuesta = true;
+
+            SqlCommand cmd = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                StringBuilder query = new StringBuilder();
+                query.AppendLine("update Producto set stock_producto = stock_producto + @cantidad where codigo_producto=@codigo_producto");
+                cmd = new SqlCommand(query.ToString(), cn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@cantidad", cantidad);
+                cmd.Parameters.AddWithValue("@codigo_producto", codigo_producto);
+                cn.Open();
+
+                respuesta = cmd.ExecuteNonQuery() > 0 ? true : false;
+
+            }
+            catch (Exception e)
+            {
+                respuesta = false;
+            }
+            finally { cmd.Connection.Close(); }
+
+            return respuesta;
+        }
+
         #endregion metodos
     }
 }

@@ -22,14 +22,15 @@ namespace CapaPresentacion
             DataSet ds = logProducto.Instancia.ListarProducto();
             dgvProducto.DataSource = ds;
             dgvProducto.DataMember = "Producto";
-            formatoDGV();
+            formatoDGVProducto();
             LoadUserData();
+            txtTotal.Text = "0";
         }
         private void LoadUserData()
         {
             lblNombreUser.Text = UserLoginCache.nombre_usuario;
         }
-        private void formatoDGV()
+        private void formatoDGVProducto()
         {
             dgvProducto.Columns[0].Width = 50;
             dgvProducto.Columns[0].HeaderText = "Cod.";
@@ -186,8 +187,8 @@ namespace CapaPresentacion
             //txtNPersonas.Focus();
             //if (!txtNPersonas.Text.Equals(""))
             //{
-            //    int cant = Convert.ToInt32(txtNPersonas.Text);
-            //    entMesas m = logMesas.Instancia.BuscarCapacidadMesas(cant);
+            //    int p_cant = Convert.ToInt32(txtNPersonas.Text);
+            //    entMesas m = logMesas.Instancia.BuscarCapacidadMesas(p_cant);
             //    if(m != null)
             //    {
             //        if(m.capacidad_mesa)
@@ -211,15 +212,17 @@ namespace CapaPresentacion
                 e.Handled = true;
             }
         }
-        string cod_pedido = "";
+        string p_cod = "";
         float p_unit = 0;
+        int p_stock = 0;
 
         private void dgvProducto_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow filaActual = dgvProducto.Rows[e.RowIndex]; //
-            cod_pedido= filaActual.Cells[0].Value.ToString();
+            p_cod = filaActual.Cells[0].Value.ToString();
             txtProductoSelec.Text = filaActual.Cells[1].Value.ToString();
-            p_unit = (float) Convert.ToDouble(filaActual.Cells[2].Value);
+            p_unit = (float)Convert.ToDouble(filaActual.Cells[2].Value);
+            p_stock = Convert.ToInt32(filaActual.Cells[3].Value);
         }
 
         private void btnBuscarDNI_Click(object sender, EventArgs e)
@@ -263,10 +266,9 @@ namespace CapaPresentacion
             }
 
             DataTable detalle_pedido = new DataTable();
-            detalle_pedido.Columns.Add("codigo_producto", typeof(int));
-            detalle_pedido.Columns.Add("cantidad_detallePedido", typeof(int));
-            detalle_pedido.Columns.Add("precioUnitario_detallePedido", typeof(float));
-            detalle_pedido.Columns.Add("subtotal_detallePedido", typeof(float));
+            detalle_pedido.Columns.Add("Codigo", typeof(int));
+            detalle_pedido.Columns.Add("Cantidad", typeof(int));
+            detalle_pedido.Columns.Add("P_Unitario", typeof(float));
 
             foreach (DataGridViewRow row in dgvMesa.Rows)
             {
@@ -282,17 +284,155 @@ namespace CapaPresentacion
             }
 
         }
-
+        int p_cant = 0;
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            int cant = Convert.ToInt32(cantProducto);
+            p_cant = Convert.ToInt32(cantProducto.Text);
             bool p_existe = false;
-            if (int.Parse(txtProductoSelec.Text) == 0)
+            if (txtProductoSelec.Equals(""))
             {
                 MessageBox.Show("Debe seleccionar un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            //string []fila = {cod_pedido, cant.ToString(), p_unit.ToString()}
+            if (Convert.ToInt32(cantProducto.Text) < p_cant)
+            {
+                MessageBox.Show("La cantidad no puede ser mayor al stock", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            foreach (DataGridViewRow f in dgvMesa.Rows)
+            {
+                if (f.Cells["Codigo"].Value.ToString() == p_cod)
+                {
+                    p_existe = true;
+                    break;
+                }
+            }
+
+            if (!p_existe)
+            {
+                bool respuesta = new logPedido().RestarStock(Convert.ToInt32(p_cod), p_cant);
+
+                if (respuesta)
+                {
+                    dgvMesa.Rows.Add(new object[]
+                    { p_cod, p_cant.ToString(), p_unit.ToString("0.00"),((p_cant*p_unit).ToString("0.00")) });
+                }
+                calcularTotal();
+                limpiarProducto();
+            }
+        }
+
+        private void calcularTotal()
+        {
+            decimal total = 0;
+            if (dgvMesa.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvMesa.Rows)
+                    total += Convert.ToDecimal(row.Cells["SubTotal"].Value.ToString());
+            }
+            txtTotal.Text = total.ToString("0.00");
+        }
+
+        private void limpiarProducto()
+        {
+            p_unit = 0;
+            cantProducto.Text = "1";
+            txtProductoSelec.ResetText();
+
+        }
+
+        private void txtPago_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (txtPago.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                        e.Handled = true;
+                }
+            }
+        }
+
+        private void calcularVuelto()
+        {
+            if (txtTotal.Text.Trim() == "")
+            {
+                MessageBox.Show("No existen productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            float pagacon;
+            float total = (float)Convert.ToDecimal(txtTotal.Text);
+
+            if (txtPago.Text.Trim() == "")
+            {
+                txtPago.Text = "0";
+            }
+
+            if (float.TryParse(txtPago.Text.Trim(), out pagacon))
+            {
+                if (pagacon < total)
+                {
+                    txtVuelto.Text = "0.00";
+                }
+                else
+                {
+                    float cambio = pagacon - total;
+                    txtVuelto.Text = cambio.ToString("0.0");
+                }
+            }
+
+        }
+
+        private void txtPago_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                calcularVuelto();
+            }
+        }
+
+        private void dgvMesa_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvMesa.Columns[e.ColumnIndex].Name == "btnBorrar")
+            {
+                int index = e.RowIndex;
+                if (index >= 0)
+                {
+                    bool respuesta = new logPedido().SumarStock(Convert.ToInt32(p_cod), p_cant);
+                    dgvMesa.Rows.RemoveAt(index);
+                    calcularTotal();
+                }
+            }
+        }
+
+        private void dgvMesa_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 4)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = Properties.Resources.trash.Width;
+                var h = Properties.Resources.trash.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.trash, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
         }
     }
 }

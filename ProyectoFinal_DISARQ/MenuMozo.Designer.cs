@@ -28,13 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNPersonas = new System.Windows.Forms.Label();
             this.txtNPersonas = new System.Windows.Forms.TextBox();
             this.dgvMesa = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_Unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBorrar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -127,9 +132,9 @@
             this.lblTotalPagar = new System.Windows.Forms.Label();
             this.lblPagaCon = new System.Windows.Forms.Label();
             this.lblCambio = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtPago = new System.Windows.Forms.TextBox();
+            this.txtVuelto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesa)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -175,18 +180,65 @@
             this.dgvMesa.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvMesa.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvMesa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMesa.Enabled = false;
+            this.dgvMesa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.Cantidad,
+            this.P_Unitario,
+            this.SubTotal,
+            this.btnBorrar});
             this.dgvMesa.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvMesa.Location = new System.Drawing.Point(476, 678);
             this.dgvMesa.Name = "dgvMesa";
             this.dgvMesa.ReadOnly = true;
             this.dgvMesa.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvMesa.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvMesa.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvMesa.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMesa.RowTemplate.Height = 29;
             this.dgvMesa.Size = new System.Drawing.Size(688, 252);
             this.dgvMesa.TabIndex = 24;
+            this.dgvMesa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMesa_CellContentClick);
+            this.dgvMesa.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvMesa_CellPainting);
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.MinimumWidth = 6;
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 125;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.MinimumWidth = 6;
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Width = 125;
+            // 
+            // P_Unitario
+            // 
+            this.P_Unitario.HeaderText = "P_Unitario";
+            this.P_Unitario.MinimumWidth = 6;
+            this.P_Unitario.Name = "P_Unitario";
+            this.P_Unitario.ReadOnly = true;
+            this.P_Unitario.Width = 125;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "SubTotal";
+            this.SubTotal.MinimumWidth = 6;
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.ReadOnly = true;
+            this.SubTotal.Width = 125;
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.HeaderText = "";
+            this.btnBorrar.MinimumWidth = 6;
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.ReadOnly = true;
+            this.btnBorrar.Width = 125;
             // 
             // panel1
             // 
@@ -253,18 +305,18 @@
             // 
             // dgvProducto
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            this.dgvProducto.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvProducto.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProducto.BackgroundColor = System.Drawing.Color.Linen;
             this.dgvProducto.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.PapayaWhip;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProducto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.PapayaWhip;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProducto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProducto.EnableHeadersVisualStyles = false;
             this.dgvProducto.GridColor = System.Drawing.SystemColors.ButtonFace;
@@ -272,8 +324,8 @@
             this.dgvProducto.Name = "dgvProducto";
             this.dgvProducto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvProducto.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvProducto.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvProducto.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvProducto.RowTemplate.Height = 29;
             this.dgvProducto.Size = new System.Drawing.Size(688, 310);
             this.dgvProducto.TabIndex = 26;
@@ -1350,37 +1402,39 @@
             this.lblCambio.TabIndex = 55;
             this.lblCambio.Text = "Cambio:";
             // 
-            // textBox1
+            // txtTotal
             // 
-            this.textBox1.AcceptsReturn = true;
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(1292, 710);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(132, 31);
-            this.textBox1.TabIndex = 56;
+            this.txtTotal.AcceptsReturn = true;
+            this.txtTotal.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTotal.Location = new System.Drawing.Point(1292, 710);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(132, 31);
+            this.txtTotal.TabIndex = 56;
             // 
-            // textBox4
+            // txtPago
             // 
-            this.textBox4.AcceptsReturn = true;
-            this.textBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(1292, 753);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(132, 31);
-            this.textBox4.TabIndex = 57;
+            this.txtPago.AcceptsReturn = true;
+            this.txtPago.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPago.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPago.Location = new System.Drawing.Point(1292, 753);
+            this.txtPago.Name = "txtPago";
+            this.txtPago.Size = new System.Drawing.Size(132, 31);
+            this.txtPago.TabIndex = 57;
+            this.txtPago.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPago_KeyDown);
+            this.txtPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPago_KeyPress);
             // 
-            // textBox5
+            // txtVuelto
             // 
-            this.textBox5.AcceptsReturn = true;
-            this.textBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox5.Location = new System.Drawing.Point(1292, 795);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(132, 31);
-            this.textBox5.TabIndex = 58;
+            this.txtVuelto.AcceptsReturn = true;
+            this.txtVuelto.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtVuelto.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtVuelto.Location = new System.Drawing.Point(1292, 795);
+            this.txtVuelto.Name = "txtVuelto";
+            this.txtVuelto.ReadOnly = true;
+            this.txtVuelto.Size = new System.Drawing.Size(132, 31);
+            this.txtVuelto.TabIndex = 58;
             // 
             // MenuMozo
             // 
@@ -1388,9 +1442,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(1465, 1055);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtVuelto);
+            this.Controls.Add(this.txtPago);
+            this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.lblCambio);
             this.Controls.Add(this.lblPagaCon);
             this.Controls.Add(this.lblTotalPagar);
@@ -1549,8 +1603,13 @@
         private Label lblTotalPagar;
         private Label lblPagaCon;
         private Label lblCambio;
-        private TextBox textBox1;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox txtTotal;
+        private TextBox txtPago;
+        private TextBox txtVuelto;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Cantidad;
+        private DataGridViewTextBoxColumn P_Unitario;
+        private DataGridViewTextBoxColumn SubTotal;
+        private DataGridViewButtonColumn btnBorrar;
     }
 }
