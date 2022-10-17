@@ -115,7 +115,7 @@
             this.txtProductoSelec = new System.Windows.Forms.TextBox();
             this.cantProducto = new System.Windows.Forms.DomainUpDown();
             this.gbProductoSelec = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAgregarProducto = new System.Windows.Forms.PictureBox();
             this.btnRegistrar = new System.Windows.Forms.PictureBox();
             this.txtDNIcliente = new System.Windows.Forms.TextBox();
             this.lblDNIcliente = new System.Windows.Forms.Label();
@@ -142,7 +142,7 @@
             this.tabPagePiso2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSearchMesa)).BeginInit();
             this.gbProductoSelec.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRegistrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscarDNI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUser)).BeginInit();
@@ -1205,7 +1205,7 @@
             // 
             // gbProductoSelec
             // 
-            this.gbProductoSelec.Controls.Add(this.pictureBox1);
+            this.gbProductoSelec.Controls.Add(this.btnAgregarProducto);
             this.gbProductoSelec.Controls.Add(this.txtProductoSelec);
             this.gbProductoSelec.Controls.Add(this.cantProducto);
             this.gbProductoSelec.Location = new System.Drawing.Point(520, 504);
@@ -1215,17 +1215,18 @@
             this.gbProductoSelec.TabStop = false;
             this.gbProductoSelec.Text = "Producto Seleccionado";
             // 
-            // pictureBox1
+            // btnAgregarProducto
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.PaleGreen;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.anadir;
-            this.pictureBox1.Location = new System.Drawing.Point(530, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 42);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 46;
-            this.pictureBox1.TabStop = false;
+            this.btnAgregarProducto.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnAgregarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarProducto.Image = global::CapaPresentacion.Properties.Resources.anadir;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(530, 26);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(39, 42);
+            this.btnAgregarProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAgregarProducto.TabIndex = 46;
+            this.btnAgregarProducto.TabStop = false;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
             // btnRegistrar
             // 
@@ -1441,7 +1442,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSearchMesa)).EndInit();
             this.gbProductoSelec.ResumeLayout(false);
             this.gbProductoSelec.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRegistrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscarDNI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUser)).EndInit();
@@ -1535,7 +1536,7 @@
         private TextBox txtProductoSelec;
         private DomainUpDown cantProducto;
         private GroupBox gbProductoSelec;
-        private PictureBox pictureBox1;
+        private PictureBox btnAgregarProducto;
         private PictureBox btnRegistrar;
         private PictureBox btnEliminar;
         private TextBox txtDNIcliente;

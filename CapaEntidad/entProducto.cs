@@ -13,5 +13,6 @@ namespace CapaEntidad
         public string categoria_producto { get; set; }
         public float precio_unitario_producto { get; set; }
         public string descripcion_producto { get; set; }
+        public int stock_producto { get; set; }
     }
 }

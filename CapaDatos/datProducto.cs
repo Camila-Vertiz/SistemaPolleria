@@ -64,6 +64,7 @@ namespace CapaDatos
                     Pro.categoria_producto = dr["categoria_producto"].ToString();
                     Pro.precio_unitario_producto = float.Parse(dr["precio_unitario_producto"].ToString());
                     Pro.descripcion_producto = dr["descripcion_producto"].ToString();
+                    Pro.stock_producto = Convert.ToInt32(dr["stock_producto"]);
                 }
             }
             catch (Exception e)
@@ -153,6 +154,7 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@categoria_producto", Pro.categoria_producto);
                 cmd.Parameters.AddWithValue("@precio_unitario_producto", Pro.precio_unitario_producto);
                 cmd.Parameters.AddWithValue("@descripcion_producto", Pro.descripcion_producto);
+                cmd.Parameters.AddWithValue("@stock_producto", Pro.stock_producto);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -181,6 +183,7 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@categoria_producto", Pro.categoria_producto);
                 cmd.Parameters.AddWithValue("@precio_unitario_producto", Pro.precio_unitario_producto);
                 cmd.Parameters.AddWithValue("@descripcion_producto", Pro.descripcion_producto);
+                cmd.Parameters.AddWithValue("@stock_producto", Pro.stock_producto);
 
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();

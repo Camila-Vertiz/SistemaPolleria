@@ -41,9 +41,8 @@ namespace CapaDatos
                 while (dr.Read())
                 {
                     entCliente Cli = new entCliente();
-                    Cli.id_cliente = Convert.ToInt32(dr["id_cliente"]);
-                    Cli.tipoDocumento_cliente = dr["tipoDocumento_cliente"].ToString();
                     Cli.numeroDocumento_cliente = dr["numeroDocumento_cliente"].ToString();
+                    Cli.tipoDocumento_cliente = dr["tipoDocumento_cliente"].ToString();
                     Cli.correo_cliente = dr["correo_cliente"].ToString();
                     Cli.telefono_cliente = dr["telefono_cliente"].ToString();
                     lista.Add(Cli);
@@ -76,9 +75,8 @@ namespace CapaDatos
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    Cli.id_cliente = Convert.ToInt32(dr["id_cliente"]);
-                    Cli.tipoDocumento_cliente = dr["tipoDocumento_cliente"].ToString();
                     Cli.numeroDocumento_cliente = dr["numeroDocumento_cliente"].ToString();
+                    Cli.tipoDocumento_cliente = dr["tipoDocumento_cliente"].ToString();
                     Cli.correo_cliente = dr["correo_cliente"].ToString();
                     Cli.telefono_cliente = dr["telefono_cliente"].ToString();
                 }
@@ -100,8 +98,8 @@ namespace CapaDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spInsertaCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@tipoDocumento_cliente", Cli.tipoDocumento_cliente);
                 cmd.Parameters.AddWithValue("@numeroDocumento_cliente", Cli.numeroDocumento_cliente);
+                cmd.Parameters.AddWithValue("@tipoDocumento_cliente", Cli.tipoDocumento_cliente);
                 cmd.Parameters.AddWithValue("@nombre_cliente", Cli.nombre_cliente);
                 cmd.Parameters.AddWithValue("@telefono_cliente", Cli.telefono_cliente);
                 cn.Open();
@@ -130,9 +128,8 @@ namespace CapaDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spEditaCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_cliente", Cli.id_cliente);
-                cmd.Parameters.AddWithValue("@tipoDocumento_cliente", Cli.tipoDocumento_cliente);
                 cmd.Parameters.AddWithValue("@numeroDocumento_cliente", Cli.numeroDocumento_cliente);
+                cmd.Parameters.AddWithValue("@tipoDocumento_cliente", Cli.tipoDocumento_cliente);
                 cmd.Parameters.AddWithValue("@nombre_cliente", Cli.nombre_cliente);
                 cmd.Parameters.AddWithValue("@telefono_cliente", Cli.telefono_cliente);
                 cn.Open();
