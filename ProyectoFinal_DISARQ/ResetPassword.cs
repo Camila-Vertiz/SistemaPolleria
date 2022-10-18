@@ -72,5 +72,24 @@ namespace CapaPresentacion
             ReleaseCaprure();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void txtCorreo_Enter(object sender, EventArgs e)
+        {
+            if (txtCorreo.Text == "Correo Electronico")
+            {
+                txtCorreo.Text = "";
+                txtCorreo.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtCorreo_Leave(object sender, EventArgs e)
+        {
+            if (txtCorreo.Text == "")
+            {
+                txtCorreo.Text = "Correo Electronico";
+                txtCorreo.ForeColor = Color.DimGray;
+
+            }
+        }
     }
 }

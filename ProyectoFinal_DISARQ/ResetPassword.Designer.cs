@@ -103,6 +103,8 @@
             this.txtCorreo.Size = new System.Drawing.Size(396, 23);
             this.txtCorreo.TabIndex = 13;
             this.txtCorreo.Text = "Correo Electronico";
+            this.txtCorreo.Enter += new System.EventHandler(this.txtCorreo_Enter);
+            this.txtCorreo.Leave += new System.EventHandler(this.txtCorreo_Leave);
             // 
             // panel2
             // 

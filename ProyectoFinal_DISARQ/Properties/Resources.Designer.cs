@@ -286,9 +286,9 @@ namespace CapaPresentacion.Properties {
         ///&lt;body&gt;
         ///    &lt;tab [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string PlantillaPedido {
+        internal static string PlantillaPedido5 {
             get {
-                return ResourceManager.GetString("PlantillaPedido", resourceCulture);
+                return ResourceManager.GetString("PlantillaPedido5", resourceCulture);
             }
         }
         

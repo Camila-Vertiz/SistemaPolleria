@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTipoDocumento = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtDocCli = new System.Windows.Forms.TextBox();
@@ -203,7 +203,7 @@
             // 
             // txtNDocu2
             // 
-            this.txtNDocu2.Location = new System.Drawing.Point(599, 62);
+            this.txtNDocu2.Location = new System.Drawing.Point(711, 39);
             this.txtNDocu2.Name = "txtNDocu2";
             this.txtNDocu2.Size = new System.Drawing.Size(88, 27);
             this.txtNDocu2.TabIndex = 23;
@@ -214,7 +214,7 @@
             this.txtNombreCliente.Location = new System.Drawing.Point(263, 70);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.ReadOnly = true;
-            this.txtNombreCliente.Size = new System.Drawing.Size(211, 27);
+            this.txtNombreCliente.Size = new System.Drawing.Size(331, 27);
             this.txtNombreCliente.TabIndex = 20;
             // 
             // lblNDocu
@@ -263,8 +263,8 @@
             this.dgvMesa.ReadOnly = true;
             this.dgvMesa.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvMesa.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvMesa.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvMesa.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMesa.RowTemplate.Height = 29;
             this.dgvMesa.Size = new System.Drawing.Size(615, 216);
             this.dgvMesa.TabIndex = 25;

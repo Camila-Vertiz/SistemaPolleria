@@ -79,6 +79,10 @@ namespace CapaPresentacion
 
         private void btnLimpiarDocumento_Click(object sender, EventArgs e)
         {
+            limpiar();
+        }
+        private void limpiar()
+        {
             txtNDocu2.ResetText();
             txtFecha.ResetText();
             txtTipoDocumento.ResetText();
@@ -89,11 +93,10 @@ namespace CapaPresentacion
             txtPisoMesa.ResetText();
             txtMontoTotal.Text = "0.00";
             txtMontoPago.Text = "0.00";
-            lblMontoCambio.Text = "0.00";
+            txtMontoCambio.Text = "0.00";
             txtNDocu.ResetText();
             dgvMesa.Rows.Clear();
         }
-
         private void btnDescargar_Click(object sender, EventArgs e)
         {
             if (txtNDocu2.Text == "")
@@ -102,7 +105,7 @@ namespace CapaPresentacion
                 return;
             }
 
-            string Texto_Html = Properties.Resources.PlantillaPedido.ToString();
+            string Texto_Html = Properties.Resources.PlantillaPedido5.ToString();
 
             Texto_Html = Texto_Html.Replace("@tipodocumento", txtTipoDocumento.Text.ToUpper());
             Texto_Html = Texto_Html.Replace("@numerodocumento", txtNDocu2.Text);
@@ -147,6 +150,8 @@ namespace CapaPresentacion
                     pdfDoc.Close();
                     stream.Close();
                     MessageBox.Show("Documento Generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    limpiar();
                 }
             }
         }
