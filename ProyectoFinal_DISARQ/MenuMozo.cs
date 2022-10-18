@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,13 @@ namespace CapaPresentacion
     public partial class MenuMozo : Form
     {
         API_Peru api_peru = new API_Peru();
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        
         public MenuMozo()
         {
             InitializeComponent();
@@ -70,7 +78,7 @@ namespace CapaPresentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
-            txtMostrarMesa.Text = "";
+            txtMostrarMesa.Text = "3";
         }
 
         private void MenuMozo_Load(object sender, EventArgs e)
@@ -87,7 +95,6 @@ namespace CapaPresentacion
         {
             txtMostrarMesa.Text = "1";
         }
-
         private void btnMesa2_Click(object sender, EventArgs e)
         {
             txtMostrarMesa.Text = "2";
@@ -296,7 +303,7 @@ namespace CapaPresentacion
 
             entPedido oPedido = new entPedido()
             {
-                oMesa = new entMesas() { id_mesa = mesaSelec },
+                oMesa = new entMesa() { id_mesa = mesaSelec },
                 oUsuario = new entUsuario() { id_usuario = UserLoginCache.id_usuario },
                 numeroDocumento_cliente = rucDNI,
                 nombre_cliente = nCliente,
@@ -320,6 +327,7 @@ namespace CapaPresentacion
                 txtPago.ResetText();
                 txtVuelto.ResetText();
                 txtMostrarMesa.ResetText();
+                dgvMesa.Rows.Clear();
             }
             else
             {
@@ -476,6 +484,25 @@ namespace CapaPresentacion
                 e.Graphics.DrawImage(Properties.Resources.trash, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+        }
+
+        private void txtDNIcliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            consultarCliente();
+        }
+
+        private void MenuMozo_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void MenuMozo_MaximumSizeChanged(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+                WindowState = FormWindowState.Maximized;
+            else
+                WindowState = FormWindowState.Normal;
         }
     }
 }

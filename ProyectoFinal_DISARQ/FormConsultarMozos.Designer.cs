@@ -28,22 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtNombreMozo = new System.Windows.Forms.TextBox();
             this.txtCodigoMozo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvMozos = new System.Windows.Forms.DataGridView();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMozos)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtNombreMozo
-            // 
-            this.txtNombreMozo.Location = new System.Drawing.Point(264, 125);
-            this.txtNombreMozo.Name = "txtNombreMozo";
-            this.txtNombreMozo.Size = new System.Drawing.Size(125, 27);
-            this.txtNombreMozo.TabIndex = 16;
             // 
             // txtCodigoMozo
             // 
@@ -51,6 +43,7 @@
             this.txtCodigoMozo.Name = "txtCodigoMozo";
             this.txtCodigoMozo.Size = new System.Drawing.Size(125, 27);
             this.txtCodigoMozo.TabIndex = 15;
+            this.txtCodigoMozo.TextChanged += new System.EventHandler(this.txtCodigoMozo_TextChanged);
             // 
             // label4
             // 
@@ -62,15 +55,6 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "Información de búsqueda";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(153, 125);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Nombre:";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -80,24 +64,36 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Código:";
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(562, 78);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(94, 29);
-            this.btnBuscar.TabIndex = 9;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
             // dgvMozos
             // 
             this.dgvMozos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMozos.Location = new System.Drawing.Point(63, 195);
+            this.dgvMozos.Location = new System.Drawing.Point(63, 129);
             this.dgvMozos.Name = "dgvMozos";
             this.dgvMozos.RowHeadersWidth = 51;
             this.dgvMozos.RowTemplate.Height = 29;
-            this.dgvMozos.Size = new System.Drawing.Size(670, 241);
+            this.dgvMozos.Size = new System.Drawing.Size(670, 307);
             this.dgvMozos.TabIndex = 10;
+            // 
+            // btnListar
+            // 
+            this.btnListar.Image = global::CapaPresentacion.Properties.Resources.list24;
+            this.btnListar.Location = new System.Drawing.Point(512, 73);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(44, 37);
+            this.btnListar.TabIndex = 32;
+            this.btnListar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnListar.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::CapaPresentacion.Properties.Resources.search25;
+            this.btnBuscar.Location = new System.Drawing.Point(436, 73);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(44, 37);
+            this.btnBuscar.TabIndex = 31;
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
             // FormConsultarMozos
             // 
@@ -105,13 +101,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gold;
             this.ClientSize = new System.Drawing.Size(800, 491);
-            this.Controls.Add(this.txtNombreMozo);
+            this.Controls.Add(this.btnListar);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtCodigoMozo);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvMozos);
-            this.Controls.Add(this.btnBuscar);
             this.Name = "FormConsultarMozos";
             this.Text = "FormConsultarMozos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMozos)).EndInit();
@@ -121,13 +116,11 @@
         }
 
         #endregion
-
-        private TextBox txtNombreMozo;
         private TextBox txtCodigoMozo;
         private Label label4;
-        private Label label2;
         private Label label1;
-        private Button btnBuscar;
         private DataGridView dgvMozos;
+        private Button btnListar;
+        private Button btnBuscar;
     }
 }

@@ -28,91 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtTipoProducto = new System.Windows.Forms.TextBox();
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgvProducto = new System.Windows.Forms.DataGridView();
+            this.cboTipoB = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtTipoProducto
-            // 
-            this.txtTipoProducto.Location = new System.Drawing.Point(264, 118);
-            this.txtTipoProducto.Name = "txtTipoProducto";
-            this.txtTipoProducto.Size = new System.Drawing.Size(125, 27);
-            this.txtTipoProducto.TabIndex = 27;
-            // 
             // txtCodigoProducto
             // 
-            this.txtCodigoProducto.Location = new System.Drawing.Point(264, 71);
+            this.txtCodigoProducto.Location = new System.Drawing.Point(310, 98);
             this.txtCodigoProducto.Name = "txtCodigoProducto";
-            this.txtCodigoProducto.Size = new System.Drawing.Size(125, 27);
+            this.txtCodigoProducto.Size = new System.Drawing.Size(141, 27);
             this.txtCodigoProducto.TabIndex = 26;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(84, 24);
+            this.label4.Location = new System.Drawing.Point(84, 32);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(225, 25);
             this.label4.TabIndex = 25;
             this.label4.Text = "Información de búsqueda";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(151, 121);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 20);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Tipo:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(151, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 20);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Código:";
-            // 
             // dgvProducto
             // 
             this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducto.Location = new System.Drawing.Point(84, 179);
+            this.dgvProducto.Location = new System.Drawing.Point(45, 161);
             this.dgvProducto.Name = "dgvProducto";
             this.dgvProducto.RowHeadersWidth = 51;
             this.dgvProducto.RowTemplate.Height = 29;
-            this.dgvProducto.Size = new System.Drawing.Size(548, 241);
+            this.dgvProducto.Size = new System.Drawing.Size(687, 259);
             this.dgvProducto.TabIndex = 21;
+            // 
+            // cboTipoB
+            // 
+            this.cboTipoB.FormattingEnabled = true;
+            this.cboTipoB.Items.AddRange(new object[] {
+            "Codigo",
+            "Nombre",
+            "Categoria"});
+            this.cboTipoB.Location = new System.Drawing.Point(125, 97);
+            this.cboTipoB.Name = "cboTipoB";
+            this.cboTipoB.Size = new System.Drawing.Size(151, 28);
+            this.cboTipoB.TabIndex = 28;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(482, 71);
+            this.btnBuscar.Image = global::CapaPresentacion.Properties.Resources.search25;
+            this.btnBuscar.Location = new System.Drawing.Point(484, 92);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(94, 29);
-            this.btnBuscar.TabIndex = 20;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Size = new System.Drawing.Size(44, 37);
+            this.btnBuscar.TabIndex = 29;
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
+            // 
+            // button1
+            // 
+            this.button1.Image = global::CapaPresentacion.Properties.Resources.list24;
+            this.button1.Location = new System.Drawing.Point(560, 92);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(44, 37);
+            this.button1.TabIndex = 30;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormConsultarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gold;
-            this.ClientSize = new System.Drawing.Size(692, 473);
-            this.Controls.Add(this.txtTipoProducto);
+            this.ClientSize = new System.Drawing.Size(790, 473);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.cboTipoB);
             this.Controls.Add(this.txtCodigoProducto);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvProducto);
-            this.Controls.Add(this.btnBuscar);
             this.Name = "FormConsultarProductos";
             this.Text = "FormConsultarProductos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).EndInit();
@@ -122,13 +119,11 @@
         }
 
         #endregion
-
-        private TextBox txtTipoProducto;
         private TextBox txtCodigoProducto;
         private Label label4;
-        private Label label2;
-        private Label label1;
         private DataGridView dgvProducto;
+        private ComboBox cboTipoB;
         private Button btnBuscar;
+        private Button button1;
     }
 }

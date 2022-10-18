@@ -32,13 +32,6 @@ namespace CapaLogica
             return datPedido.Instancia.ObtenerCorrelativo();
         }
 
-        ///listado
-
-        //public List<entPedido> ListaPedido()
-        //{
-        //    return datPedido.Instancia.ListaPedido();
-        //}
-        ///inserta
         public bool InsertarPedido(entPedido Pro, DataTable EDetalle_Pedido, out string Mensaje)
         {
             return datPedido.Instancia.InsertarPedido(Pro, EDetalle_Pedido, out Mensaje);
@@ -51,6 +44,17 @@ namespace CapaLogica
         public bool SumarStock(int codigo_producto, int cantidad)
         {
             return datPedido.Instancia.SumarStock(codigo_producto, cantidad);
+        }
+
+        public entPedido ObtenerPedido(string numero)
+        {
+            entPedido oPedido = datPedido.Instancia.ObtenerPedido(numero);
+            if (oPedido.codigo_pedido != 0)
+            {
+                List<entDetallePedido> oDetallePedido = datPedido.Instancia.ObtenerDetallePedido(oPedido.codigo_pedido);
+                oPedido.oDetallePedido = oDetallePedido;
+            }
+            return oPedido;
         }
 
         #endregion metodos

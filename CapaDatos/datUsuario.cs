@@ -61,8 +61,7 @@ namespace CapaDatos
             finally { cmd.Connection.Close(); }
             return Use;
         }
-        #endregion singleton
-
+       
         public string recoverPassword(string correo_usuario)
         {
             SqlCommand cmd = null;
@@ -103,5 +102,52 @@ namespace CapaDatos
             finally { cmd.Connection.Close(); }
                 return "Lo sentimos, no existe una cuenta con ese correo o nombre de usuario.";
         }
+        public DataSet BuscarMozo(string nombre_usuario, string tipo_usuario)
+        {
+            SqlCommand cmd = null;
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarMozo", cn);
+                cn.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@nombre_usuario", nombre_usuario));
+                cmd.Parameters.Add(new SqlParameter("@tipo_usuario", tipo_usuario));
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Usuario");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return ds;
+        }
+        public DataSet ListarMozos(string tipo_usuario)
+        {
+            SqlCommand cmd = null;
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spListaMozo", cn);
+                cn.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@tipo_usuario", tipo_usuario));
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Usuario");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return ds;
+        }
+
+        #endregion metodos
     }
 }

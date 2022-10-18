@@ -133,6 +133,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eraser25 {
+            get {
+                object obj = ResourceManager.GetObject("eraser25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap group__1_ {
             get {
                 object obj = ResourceManager.GetObject("group (1)", resourceCulture);
@@ -166,6 +176,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap kitchen_utensils__2_1 {
             get {
                 object obj = ResourceManager.GetObject("kitchen-utensils (2)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap list24 {
+            get {
+                object obj = ResourceManager.GetObject("list24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,6 +253,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pdf24 {
+            get {
+                object obj = ResourceManager.GetObject("pdf24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap registrar {
             get {
                 object obj = ResourceManager.GetObject("registrar", resourceCulture);
@@ -266,6 +296,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap search {
             get {
                 object obj = ResourceManager.GetObject("search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search25 {
+            get {
+                object obj = ResourceManager.GetObject("search25", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -27,10 +27,10 @@ namespace CapaDatos
 
         #region metodos
         ////////////////////listado de Clientes
-        public List<entMesas> ListaMesas()
+        public List<entMesa> ListaMesas()
         {
             SqlCommand cmd = null;
-            List<entMesas> lista = new List<entMesas>();
+            List<entMesa> lista = new List<entMesa>();
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
@@ -40,7 +40,7 @@ namespace CapaDatos
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    entMesas Mes = new entMesas();
+                    entMesa Mes = new entMesa();
                     Mes.id_mesa = Convert.ToInt32(dr["id_mesa"]);
                     Mes.numero_mesa = dr["numero_mesa"].ToString();
                     Mes.capacidad_mesa = int.Parse(dr["capacidad_mesa"].ToString());
@@ -62,10 +62,10 @@ namespace CapaDatos
         }
 
 
-        public entMesas BuscaMesas(int NumeroMesa)
+        public entMesa BuscaMesas(int NumeroMesa)
         {
             SqlCommand cmd = null;
-            entMesas Mes = new entMesas();
+            entMesa Mes = new entMesa();
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
@@ -91,33 +91,29 @@ namespace CapaDatos
             finally { cmd.Connection.Close(); }
             return Mes;
         }
-        public entMesas BuscarCapacidadMesas(int capacidad_mesa)
+        public DataSet BuscarCapacidadMesas(int capacidad_mesa)
         {
             SqlCommand cmd = null;
-            entMesas Mes = new entMesas();
+            DataSet ds = new DataSet();
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spBuscarCapacidadMesa", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@capacidad_mesa", capacidad_mesa);
                 cn.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    Mes.numero_mesa = dr["numero_mesa"].ToString();
-
-                }
+                SqlDataAdapter da = new SqlDataAdapter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@capacidad_mesa", capacidad_mesa));
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Mesa");
             }
             catch (Exception e)
             {
-
                 throw e;
             }
             finally { cmd.Connection.Close(); }
-            return Mes;
+            return ds;
         }
-        public Boolean InsertaMesas(entMesas Mes)
+        public Boolean InsertaMesas(entMesa Mes)
         {
             SqlCommand cmd = null;
             Boolean inserta = false;
@@ -146,7 +142,7 @@ namespace CapaDatos
 
 
 
-        public Boolean EditaMesas(entMesas Mes)
+        public Boolean EditaMesas(entMesa Mes)
         {
             SqlCommand cmd = null;
             Boolean edita = false;
@@ -175,7 +171,7 @@ namespace CapaDatos
         }
 
 
-        public Boolean EliminaMesas(entMesas Pro)
+        public Boolean EliminaMesas(entMesa Pro)
         {
             SqlCommand cmd = null;
             Boolean delete = false;

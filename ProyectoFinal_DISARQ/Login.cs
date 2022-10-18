@@ -145,11 +145,6 @@ namespace ProyectoFinal_DISARQ
 
         }
 
-        private void txtClave_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void linkLabelRestablecerContra_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ResetPassword recoverPassword = new ResetPassword();

@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuMozo));
             this.lblNPersonas = new System.Windows.Forms.Label();
             this.txtNPersonas = new System.Windows.Forms.TextBox();
             this.dgvMesa = new System.Windows.Forms.DataGridView();
@@ -1300,6 +1301,7 @@
             this.txtDNIcliente.PlaceholderText = "00000000000";
             this.txtDNIcliente.Size = new System.Drawing.Size(117, 27);
             this.txtDNIcliente.TabIndex = 47;
+            this.txtDNIcliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDNIcliente_KeyDown);
             // 
             // lblDNIcliente
             // 
@@ -1473,9 +1475,13 @@
             this.Controls.Add(this.dgvMesa);
             this.Controls.Add(this.txtNPersonas);
             this.Controls.Add(this.lblNPersonas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuMozo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuMozo";
+            this.MaximumSizeChanged += new System.EventHandler(this.MenuMozo_MaximumSizeChanged);
             this.Load += new System.EventHandler(this.MenuMozo_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuMozo_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesa)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -2,24 +2,25 @@
 using CapaEntidad;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaLogica
 {
-    public class logMesas
+    public class logMesa
     {
         #region sigleton
         //Patron Singleton
         // Variable estática para la instancia
-        private static readonly logMesas _instancia = new logMesas();
+        private static readonly logMesa _instancia = new logMesa();
         //privado para evitar la instanciación directa
-        public static logMesas Instancia
+        public static logMesa Instancia
         {
             get
             {
-                return logMesas._instancia;
+                return logMesa._instancia;
             }
         }
         #endregion singleton
@@ -28,17 +29,17 @@ namespace CapaLogica
 
         ///listado
 
-        public List<entMesas> ListaMesas()
+        public List<entMesa> ListaMesas()
         {
             return datMesas.Instancia.ListaMesas();
         }
         ///inserta
-        public void InsertaMesas(entMesas Pro)
+        public void InsertaMesas(entMesa Pro)
         {
             datMesas.Instancia.InsertaMesas(Pro);
         }
         //busca
-        public entMesas BuscaMesas(int idMesas)
+        public entMesa BuscaMesas(int idMesas)
         {
             try
             {
@@ -46,7 +47,7 @@ namespace CapaLogica
             }
             catch (Exception e) { throw e; }
         }
-        public entMesas BuscarCapacidadMesas(int capacidad)
+        public DataSet BuscarCapacidadMesas(int capacidad)
         {
             try
             {
@@ -55,12 +56,12 @@ namespace CapaLogica
             catch (Exception e) { throw e; }
         }
         //edita
-        public void EditaMesas(entMesas Pro)
+        public void EditaMesas(entMesa Pro)
         {
             datMesas.Instancia.EditaMesas(Pro);
         }
 
-        public Boolean EliminaMesas(entMesas Pro)
+        public Boolean EliminaMesas(entMesa Pro)
         {
             try
             {

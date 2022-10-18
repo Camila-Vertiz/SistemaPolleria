@@ -26,6 +26,10 @@ namespace CapaLogica
             }
             catch (Exception e) { throw e; }
         }
+        public DataSet BuscarMozo(string nombre_usuario, string tipo_usuario)
+        {
+            return datUsuario.Instancia.BuscarMozo(nombre_usuario, tipo_usuario);
+        }
         public string recoverPassword(string correo_usuario)
         {
             try
@@ -33,6 +37,11 @@ namespace CapaLogica
                 return datUsuario.Instancia.recoverPassword(correo_usuario);
             }
             catch (Exception e) { throw e; }
+        }
+
+        public DataSet ListarMozos(string tipo_usuario)
+        {
+            return datUsuario.Instancia.ListarMozos(tipo_usuario);
         }
         #endregion metodos
 

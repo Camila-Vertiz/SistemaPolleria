@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaEntidad;
+using CapaLogica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +32,16 @@ namespace CapaPresentacion
         private void dgvPedido_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnBuscarDocumento_Click(object sender, EventArgs e)
+        {
+            entPedido oPedido = new logPedido().ObtenerPedido(txtNDocu.Text);
+            if(oPedido.codigo_pedido != 0)
+            {
+                txtNDocu2.Text = oPedido.numeroComprobante_pedido;
+                //txtFecha.Text = Convert.ToDateTime(oPedido.fechaCreacion_pedido);
+            }
         }
     }
 }

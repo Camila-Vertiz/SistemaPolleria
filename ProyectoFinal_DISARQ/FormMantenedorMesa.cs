@@ -21,7 +21,7 @@ namespace CapaPresentacion
         }
         public void listaMesas()
         {
-            dgvMesa.DataSource = logMesas.Instancia.ListaMesas();
+            dgvMesa.DataSource = logMesa.Instancia.ListaMesas();
 
         }
 
@@ -29,11 +29,11 @@ namespace CapaPresentacion
         {
             try
             {
-                entMesas m = new entMesas();
+                entMesa m = new entMesa();
                 m.numero_mesa = txtNumeroMesa.Text.Trim();
                 m.capacidad_mesa = int.Parse(txtCapacidad.Text.Trim());
                 m.ubicacion_mesa = txtUbicacion.Text.Trim();
-                logMesas.Instancia.InsertaMesas(m);
+                logMesa.Instancia.InsertaMesas(m);
                 MessageBox.Show("Registro agregado");
 
             }
@@ -48,7 +48,7 @@ namespace CapaPresentacion
         {
             txtIdMesa.Focus();
             int idMesas = Convert.ToInt32(txtIdMesa.Text);
-            entMesas Cal = logMesas.Instancia.BuscaMesas(idMesas);
+            entMesa Cal = logMesa.Instancia.BuscaMesas(idMesas);
             if (Cal != null)
             {
 
@@ -67,12 +67,12 @@ namespace CapaPresentacion
             try
             {
                 
-                entMesas m = new entMesas();
+                entMesa m = new entMesa();
                 m.id_mesa = int.Parse(txtIdMesa.Text.Trim());
                 m.numero_mesa = txtNumeroMesa.Text.Trim();
                 m.capacidad_mesa = int.Parse(txtCapacidad.Text.Trim());
                 m.ubicacion_mesa = txtUbicacion.Text.Trim();
-                logMesas.Instancia.EditaMesas(m);
+                logMesa.Instancia.EditaMesas(m);
                 MessageBox.Show("Registro Modificado");
                 
             }
@@ -88,10 +88,10 @@ namespace CapaPresentacion
         {
                 try
                 {
-                    entMesas m = new entMesas();
+                    entMesa m = new entMesa();
 
                     m.id_mesa = int.Parse(txtIdMesa.Text.Trim());
-                    logMesas.Instancia.EliminaMesas(m);
+                    logMesa.Instancia.EliminaMesas(m);
                      MessageBox.Show("Registro eliminado con exito!" );
             }
                 catch (Exception ex)
