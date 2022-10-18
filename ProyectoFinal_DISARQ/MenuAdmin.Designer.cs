@@ -70,7 +70,7 @@
             this.pictureLogout.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureLogout.Image = global::CapaPresentacion.Properties.Resources.logout1;
-            this.pictureLogout.Location = new System.Drawing.Point(741, 20);
+            this.pictureLogout.Location = new System.Drawing.Point(993, 20);
             this.pictureLogout.Name = "pictureLogout";
             this.pictureLogout.Size = new System.Drawing.Size(30, 30);
             this.pictureLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -91,7 +91,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(250, 583);
+            this.panelMenu.Size = new System.Drawing.Size(250, 815);
             this.panelMenu.TabIndex = 1;
             // 
             // btnConsultarProductos
@@ -257,7 +257,7 @@
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(250, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(794, 75);
+            this.panelTitleBar.Size = new System.Drawing.Size(1046, 75);
             this.panelTitleBar.TabIndex = 2;
             this.panelTitleBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTitleBar_Paint);
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
@@ -267,7 +267,7 @@
             this.pictureMinimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureMinimize.Image = global::CapaPresentacion.Properties.Resources.eliminar__2_1;
-            this.pictureMinimize.Location = new System.Drawing.Point(645, 20);
+            this.pictureMinimize.Location = new System.Drawing.Point(897, 20);
             this.pictureMinimize.Name = "pictureMinimize";
             this.pictureMinimize.Size = new System.Drawing.Size(30, 30);
             this.pictureMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -280,7 +280,7 @@
             this.pictureMaximize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureMaximize.Image = global::CapaPresentacion.Properties.Resources.maximizar__1_;
-            this.pictureMaximize.Location = new System.Drawing.Point(695, 20);
+            this.pictureMaximize.Location = new System.Drawing.Point(947, 20);
             this.pictureMaximize.Name = "pictureMaximize";
             this.pictureMaximize.Size = new System.Drawing.Size(30, 30);
             this.pictureMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -313,7 +313,7 @@
             this.panelSombra.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSombra.Location = new System.Drawing.Point(250, 75);
             this.panelSombra.Name = "panelSombra";
-            this.panelSombra.Size = new System.Drawing.Size(794, 2);
+            this.panelSombra.Size = new System.Drawing.Size(1046, 2);
             this.panelSombra.TabIndex = 3;
             // 
             // panelDesktop
@@ -322,9 +322,9 @@
             this.panelDesktop.Controls.Add(this.lblFecha);
             this.panelDesktop.Controls.Add(this.lblHora);
             this.panelDesktop.Controls.Add(this.pictureBox2);
-            this.panelDesktop.Location = new System.Drawing.Point(250, 77);
+            this.panelDesktop.Location = new System.Drawing.Point(250, 78);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(794, 506);
+            this.panelDesktop.Size = new System.Drawing.Size(1046, 737);
             this.panelDesktop.TabIndex = 4;
             this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
             // 
@@ -334,7 +334,7 @@
             this.lblFecha.BackColor = System.Drawing.Color.Gold;
             this.lblFecha.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFecha.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblFecha.Location = new System.Drawing.Point(200, 392);
+            this.lblFecha.Location = new System.Drawing.Point(389, 513);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(107, 41);
             this.lblFecha.TabIndex = 4;
@@ -346,7 +346,7 @@
             this.lblHora.BackColor = System.Drawing.Color.Gold;
             this.lblHora.Font = new System.Drawing.Font("Segoe UI", 38F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblHora.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblHora.Location = new System.Drawing.Point(275, 306);
+            this.lblHora.Location = new System.Drawing.Point(424, 408);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(209, 86);
             this.lblHora.TabIndex = 3;
@@ -357,7 +357,7 @@
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.rokys;
-            this.pictureBox2.Location = new System.Drawing.Point(244, 73);
+            this.pictureBox2.Location = new System.Drawing.Point(370, 188);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(323, 198);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -374,7 +374,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gold;
-            this.ClientSize = new System.Drawing.Size(1044, 583);
+            this.ClientSize = new System.Drawing.Size(1296, 815);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelSombra);
             this.Controls.Add(this.panelTitleBar);

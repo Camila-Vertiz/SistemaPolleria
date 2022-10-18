@@ -146,49 +146,35 @@ namespace CapaDatos
             return respuesta;
         }
 
-        public entPedido ObtenerPedido (string numero)
+        public entPedido ObtenerPedido(string numero)
         {
             entPedido pedido = new entPedido();
             SqlCommand cmd = null;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                StringBuilder query = new StringBuilder();
-                query.AppendLine("select pe.codigo_pedido, u.nombre_usuario, pe.numeroDocumento_cliente,pe.nombre_cliente,");
-                query.AppendLine("pe.tipoComprobante_pedido, pe.numeroComprobante_pedido,");
-                query.AppendLine("m.numero_mesa, m.ubicacion_mesa,");
-                query.AppendLine("pe.montoPago_pedido,pe.montoCambio_pedido,pe.montoTotal_pedido,");
-                query.AppendLine("convert(char(10),pe.fechaCreacion_pedido,103)[fechaCreacion_pedido]");
-                query.AppendLine("from Pedido pe");
-                query.AppendLine("inner join Usuario u on u.id_usuario=pe.id_usuario");
-                query.AppendLine("inner join Mesa m on m.id_mesa=pe.id_mesa");
-                query.AppendLine("where pe.numeroComprobante_pedido='@numero'");
-                cmd = new SqlCommand(query.ToString(), cn);
-                cmd.Parameters.AddWithValue("@numero", numero);
-                cmd.CommandType = CommandType.Text;
+                cmd = new SqlCommand("spBuscaPedido", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@numeroComprobante_pedido", numero);
                 cn.Open();
-
-               using(SqlDataReader dr = cmd.ExecuteReader())
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    while (dr.Read())
+                    pedido = new entPedido()
                     {
-                        pedido = new entPedido()
-                        {
-                            codigo_pedido = int.Parse(dr["codigo_pedido"].ToString()),
-                            oUsuario = new entUsuario() { nombre_usuario = dr["nombre_usuario"].ToString() },
-                            numeroDocumento_cliente = dr["numeroDocumento_cliente"].ToString(),
-                            nombre_cliente = dr["nombre_cliente"].ToString(),
-                            tipoComprobante_pedido = dr["tipoComprobante_pedido"].ToString(),
-                            numeroComprobante_pedido = dr["numeroComprobante_pedido"].ToString(),
-                            oMesa = new entMesa { numero_mesa = dr["numero_mesa"].ToString(), ubicacion_mesa = dr["ubicacion_mesa"].ToString() },
-                            montoPago_pedido = (float)Convert.ToDecimal(dr["montoPago_pedido"].ToString()),
-                            montoCambio_pedido = (float)Convert.ToDecimal(dr["montoCambio_pedido"].ToString()),
-                            montoTotal_pedido = (float)Convert.ToDecimal(dr["montoTotal_pedido"].ToString()),
-                            fechaCreacion_pedido = Convert.ToDateTime(dr["fechaCreacion_pedido"].ToString())
-                        };
-                    }
+                        codigo_pedido = int.Parse(dr["codigo_pedido"].ToString()),
+                        oUsuario = new entUsuario() { nombre_usuario = dr["nombre_usuario"].ToString() },
+                        numeroDocumento_cliente = dr["numeroDocumento_cliente"].ToString(),
+                        nombre_cliente = dr["nombre_cliente"].ToString(),
+                        tipoComprobante_pedido = dr["tipoComprobante_pedido"].ToString(),
+                        numeroComprobante_pedido = dr["numeroComprobante_pedido"].ToString(),
+                        oMesa = new entMesa { numero_mesa = dr["numero_mesa"].ToString(), ubicacion_mesa = dr["ubicacion_mesa"].ToString() },
+                        montoPago_pedido = (float)Convert.ToDecimal(dr["montoPago_pedido"].ToString()),
+                        montoCambio_pedido = (float)Convert.ToDecimal(dr["montoCambio_pedido"].ToString()),
+                        montoTotal_pedido = (float)Convert.ToDecimal(dr["montoTotal_pedido"].ToString()),
+                        fechaCreacion_pedido = Convert.ToDateTime(dr["fechaCreacion_pedido"].ToString())
+                    };
                 }
-
             }
             catch (Exception e)
             {
@@ -206,31 +192,22 @@ namespace CapaDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cn.Open();
-                StringBuilder query = new StringBuilder();
-                query.AppendLine("select p.nombre_producto, det.precioUnitario_detallePedido,det.cantidad_detallePedido,det.subtotal_detallePedido");
-                query.AppendLine("from DetallePedido det");
-                query.AppendLine("inner join Producto p on p.codigo_producto=det.codigo_producto");
-                query.AppendLine("where det.id_detallePedido=@codigo_pedido");
-                cmd = new SqlCommand(query.ToString(), cn);
+                cmd = new SqlCommand("spBuscaDetallePedido", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@codigo_pedido", codigo_pedido);
-                cmd.CommandType = CommandType.Text;
-
-                using (SqlDataReader dr = cmd.ExecuteReader())
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    while (dr.Read())
+                    detallePedidos.Add(new entDetallePedido()
                     {
-                        detallePedidos.Add(new entDetallePedido()
-                        {
-                            codigo_producto=new entProducto() { nombre_producto = dr["nombre_producto"].ToString() },
-                            precioUnitario_detallePedido=(float)Convert.ToDecimal(dr["precioUnitario_detallePedido"].ToString()),
-                            cantidad_detallePedido = Convert.ToInt32(dr["cantidad_detallePedido"].ToString()),
-                            subtotal_detallePedido = (float)Convert.ToDecimal(dr["subtotal_detallePedido"].ToString()),
+                        codigo_producto = new entProducto() { nombre_producto = dr["nombre_producto"].ToString() },
+                        precioUnitario_detallePedido = (float)Convert.ToDecimal(dr["precioUnitario_detallePedido"].ToString()),
+                        cantidad_detallePedido = Convert.ToInt32(dr["cantidad_detallePedido"].ToString()),
+                        subtotal_detallePedido = (float)Convert.ToDecimal(dr["subtotal_detallePedido"].ToString()),
 
-                        });
-                    }
+                    });
                 }
-
             }
             catch (Exception e)
             {

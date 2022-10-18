@@ -1,3 +1,5 @@
+using CapaPresentacion;
+
 namespace ProyectoFinal_DISARQ
 {
     internal static class Program
@@ -12,7 +14,7 @@ namespace ProyectoFinal_DISARQ
             // see https://aka.ms/applicationconfiguration.
             System.Threading.Thread.CurrentThread.CurrentCulture=new System.Globalization.CultureInfo("es-PE");
             ApplicationConfiguration.Initialize();
-            Application.Run(mainForm: new Login());
+            Application.Run(mainForm: new FormConsultarPedidos());
         }
     }
 }

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTipoDocumento = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtCodigoPedido = new System.Windows.Forms.TextBox();
+            this.txtDocCli = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblTipoDocumento = new System.Windows.Forms.Label();
             this.lblFechaPedido = new System.Windows.Forms.Label();
@@ -39,6 +39,7 @@
             this.btnBuscarDocumento = new System.Windows.Forms.Button();
             this.lblNomCli = new System.Windows.Forms.Label();
             this.groupBoxInfoPedido = new System.Windows.Forms.GroupBox();
+            this.txtFecha = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.groupBoxCliente = new System.Windows.Forms.GroupBox();
             this.txtNDocu2 = new System.Windows.Forms.TextBox();
@@ -52,20 +53,18 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P_Unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnBorrar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblMontoTotal = new System.Windows.Forms.Label();
             this.txtMontoTotal = new System.Windows.Forms.TextBox();
             this.txtMontoPago = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.txtMontoCambio = new System.Windows.Forms.Label();
+            this.txtMontoCambio = new System.Windows.Forms.TextBox();
+            this.lblMontoCambio = new System.Windows.Forms.Label();
             this.btnDescargar = new System.Windows.Forms.Button();
             this.groupBoxMesa = new System.Windows.Forms.GroupBox();
             this.txtPisoMesa = new System.Windows.Forms.TextBox();
             this.txtNombreMesa = new System.Windows.Forms.TextBox();
             this.lblNMesa = new System.Windows.Forms.Label();
             this.lblPisoMesa = new System.Windows.Forms.Label();
-            this.txtFecha = new System.Windows.Forms.TextBox();
             this.groupBoxInfoPedido.SuspendLayout();
             this.groupBoxCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesa)).BeginInit();
@@ -88,14 +87,14 @@
             this.txtUsuario.Size = new System.Drawing.Size(173, 27);
             this.txtUsuario.TabIndex = 16;
             // 
-            // txtCodigoPedido
+            // txtDocCli
             // 
-            this.txtCodigoPedido.Location = new System.Drawing.Point(20, 70);
-            this.txtCodigoPedido.Name = "txtCodigoPedido";
-            this.txtCodigoPedido.ReadOnly = true;
-            this.txtCodigoPedido.Size = new System.Drawing.Size(211, 27);
-            this.txtCodigoPedido.TabIndex = 15;
-            this.txtCodigoPedido.TextChanged += new System.EventHandler(this.txtCodigoPedido_TextChanged);
+            this.txtDocCli.Location = new System.Drawing.Point(20, 70);
+            this.txtDocCli.Name = "txtDocCli";
+            this.txtDocCli.ReadOnly = true;
+            this.txtDocCli.Size = new System.Drawing.Size(211, 27);
+            this.txtDocCli.TabIndex = 15;
+            this.txtDocCli.TextChanged += new System.EventHandler(this.txtCodigoPedido_TextChanged);
             // 
             // label4
             // 
@@ -171,6 +170,14 @@
             this.groupBoxInfoPedido.TabStop = false;
             this.groupBoxInfoPedido.Text = "Información  Pedido";
             // 
+            // txtFecha
+            // 
+            this.txtFecha.Location = new System.Drawing.Point(20, 59);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.ReadOnly = true;
+            this.txtFecha.Size = new System.Drawing.Size(211, 27);
+            this.txtFecha.TabIndex = 20;
+            // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
@@ -184,7 +191,7 @@
             // 
             this.groupBoxCliente.Controls.Add(this.txtNDocu2);
             this.groupBoxCliente.Controls.Add(this.txtNombreCliente);
-            this.groupBoxCliente.Controls.Add(this.txtCodigoPedido);
+            this.groupBoxCliente.Controls.Add(this.txtDocCli);
             this.groupBoxCliente.Controls.Add(this.lblDocumentoCli);
             this.groupBoxCliente.Controls.Add(this.lblNomCli);
             this.groupBoxCliente.Location = new System.Drawing.Point(34, 208);
@@ -200,6 +207,7 @@
             this.txtNDocu2.Name = "txtNDocu2";
             this.txtNDocu2.Size = new System.Drawing.Size(88, 27);
             this.txtNDocu2.TabIndex = 23;
+            this.txtNDocu2.Visible = false;
             // 
             // txtNombreCliente
             // 
@@ -235,6 +243,7 @@
             this.btnLimpiarDocumento.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiarDocumento.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnLimpiarDocumento.UseVisualStyleBackColor = true;
+            this.btnLimpiarDocumento.Click += new System.EventHandler(this.btnLimpiarDocumento_Click);
             // 
             // dgvMesa
             // 
@@ -247,16 +256,15 @@
             this.Producto,
             this.Cantidad,
             this.P_Unitario,
-            this.SubTotal,
-            this.btnBorrar});
+            this.SubTotal});
             this.dgvMesa.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvMesa.Location = new System.Drawing.Point(34, 468);
             this.dgvMesa.Name = "dgvMesa";
             this.dgvMesa.ReadOnly = true;
             this.dgvMesa.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvMesa.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvMesa.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvMesa.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMesa.RowTemplate.Height = 29;
             this.dgvMesa.Size = new System.Drawing.Size(615, 216);
             this.dgvMesa.TabIndex = 25;
@@ -302,14 +310,6 @@
             this.SubTotal.ReadOnly = true;
             this.SubTotal.Width = 125;
             // 
-            // btnBorrar
-            // 
-            this.btnBorrar.HeaderText = "";
-            this.btnBorrar.MinimumWidth = 6;
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.ReadOnly = true;
-            this.btnBorrar.Width = 125;
-            // 
             // lblMontoTotal
             // 
             this.lblMontoTotal.AutoSize = true;
@@ -346,23 +346,23 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "Monto Pago:";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(777, 579);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(69, 27);
-            this.textBox2.TabIndex = 28;
-            this.textBox2.Text = "0";
-            // 
             // txtMontoCambio
             // 
-            this.txtMontoCambio.AutoSize = true;
-            this.txtMontoCambio.Location = new System.Drawing.Point(659, 579);
+            this.txtMontoCambio.Location = new System.Drawing.Point(777, 579);
             this.txtMontoCambio.Name = "txtMontoCambio";
-            this.txtMontoCambio.Size = new System.Drawing.Size(112, 20);
-            this.txtMontoCambio.TabIndex = 29;
-            this.txtMontoCambio.Text = "Monto Cambio:";
+            this.txtMontoCambio.ReadOnly = true;
+            this.txtMontoCambio.Size = new System.Drawing.Size(69, 27);
+            this.txtMontoCambio.TabIndex = 28;
+            this.txtMontoCambio.Text = "0";
+            // 
+            // lblMontoCambio
+            // 
+            this.lblMontoCambio.AutoSize = true;
+            this.lblMontoCambio.Location = new System.Drawing.Point(659, 579);
+            this.lblMontoCambio.Name = "lblMontoCambio";
+            this.lblMontoCambio.Size = new System.Drawing.Size(112, 20);
+            this.lblMontoCambio.TabIndex = 29;
+            this.lblMontoCambio.Text = "Monto Cambio:";
             // 
             // btnDescargar
             // 
@@ -375,6 +375,7 @@
             this.btnDescargar.Text = "Descargar en PDF";
             this.btnDescargar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDescargar.UseVisualStyleBackColor = true;
+            this.btnDescargar.Click += new System.EventHandler(this.btnDescargar_Click);
             // 
             // groupBoxMesa
             // 
@@ -423,14 +424,6 @@
             this.lblPisoMesa.TabIndex = 19;
             this.lblPisoMesa.Text = "Piso:";
             // 
-            // txtFecha
-            // 
-            this.txtFecha.Location = new System.Drawing.Point(20, 59);
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.ReadOnly = true;
-            this.txtFecha.Size = new System.Drawing.Size(211, 27);
-            this.txtFecha.TabIndex = 20;
-            // 
             // FormConsultarPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -439,8 +432,8 @@
             this.ClientSize = new System.Drawing.Size(879, 711);
             this.Controls.Add(this.groupBoxMesa);
             this.Controls.Add(this.btnDescargar);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.txtMontoCambio);
+            this.Controls.Add(this.lblMontoCambio);
             this.Controls.Add(this.txtMontoPago);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtMontoTotal);
@@ -471,7 +464,7 @@
 
         private TextBox txtTipoDocumento;
         private TextBox txtUsuario;
-        private TextBox txtCodigoPedido;
+        private TextBox txtDocCli;
         private Label label4;
         private Label lblTipoDocumento;
         private Label lblFechaPedido;
@@ -487,18 +480,12 @@
         private TextBox txtNDocu2;
         private TextBox txtNombreCliente;
         private DataGridView dgvMesa;
-        private DataGridViewTextBoxColumn Codigo;
-        private DataGridViewTextBoxColumn Producto;
-        private DataGridViewTextBoxColumn Cantidad;
-        private DataGridViewTextBoxColumn P_Unitario;
-        private DataGridViewTextBoxColumn SubTotal;
-        private DataGridViewButtonColumn btnBorrar;
         private Label lblMontoTotal;
         private TextBox txtMontoTotal;
         private TextBox txtMontoPago;
         private Label label1;
-        private TextBox textBox2;
-        private Label txtMontoCambio;
+        private TextBox txtMontoCambio;
+        private Label lblMontoCambio;
         private Button btnDescargar;
         private GroupBox groupBoxMesa;
         private TextBox txtPisoMesa;
@@ -506,5 +493,10 @@
         private Label lblNMesa;
         private Label lblPisoMesa;
         private TextBox txtFecha;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Producto;
+        private DataGridViewTextBoxColumn Cantidad;
+        private DataGridViewTextBoxColumn P_Unitario;
+        private DataGridViewTextBoxColumn SubTotal;
     }
 }
