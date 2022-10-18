@@ -178,7 +178,7 @@ namespace CapaDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("EliminaMesa", cn);
+                cmd = new SqlCommand("spEliminaMesa", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_mesa", Pro.id_mesa);
 
