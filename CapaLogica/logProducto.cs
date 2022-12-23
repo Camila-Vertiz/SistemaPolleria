@@ -31,6 +31,10 @@ namespace CapaLogica
         {
             return datProducto.Instancia.ListarProducto();
         }
+        public DataSet ListarProductoConCategoria()
+        {
+            return datProducto.Instancia.ListarProductoConCategoria();
+        }
 
         ///inserta
         public void InsertaProducto(entProducto Pro)
@@ -66,6 +70,10 @@ namespace CapaLogica
         public DataSet BuscaProducto(string n)
         {
             return datProducto.Instancia.BuscaProducto(n);
+        }
+        public DataSet BuscaProductoConCategoria(string n)
+        {
+            return datProducto.Instancia.BuscaProductoConCategoria(n);
         }
         public DataSet BuscaNombreProducto(string n)
         {

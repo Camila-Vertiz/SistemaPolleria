@@ -39,7 +39,7 @@
             // 
             // txtCodigoProducto
             // 
-            this.txtCodigoProducto.Location = new System.Drawing.Point(310, 98);
+            this.txtCodigoProducto.Location = new System.Drawing.Point(439, 128);
             this.txtCodigoProducto.Name = "txtCodigoProducto";
             this.txtCodigoProducto.Size = new System.Drawing.Size(141, 27);
             this.txtCodigoProducto.TabIndex = 26;
@@ -57,11 +57,11 @@
             // dgvProducto
             // 
             this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducto.Location = new System.Drawing.Point(45, 161);
+            this.dgvProducto.Location = new System.Drawing.Point(84, 191);
             this.dgvProducto.Name = "dgvProducto";
             this.dgvProducto.RowHeadersWidth = 51;
             this.dgvProducto.RowTemplate.Height = 29;
-            this.dgvProducto.Size = new System.Drawing.Size(687, 259);
+            this.dgvProducto.Size = new System.Drawing.Size(876, 438);
             this.dgvProducto.TabIndex = 21;
             // 
             // cboTipoB
@@ -71,15 +71,16 @@
             "Codigo",
             "Nombre",
             "Categoria"});
-            this.cboTipoB.Location = new System.Drawing.Point(125, 97);
+            this.cboTipoB.Location = new System.Drawing.Point(254, 127);
             this.cboTipoB.Name = "cboTipoB";
             this.cboTipoB.Size = new System.Drawing.Size(151, 28);
             this.cboTipoB.TabIndex = 28;
+            this.cboTipoB.Text = "Codigo";
             // 
             // btnBuscar
             // 
             this.btnBuscar.Image = global::CapaPresentacion.Properties.Resources.search25;
-            this.btnBuscar.Location = new System.Drawing.Point(484, 92);
+            this.btnBuscar.Location = new System.Drawing.Point(613, 122);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(44, 37);
             this.btnBuscar.TabIndex = 29;
@@ -90,7 +91,7 @@
             // button1
             // 
             this.button1.Image = global::CapaPresentacion.Properties.Resources.list24;
-            this.button1.Location = new System.Drawing.Point(560, 92);
+            this.button1.Location = new System.Drawing.Point(689, 122);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(44, 37);
             this.button1.TabIndex = 30;
@@ -103,7 +104,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gold;
-            this.ClientSize = new System.Drawing.Size(790, 473);
+            this.ClientSize = new System.Drawing.Size(1070, 665);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.cboTipoB);

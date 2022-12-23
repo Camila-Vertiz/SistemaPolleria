@@ -45,6 +45,27 @@ namespace CapaDatos
             finally { cmd.Connection.Close(); }
             return ds;
         }
+        public DataSet ListarProductoConCategoria()
+        {
+            SqlCommand cmd = null;
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spListaProductoConCategoria", cn);
+                cn.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Producto");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return ds;
+        }
         public entProducto BuscaProductoId(int codigoProducto)
         {
             SqlCommand cmd = null;
@@ -83,6 +104,28 @@ namespace CapaDatos
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spBuscarProducto", cn);
+                cn.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@categoria_producto", categoria));
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Producto");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return ds;
+        }
+        public DataSet BuscaProductoConCategoria(string categoria = null)
+        {
+            SqlCommand cmd = null;
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarProductoConCategoria", cn);
                 cn.Open();
                 SqlDataAdapter da = new SqlDataAdapter();
                 cmd.CommandType = CommandType.StoredProcedure;

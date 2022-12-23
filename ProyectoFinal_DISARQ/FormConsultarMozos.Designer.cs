@@ -39,7 +39,7 @@
             // 
             // txtCodigoMozo
             // 
-            this.txtCodigoMozo.Location = new System.Drawing.Point(264, 78);
+            this.txtCodigoMozo.Location = new System.Drawing.Point(411, 122);
             this.txtCodigoMozo.Name = "txtCodigoMozo";
             this.txtCodigoMozo.Size = new System.Drawing.Size(125, 27);
             this.txtCodigoMozo.TabIndex = 15;
@@ -58,36 +58,37 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(153, 78);
+            this.label1.Location = new System.Drawing.Point(300, 122);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 20);
+            this.label1.Size = new System.Drawing.Size(67, 20);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Código:";
+            this.label1.Text = "Nombre:";
             // 
             // dgvMozos
             // 
             this.dgvMozos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMozos.Location = new System.Drawing.Point(63, 129);
+            this.dgvMozos.Location = new System.Drawing.Point(99, 188);
             this.dgvMozos.Name = "dgvMozos";
             this.dgvMozos.RowHeadersWidth = 51;
             this.dgvMozos.RowTemplate.Height = 29;
-            this.dgvMozos.Size = new System.Drawing.Size(670, 307);
+            this.dgvMozos.Size = new System.Drawing.Size(833, 414);
             this.dgvMozos.TabIndex = 10;
             // 
             // btnListar
             // 
             this.btnListar.Image = global::CapaPresentacion.Properties.Resources.list24;
-            this.btnListar.Location = new System.Drawing.Point(512, 73);
+            this.btnListar.Location = new System.Drawing.Point(659, 117);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(44, 37);
             this.btnListar.TabIndex = 32;
             this.btnListar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // btnBuscar
             // 
             this.btnBuscar.Image = global::CapaPresentacion.Properties.Resources.search25;
-            this.btnBuscar.Location = new System.Drawing.Point(436, 73);
+            this.btnBuscar.Location = new System.Drawing.Point(583, 117);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(44, 37);
             this.btnBuscar.TabIndex = 31;
@@ -100,7 +101,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gold;
-            this.ClientSize = new System.Drawing.Size(800, 491);
+            this.ClientSize = new System.Drawing.Size(1038, 670);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtCodigoMozo);

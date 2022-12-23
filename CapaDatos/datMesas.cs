@@ -60,7 +60,27 @@ namespace CapaDatos
             }
             return lista;
         }
-
+        public DataSet ListaMesasParaMozo()
+        {
+            SqlCommand cmd = null;
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spListaMesaParaMozo", cn);
+                cn.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Mesa");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return ds;
+        }
 
         public entMesa BuscaMesas(int NumeroMesa)
         {

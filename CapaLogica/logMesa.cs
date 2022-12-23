@@ -33,6 +33,10 @@ namespace CapaLogica
         {
             return datMesas.Instancia.ListaMesas();
         }
+        public DataSet ListaMesasParaMozo()
+        {
+            return datMesas.Instancia.ListaMesasParaMozo();
+        }
         ///inserta
         public void InsertaMesas(entMesa Pro)
         {

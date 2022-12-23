@@ -160,11 +160,6 @@ namespace CapaPresentacion
             WindowState = FormWindowState.Minimized;
         }
 
-        private void panelTitleBar_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnConsultarPedidos_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);

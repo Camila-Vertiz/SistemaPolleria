@@ -47,5 +47,12 @@ namespace CapaPresentacion
             dgvMozos.DataSource = ds;
             dgvMozos.DataMember = "Usuario";
         }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            DataSet ds = logUsuario.Instancia.ListarMozos("M");
+            dgvMozos.DataSource = ds;
+            dgvMozos.DataMember = "Usuario";
+        }
     }
 }

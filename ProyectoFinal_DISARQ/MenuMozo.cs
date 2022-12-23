@@ -23,7 +23,7 @@ namespace CapaPresentacion
 
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        
+
         public MenuMozo()
         {
             InitializeComponent();
@@ -33,6 +33,8 @@ namespace CapaPresentacion
             formatoDGVProducto();
             LoadUserData();
             txtTotal.Text = "0";
+            listarMesas();
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
         private void LoadUserData()
         {
@@ -50,6 +52,13 @@ namespace CapaPresentacion
             dgvProducto.Columns[3].HeaderText = "Stock";
             dgvProducto.Columns[4].Width = 400;
             dgvProducto.Columns[4].HeaderText = "Descripcion";
+        }
+
+        private void listarMesas()
+        {
+            DataSet ds = logMesa.Instancia.ListaMesasParaMozo();
+            dgvMesas.DataSource = ds;
+            dgvMesas.DataMember = "Mesa";
         }
 
         private void textBox2_Enter(object sender, EventArgs e)
@@ -76,33 +85,9 @@ namespace CapaPresentacion
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            txtMostrarMesa.Text = "3";
-        }
-
         private void MenuMozo_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMesa1_Click(object sender, EventArgs e)
-        {
-            txtMostrarMesa.Text = "1";
-        }
-        private void btnMesa2_Click(object sender, EventArgs e)
-        {
-            txtMostrarMesa.Text = "2";
-        }
-
-        private void btnMesa3_Click(object sender, EventArgs e)
-        {
-            txtMostrarMesa.Text = "3";
         }
 
         private void btnBrasa_Click(object sender, EventArgs e)
@@ -191,18 +176,7 @@ namespace CapaPresentacion
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //txtNPersonas.Focus();
-            //if (!txtNPersonas.Text.Equals(""))
-            //{
-            //    int p_cant = Convert.ToInt32(txtNPersonas.Text);
-            //    entMesas m = logMesas.Instancia.BuscarCapacidadMesas(p_cant);
-            //    if(m != null)
-            //    {
-            //        if(m.capacidad_mesa)
-            //    }
-            //}
-            //else
-            //    MessageBox.Show("Ingrese un valor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            
 
         }
 
@@ -270,7 +244,12 @@ namespace CapaPresentacion
                 MessageBox.Show("Debe seleccionar una mesa.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if (dgvMesa.Rows.Count < 1)
+            if (txtDNIcliente.Text.Equals("") && txtDNIcliente.Text.Equals(""))
+            {
+                MessageBox.Show("Debe seleccionar un cliente.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (dgvPedido.Rows.Count < 1)
             {
                 MessageBox.Show("Debe ingresar productos.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -283,7 +262,7 @@ namespace CapaPresentacion
             detalle_pedido.Columns.Add("P_Unitario", typeof(float));
             detalle_pedido.Columns.Add("SubTotal", typeof(float));
 
-            foreach (DataGridViewRow row in dgvMesa.Rows)
+            foreach (DataGridViewRow row in dgvPedido.Rows)
             {
                 detalle_pedido.Rows.Add(
                         new object[]
@@ -322,12 +301,14 @@ namespace CapaPresentacion
                 var result = MessageBox.Show("Numero de Pedido generado: \n" + numeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                     Clipboard.SetText(numeroDocumento);
-               
+
                 txtTotal.Text = "0";
                 txtPago.ResetText();
                 txtVuelto.ResetText();
                 txtMostrarMesa.ResetText();
-                dgvMesa.Rows.Clear();
+                txtNombreCliente.ResetText();
+                txtDNIcliente.ResetText();
+                dgvPedido.Rows.Clear();
             }
             else
             {
@@ -350,7 +331,7 @@ namespace CapaPresentacion
                 MessageBox.Show("La cantidad no puede ser mayor al stock", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            foreach (DataGridViewRow f in dgvMesa.Rows)
+            foreach (DataGridViewRow f in dgvPedido.Rows)
             {
                 if (f.Cells["Codigo"].Value.ToString() == p_cod)
                 {
@@ -365,7 +346,7 @@ namespace CapaPresentacion
 
                 if (respuesta)
                 {
-                    dgvMesa.Rows.Add(new object[]
+                    dgvPedido.Rows.Add(new object[]
                     { p_cod, p_nom,p_cant.ToString(), p_unit.ToString("0.00"),((p_cant*p_unit).ToString("0.00")) });
                 }
                 calcularTotal();
@@ -376,9 +357,9 @@ namespace CapaPresentacion
         private void calcularTotal()
         {
             decimal total = 0;
-            if (dgvMesa.Rows.Count > 0)
+            if (dgvPedido.Rows.Count > 0)
             {
-                foreach (DataGridViewRow row in dgvMesa.Rows)
+                foreach (DataGridViewRow row in dgvPedido.Rows)
                     total += Convert.ToDecimal(row.Cells["SubTotal"].Value.ToString());
             }
             txtTotal.Text = total.ToString("0.00");
@@ -457,13 +438,13 @@ namespace CapaPresentacion
 
         private void dgvMesa_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvMesa.Columns[e.ColumnIndex].Name == "btnBorrar")
+            if (dgvPedido.Columns[e.ColumnIndex].Name == "btnBorrar")
             {
                 int index = e.RowIndex;
                 if (index >= 0)
                 {
                     bool respuesta = new logPedido().SumarStock(Convert.ToInt32(p_cod), p_cant);
-                    dgvMesa.Rows.RemoveAt(index);
+                    dgvPedido.Rows.RemoveAt(index);
                     calcularTotal();
                 }
             }
@@ -503,6 +484,77 @@ namespace CapaPresentacion
                 WindowState = FormWindowState.Maximized;
             else
                 WindowState = FormWindowState.Normal;
+        }
+
+        private void dgvMesas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow filaActual = dgvMesas.Rows[e.RowIndex]; //
+            string num = filaActual.Cells[0].Value.ToString();
+            if (num.Length == 6)
+            {
+                num = num.Substring(5, 1);
+            }
+            if (num.Length == 7)
+            {
+                num = num.Substring(5, 2);
+            }
+            txtMostrarMesa.Text = num;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            txtNPersonas.Focus();
+            if (!txtNPersonas.Text.Equals(""))
+            {
+                int p_cant = Convert.ToInt32(txtNPersonas.Text.Trim());
+                DataSet ds = logMesa.Instancia.BuscarCapacidadMesas(p_cant);
+                dgvMesas.DataSource = ds;
+                dgvMesas.DataMember = "Mesa";
+            }
+            else
+                MessageBox.Show("Ingrese un valor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listarMesas();
+            txtNPersonas.ResetText();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea cerrar sesión?", "Warning",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                this.Close();
+        }
+
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+                WindowState = FormWindowState.Maximized;
+            else
+                WindowState = FormWindowState.Normal;
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

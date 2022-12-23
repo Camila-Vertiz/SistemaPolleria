@@ -16,7 +16,7 @@ namespace CapaPresentacion
         public FormConsultarProductos()
         {
             InitializeComponent();
-            DataSet ds = logProducto.Instancia.ListarProducto();
+            DataSet ds = logProducto.Instancia.ListarProductoConCategoria();
             dgvProducto.DataSource = ds;
             dgvProducto.DataMember = "Producto";
             formatoDGVProducto();
@@ -27,12 +27,14 @@ namespace CapaPresentacion
             dgvProducto.Columns[0].HeaderText = "Cod.";
             dgvProducto.Columns[1].Width = 300;
             dgvProducto.Columns[1].HeaderText = "Producto";
-            dgvProducto.Columns[2].Width = 70;
-            dgvProducto.Columns[2].HeaderText = "P. Unitario";
+            dgvProducto.Columns[2].Width = 200;
+            dgvProducto.Columns[2].HeaderText = "Categoria";
             dgvProducto.Columns[3].Width = 70;
-            dgvProducto.Columns[3].HeaderText = "Stock";
-            dgvProducto.Columns[4].Width = 400;
-            dgvProducto.Columns[4].HeaderText = "Descripcion";
+            dgvProducto.Columns[3].HeaderText = "P. Unitario";
+            dgvProducto.Columns[4].Width = 70;
+            dgvProducto.Columns[4].HeaderText = "Stock";
+            dgvProducto.Columns[5].Width = 200;
+            dgvProducto.Columns[5].HeaderText = "Descripcion";
         }
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
@@ -50,7 +52,7 @@ namespace CapaPresentacion
             }
             else if (cboTipoB.Text == "Categoria" && (!txtCodigoProducto.Text.Trim().Equals("")))
             {
-                DataSet ds = logProducto.Instancia.BuscaProducto(txtCodigoProducto.Text.Trim());
+                DataSet ds = logProducto.Instancia.BuscaProductoConCategoria(txtCodigoProducto.Text.Trim());
                 dgvProducto.DataSource = ds;
                 dgvProducto.DataMember = "Producto";
             }
@@ -59,7 +61,7 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataSet ds = logProducto.Instancia.ListarProducto();
+            DataSet ds = logProducto.Instancia.ListarProductoConCategoria();
             dgvProducto.DataSource = ds;
             dgvProducto.DataMember = "Producto";
             formatoDGVProducto();
